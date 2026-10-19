@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Events | Luxury Event Management & Interactive Planning Platform</title>
+  <meta name="description" content="Plan and configure your dream wedding, corporate gala, or celebration in Islamabad & Rawalpindi. Transparent live pricing, premier venues, and bespoke catering.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Custom Master Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/configurator.css">
+  <style>
+    /* Homepage Specific Hero Styling */
+    .hero-main-section {
+      background: linear-gradient(180deg, rgba(11, 19, 43, 0.78) 0%, rgba(11, 19, 43, 0.92) 100%), url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      padding: 7rem 0 6rem;
+      color: #FFFFFF;
+      position: relative;
+    }
+    .hero-search-card {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-radius: var(--aura-radius-lg);
+      padding: 1.75rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      color: var(--aura-dark);
+      margin-top: 2.5rem;
+    }
+    .category-card {
+      border-radius: var(--aura-radius-lg);
+      overflow: hidden;
+      position: relative;
+      height: 260px;
+      transition: var(--aura-transition);
+    }
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .category-card:hover img {
+      transform: scale(1.08);
+    }
+    .category-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(11, 19, 43, 0.92) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: #FFFFFF;
+    }
+    .feature-step-circle {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: var(--aura-navy-gradient);
+      border: 2px solid var(--aura-gold);
+      color: var(--aura-gold);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 8px 20px rgba(11, 19, 43, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg aura-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-aura" href="index.html">
+        <div class="brand-icon">
+          <i class="fa-solid fa-gem"></i>
+        </div>
+        <div class="brand-text-container">
+          <span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span>
+          <span class="brand-tagline">Luxury Event Planning</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler navbar-toggler-aura border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <i class="fa-solid fa-bars-staggered text-dark fs-5"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-aura active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="venues.html">Venues</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="services.html">Catering & Services</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="book-event.html">Plan Event</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="my-bookings.html">My Bookings</a></li>
+        </ul>
+
+        <div id="navbarAuthArea" class="d-flex align-items-center"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero Showcase Section -->
+  <header class="hero-main-section">
+    <div class="container text-center">
+      <span class="badge-gold mb-3 px-3 py-2 text-uppercase" style="letter-spacing: 0.08em;">
+        <i class="fa-solid fa-crown me-1"></i> Bespoke Event Architecture
+      </span>
+      <h1 class="display-4 fw-bold text-white mb-3" style="max-width: 900px; margin: 0 auto;">
+        You Don't Just Book an Event.<br><span class="text-warning">You Build It.</span>
+      </h1>
+      <p class="fs-5 text-light opacity-90 mb-4" style="max-width: 700px; margin: 0 auto;">
+        Step into Pakistan's premier interactive event configurator. Select your venue, customize royal catering, and watch your itemized price estimate update live.
+      </p>
+
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="book-event.html" class="btn btn-aura-gold btn-lg px-4 py-3">
+          <i class="fa-solid fa-wand-magic-sparkles me-2"></i> Launch Event Configurator
+        </a>
+        <a href="venues.html" class="btn btn-outline-light btn-lg px-4 py-3 rounded-3">
+          <i class="fa-solid fa-compass me-2"></i> Browse Luxury Venues
+        </a>
+      </div>
+
+      <!-- Quick Setup Filter Card (FR-HOM-01) -->
+      <div class="hero-search-card text-start">
+        <form action="book-event.html" method="GET">
+          <div class="row g-3 align-items-end">
+            <div class="col-lg-3 col-md-6">
+              <label class="form-label small fw-bold text-dark">Event Type</label>
+              <select class="form-select border-0 bg-light" name="type">
+                <option value="Barat & Wedding Reception">Barat & Wedding Reception</option>
+                <option value="Walima Dinner">Walima Dinner</option>
+                <option value="Mehndi & Sangeet">Mehndi & Sangeet</option>
+                <option value="Corporate Gala">Corporate Gala & Banquet</option>
+                <option value="Milestone Birthday">Milestone Birthday</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <label class="form-label small fw-bold text-dark">Expected Guests</label>
+              <input type="number" class="form-control border-0 bg-light" name="guests" value="250" min="20" max="3000">
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <label class="form-label small fw-bold text-dark">Target Date</label>
+              <input type="date" class="form-control border-0 bg-light" name="date" value="2026-11-28">
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <button type="submit" class="btn btn-aura-navy w-100 py-2">
+                <i class="fa-solid fa-magnifying-glass me-1"></i> Start Building
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 2. Event Types Appendix A Grid -->
+  <section class="container my-5 py-4">
+    <div class="text-center mb-5">
+      <span class="badge-gold mb-2">CURATED CELEBRATIONS</span>
+      <h2 class="fw-bold text-dark">Designed for Unforgettable Milestones</h2>
+      <p class="text-muted small" style="max-width: 600px; margin: 0 auto;">From intimate heritage Mehndi nights to 1,000-guest state wedding receptions and tech summits.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80" alt="Royal Weddings">
+          <div class="category-overlay">
+            <h5 class="fw-bold mb-1">Barat & Weddings</h5>
+            <small class="text-warning">Grand Ballroom Settings</small>
+            <a href="book-event.html" class="stretched-link"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80" alt="Mehndi & Sangeet">
+          <div class="category-overlay">
+            <h5 class="fw-bold mb-1">Mehndi & Sangeet</h5>
+            <small class="text-warning">Lush Hilltop Pavilions</small>
+            <a href="book-event.html" class="stretched-link"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Corporate Galas">
+          <div class="category-overlay">
+            <h5 class="fw-bold mb-1">Corporate Galas</h5>
+            <small class="text-warning">Executive Staging & AV</small>
+            <a href="book-event.html" class="stretched-link"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80" alt="Milestone Birthdays">
+          <div class="category-overlay">
+            <h5 class="fw-bold mb-1">Milestone Parties</h5>
+            <small class="text-warning">Boutique Poolside Dinners</small>
+            <a href="book-event.html" class="stretched-link"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. How It Works (The 4-Step Journey) -->
+  <section class="bg-white py-5 border-top border-bottom">
+    <div class="container my-4">
+      <div class="text-center mb-5">
+        <span class="badge-gold mb-2">SEAMLESS PROCESS</span>
+        <h2 class="fw-bold text-dark">How Aura Events Works</h2>
+        <p class="text-muted small">No more calling 10 separate vendors. Everything unified in one interactive flow.</p>
+      </div>
+
+      <div class="row g-4 text-center">
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-step-circle">1</div>
+          <h5 class="fw-bold">Specify Event Details</h5>
+          <p class="text-muted small">Choose your function date, slot, and guest count to automatically filter certified venues.</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-step-circle">2</div>
+          <h5 class="fw-bold">Select Venue & Seating</h5>
+          <p class="text-muted small">Pick a luxury banquet hall or your own private venue, paired with custom table arrangements.</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-step-circle">3</div>
+          <h5 class="fw-bold">Customize Catering</h5>
+          <p class="text-muted small">Select chef-curated menus, live BBQ grills, artisan dessert carts, and acoustic music.</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-step-circle">4</div>
+          <h5 class="fw-bold">Real-time Quotation</h5>
+          <p class="text-muted small">Watch your bill update in real time. Submit your plan to receive a formal contract offer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Featured Venues Showcase (FR-HOM-01) -->
+  <section class="container my-5 py-4">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <span class="badge-gold mb-2">HANDPICKED SPACES</span>
+        <h2 class="fw-bold text-dark mb-1">Featured Luxury Venues</h2>
+        <p class="text-muted small mb-0">Verified ballrooms, marquees, and scenic pavilions in Islamabad & Rawalpindi.</p>
+      </div>
+      <a href="venues.html" class="btn btn-outline-dark d-none d-md-inline-flex">
+        View All Venues <i class="fa-solid fa-arrow-right ms-2"></i>
+      </a>
+    </div>
+
+    <div class="row g-4">
+      <!-- Venue 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="aura-card h-100">
+          <div class="position-relative" style="height: 220px;">
+            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Royal Palm" class="w-100 h-100" style="object-fit: cover;">
+            <span class="badge-gold position-absolute top-0 start-0 m-3">Indoor Royal</span>
+            <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+              <i class="fa-solid fa-users me-1"></i> Up to 650 Guests
+            </span>
+          </div>
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="fw-bold mb-1">The Royal Palm Grand Ballroom</h5>
+              <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Club Road, Islamabad</p>
+              <p class="text-secondary small mb-3">Crystal chandeliers, royal Persian carpeting, acoustic engineering, and VIP private suites.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <div>
+                <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                <span class="fw-bold text-primary">PKR 350,000</span>
+              </div>
+              <a href="book-event.html?venue=v-royal-palm" class="btn btn-aura-navy btn-sm">
+                Book This Venue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venue 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="aura-card h-100">
+          <div class="position-relative" style="height: 220px;">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Serena Sheesh Mahal" class="w-100 h-100" style="object-fit: cover;">
+            <span class="badge-gold position-absolute top-0 start-0 m-3">Heritage 5-Star</span>
+            <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+              <i class="fa-solid fa-users me-1"></i> Up to 500 Guests
+            </span>
+          </div>
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="fw-bold mb-1">Serena Sheesh Mahal Hall</h5>
+              <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Khayaban-e-Suhrawardy, Islamabad</p>
+              <p class="text-secondary small mb-3">Iconic hand-carved mirror work, regal mughal architecture, and five-star hospitality.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <div>
+                <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                <span class="fw-bold text-primary">PKR 450,000</span>
+              </div>
+              <a href="book-event.html?venue=v-serena-sheesh" class="btn btn-aura-navy btn-sm">
+                Book This Venue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venue 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="aura-card h-100">
+          <div class="position-relative" style="height: 220px;">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Margalla Pavilion" class="w-100 h-100" style="object-fit: cover;">
+            <span class="badge-gold position-absolute top-0 start-0 m-3">Outdoor Scenic</span>
+            <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+              <i class="fa-solid fa-users me-1"></i> Up to 400 Guests
+            </span>
+          </div>
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="fw-bold mb-1">Margalla Hillview Pavilion</h5>
+              <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Pir Sohawa Scenic Ridge</p>
+              <p class="text-secondary small mb-3">Lush green manicured lawns with panoramic Margalla hill views and open-air fairy light setups.</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <div>
+                <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                <span class="fw-bold text-primary">PKR 240,000</span>
+              </div>
+              <a href="book-event.html?venue=v-margalla-pavilion" class="btn btn-aura-navy btn-sm">
+                Book This Venue
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Testimonials (FR-HOM-01, FR-HOM-04) -->
+  <section class="bg-light py-5 border-top">
+    <div class="container my-3">
+      <div class="text-center mb-5">
+        <span class="badge-gold mb-2">TESTIMONIALS</span>
+        <h2 class="fw-bold text-dark">Loved by Event Planners & Families</h2>
+        <p class="text-muted small">Read how customers configured their high-stakes celebrations with zero stress.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="aura-card p-4 h-100 bg-white">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Client" class="rounded-circle border border-warning" style="width: 50px; height: 50px; object-fit: cover;">
+              <div>
+                <h6 class="fw-bold mb-0 text-dark">Dr. Ayesha Malik</h6>
+                <small class="text-muted">Walima at Serena Sheesh Mahal</small>
+              </div>
+            </div>
+            <div class="text-warning mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-secondary small mb-0">
+              "Being able to see how adding a live BBQ counter and altering guest count from 300 to 400 affected our total budget in seconds was a game changer."
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="aura-card p-4 h-100 bg-white">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Client" class="rounded-circle border border-warning" style="width: 50px; height: 50px; object-fit: cover;">
+              <div>
+                <h6 class="fw-bold mb-0 text-dark">Mustafa Tariq</h6>
+                <small class="text-muted">Tech Gala at PC Marquee</small>
+              </div>
+            </div>
+            <div class="text-warning mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-secondary small mb-0">
+              "The formal quotation arrived within 18 hours of submission with the exact prices shown on the website. Unmatched reliability."
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="aura-card p-4 h-100 bg-white">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Client" class="rounded-circle border border-warning" style="width: 50px; height: 50px; object-fit: cover;">
+              <div>
+                <h6 class="fw-bold mb-0 text-dark">Daniyal Sheikh</h6>
+                <small class="text-muted">Mehndi at Hillview Pavilion</small>
+              </div>
+            </div>
+            <div class="text-warning mb-2">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-secondary small mb-0">
+              "The floor diwan setup and live saffron jalebi stall were a massive hit among all our guests. Flawless execution."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Call to Action Banner -->
+  <section class="py-5" style="background: var(--aura-navy-gradient); color: #FFFFFF;">
+    <div class="container text-center py-4">
+      <h2 class="display-6 fw-bold mb-3">Ready to Build Your Bespoke Event?</h2>
+      <p class="text-light opacity-75 fs-5 mb-4" style="max-width: 650px; margin: 0 auto;">
+        No registration required to build and price an estimate. Experience the full interactive builder today.
+      </p>
+      <a href="book-event.html" class="btn btn-aura-gold btn-lg px-5 py-3">
+        <i class="fa-solid fa-calendar-check me-2"></i> Plan Your Event Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="aura-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-icon" style="width: 36px; height: 36px; font-size: 1rem;">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <span class="font-heading fw-bold fs-5 text-white">AURA<span class="text-warning">.</span>EVENTS</span>
+          </div>
+          <p class="text-secondary small mb-3">
+            Pakistan's premier luxury event configuration & planning system. Craft bespoke weddings, corporate galas, and celebrations with transparent live pricing.
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-3 col-6">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="venues.html">Explore Venues</a></li>
+            <li><a href="services.html">Catering Menus</a></li>
+            <li><a href="book-event.html">Plan Event</a></li>
+            <li><a href="my-bookings.html">My Bookings</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-6">
+          <h5>Customer Account</h5>
+          <ul class="list-unstyled">
+            <li><a href="profile.html">Edit Profile</a></li>
+            <li><a href="my-bookings.html">Track Quotation</a></li>
+            <li><a href="login.html">Sign In</a></li>
+            <li><a href="register.html">Create Account</a></li>
+            <li><a href="forgot-password.html">Password Reset</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Concierge Desk</h5>
+          <p class="text-secondary small mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> Blue Area & F-7 Markaz, Islamabad</p>
+          <p class="text-secondary small mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> +92 51 111-2872 (AURA)</p>
+          <p class="text-secondary small mb-0"><i class="fa-solid fa-envelope me-2 text-warning"></i> concierge@auraevents.pk</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-0">© 2026 Aura Events Management Platform. All Rights Reserved.</p>
+        <span class="badge bg-dark text-warning border border-warning px-3 py-1"><i class="fa-solid fa-gem me-1"></i> Bespoke Event Services</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

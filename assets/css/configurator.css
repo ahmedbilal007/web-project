@@ -1,0 +1,591 @@
+/* ==========================================================================
+   AURA EVENTS - CONFIGURATOR & DASHBOARD STYLES
+   Event Builder Wizard, Seating Cards, Live Sticky Price Tracker & Status
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Multi-Step Wizard Progress Bar
+   -------------------------------------------------------------------------- */
+.wizard-progress-wrapper {
+  background: #FFFFFF;
+  border-radius: var(--aura-radius-lg);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--aura-shadow-sm);
+  border: 1px solid var(--aura-border);
+  margin-bottom: 2rem;
+}
+
+.wizard-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wizard-steps::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  right: 30px;
+  height: 3px;
+  background: #E2E8F0;
+  z-index: 1;
+}
+
+.wizard-step-item {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+.wizard-step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #CBD5E1;
+  color: #64748B;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+  transition: var(--aura-transition);
+}
+
+.wizard-step-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748B;
+  display: block;
+  white-space: nowrap;
+  transition: var(--aura-transition);
+}
+
+.wizard-step-item.active .wizard-step-circle {
+  background: var(--aura-primary);
+  border-color: var(--aura-gold);
+  color: var(--aura-gold);
+  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.2);
+  transform: scale(1.08);
+}
+
+.wizard-step-item.active .wizard-step-label {
+  color: var(--aura-primary);
+  font-weight: 700;
+}
+
+.wizard-step-item.completed .wizard-step-circle {
+  background: var(--aura-gold);
+  border-color: var(--aura-gold);
+  color: #0B132B;
+}
+
+.wizard-step-item.completed .wizard-step-label {
+  color: var(--aura-primary);
+}
+
+/* --------------------------------------------------------------------------
+   2. Sticky Live Price Tracker Sidebar
+   -------------------------------------------------------------------------- */
+.sticky-price-tracker {
+  position: sticky;
+  top: 95px;
+  background: #FFFFFF;
+  border-radius: var(--aura-radius-lg);
+  border: 1px solid var(--aura-border);
+  box-shadow: var(--aura-shadow-md);
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: var(--aura-transition);
+}
+
+.tracker-header {
+  border-bottom: 1px solid #EDF2F7;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tracker-total-badge {
+  background: var(--aura-navy-gradient);
+  color: #FFFFFF;
+  border-radius: var(--aura-radius-md);
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.tracker-total-badge::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+}
+
+.tracker-total-amount {
+  font-family: var(--font-heading);
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: var(--aura-gold-light);
+  line-height: 1.1;
+  margin-top: 0.25rem;
+}
+
+.tracker-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed #E2E8F0;
+  font-size: 0.88rem;
+}
+
+.tracker-item-row:last-child {
+  border-bottom: none;
+}
+
+.tracker-item-title {
+  color: var(--aura-primary);
+  font-weight: 600;
+}
+
+.tracker-item-sub {
+  font-size: 0.78rem;
+  color: #64748B;
+}
+
+.tracker-item-price {
+  font-weight: 700;
+  color: var(--aura-dark);
+  white-space: nowrap;
+}
+
+/* Budget Progress Bar */
+.budget-status-card {
+  background: #F8FAFC;
+  border-radius: var(--aura-radius-sm);
+  padding: 0.85rem;
+  margin-top: 1rem;
+  border: 1px solid #E2E8F0;
+}
+
+.progress-budget {
+  height: 8px;
+  border-radius: 4px;
+  background-color: #E2E8F0;
+  overflow: hidden;
+  margin: 0.5rem 0 0.3rem;
+}
+
+.progress-budget-bar {
+  height: 100%;
+  transition: width 0.4s ease, background-color 0.3s ease;
+}
+
+.budget-alert {
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. Selectable Selection Cards (Venues, Packages, Seating)
+   -------------------------------------------------------------------------- */
+.selectable-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--aura-radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--aura-transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.selectable-card:hover {
+  transform: translateY(-4px);
+  border-color: #CBD5E1;
+  box-shadow: var(--aura-shadow-md);
+}
+
+.selectable-card.selected {
+  border-color: var(--aura-gold);
+  background-color: rgba(254, 252, 246, 0.6);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.22);
+}
+
+.selectable-card.selected::before {
+  content: '✓ Selected';
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--aura-gold-gradient);
+  color: #0B132B;
+  font-weight: 700;
+  font-size: 0.76rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  z-index: 5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-wrapper {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.selectable-card:hover .card-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.card-capacity-pill {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(11, 19, 43, 0.85);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.card-price-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  color: var(--aura-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  box-shadow: var(--aura-shadow-sm);
+}
+
+.selectable-card-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Disabled Venue card if exceeds capacity */
+.selectable-card.disabled-venue {
+  opacity: 0.55;
+  filter: grayscale(80%);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.selectable-card.disabled-venue::before {
+  content: '⚠️ Exceeds Capacity';
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #EF4444;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.76rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  z-index: 5;
+}
+
+/* --------------------------------------------------------------------------
+   4. Seating Layout Option Cards
+   -------------------------------------------------------------------------- */
+.seating-card {
+  border: 2px solid #E2E8F0;
+  border-radius: var(--aura-radius-md);
+  padding: 1.2rem;
+  background: #FFFFFF;
+  cursor: pointer;
+  transition: var(--aura-transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.seating-card:hover {
+  border-color: #CBD5E1;
+  transform: translateY(-3px);
+  box-shadow: var(--aura-shadow-md);
+}
+
+.seating-card.selected {
+  border-color: var(--aura-gold);
+  background: rgba(254, 252, 246, 0.8);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.18);
+}
+
+.seating-card.selected .check-indicator {
+  background: var(--aura-gold);
+  border-color: var(--aura-gold);
+  color: #0B132B;
+}
+
+.check-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: transparent;
+  transition: var(--aura-transition);
+}
+
+.seating-icon-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: var(--aura-radius-sm);
+  margin-bottom: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Food & Menu Package Tabs & Dish Pickers
+   -------------------------------------------------------------------------- */
+.menu-pkg-card {
+  border: 2px solid #E2E8F0;
+  border-radius: var(--aura-radius-lg);
+  padding: 1.5rem;
+  background: #FFFFFF;
+  transition: var(--aura-transition);
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-pkg-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: var(--aura-shadow-md);
+}
+
+.menu-pkg-card.selected {
+  border-color: var(--aura-gold);
+  background: #FEFCF6;
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.2);
+}
+
+.menu-pkg-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--aura-navy-gradient);
+  color: var(--aura-gold-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.menu-pkg-card.featured-pkg {
+  border-color: var(--aura-gold);
+}
+
+.dish-item-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--aura-radius-md);
+  padding: 0.85rem 1rem;
+  transition: var(--aura-transition);
+  cursor: pointer;
+}
+
+.dish-item-card:hover {
+  border-color: #CBD5E1;
+  background: #F8FAFC;
+}
+
+.dish-item-card.selected {
+  border-color: var(--aura-gold);
+  background: rgba(254, 252, 246, 0.7);
+}
+
+.dish-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--aura-radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. Add-ons & Live Counters Checkboxes
+   -------------------------------------------------------------------------- */
+.addon-card {
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--aura-radius-md);
+  padding: 1.15rem;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  transition: var(--aura-transition);
+}
+
+.addon-card:hover {
+  border-color: #CBD5E1;
+  background: #F8FAFC;
+}
+
+.addon-card.selected {
+  border-color: var(--aura-gold);
+  background: #FEFCF6;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.15);
+}
+
+.addon-thumb {
+  width: 70px;
+  height: 70px;
+  border-radius: var(--aura-radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Customer Booking Status Timeline (SRS Section 4.13)
+   -------------------------------------------------------------------------- */
+.booking-status-stepper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 2rem 0 1.5rem;
+}
+
+.booking-status-stepper::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: #E2E8F0;
+  z-index: 1;
+}
+
+.status-step-node {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+}
+
+.status-step-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #CBD5E1;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  margin: 0 auto 0.5rem;
+  transition: var(--aura-transition);
+}
+
+.status-step-node.completed .status-step-icon {
+  background: var(--aura-success);
+  border-color: var(--aura-success);
+  color: #FFFFFF;
+}
+
+.status-step-node.active .status-step-icon {
+  background: var(--aura-gold);
+  border-color: var(--aura-gold);
+  color: #0B132B;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.25);
+}
+
+.status-step-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.status-step-node.active .status-step-text {
+  color: var(--aura-primary);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   8. Mobile Bottom Bar for Price Tracker
+   -------------------------------------------------------------------------- */
+.mobile-price-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  padding: 0.85rem 1.25rem;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1040;
+}
+
+@media (max-width: 991.98px) {
+  .mobile-price-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sticky-price-tracker {
+    position: static;
+    margin-top: 2rem;
+  }
+  .wizard-step-label {
+    font-size: 0.72rem;
+  }
+  .wizard-step-circle {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+}

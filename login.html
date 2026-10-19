@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Sign In | Aura Events Luxury Management</title>
+  <meta name="description" content="Sign in to your Aura Events customer portal to track booking requests and view customized quotations.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Custom Master Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .auth-split-wrapper {
+      min-height: 100vh;
+      display: flex;
+    }
+    .auth-visual-side {
+      background: linear-gradient(rgba(11, 19, 43, 0.72), rgba(11, 19, 43, 0.88)), url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: #FFFFFF;
+      position: relative;
+    }
+    .auth-quote-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--aura-radius-lg);
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <div class="container-fluid p-0">
+    <div class="row g-0 auth-split-wrapper">
+      
+      <!-- Left: Form Column -->
+      <div class="col-lg-5 col-md-7 d-flex flex-column justify-content-between p-4 p-md-5 bg-white">
+        <!-- Top Brand -->
+        <div>
+          <a class="navbar-brand-aura" href="index.html">
+            <div class="brand-icon">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <div class="brand-text-container">
+          <span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span>
+          <span class="brand-tagline">Luxury Event Planning</span>
+        </div>
+          </a>
+        </div>
+
+        <!-- Center Form Card -->
+        <div class="py-4 my-auto" style="max-width: 440px; margin: 0 auto; width: 100%;">
+          <div class="mb-4">
+            <span class="badge-gold mb-2"><i class="fa-solid fa-crown me-1"></i> Customer Portal</span>
+            <h2 class="fw-bold text-dark">Welcome Back</h2>
+            <p class="text-muted">Sign in to manage your luxury event plans, review official quotations, and coordinate with event planners.</p>
+          </div>
+
+          <form id="loginForm" onsubmit="handleCustomerLogin(event)">
+            <!-- Email -->
+            <div class="mb-3">
+              <label class="form-label" for="loginEmail">Email Address <span class="text-danger">*</span></label>
+              <div class="input-icon-wrapper">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" class="form-control" id="loginEmail" required value="ahmed.bilal@example.com" placeholder="name@domain.com">
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label class="form-label mb-0" for="loginPassword">Password <span class="text-danger">*</span></label>
+                <a href="forgot-password.html" class="small text-decoration-none fw-semibold" style="color: var(--aura-gold-hover);">
+                  Forgot Password?
+                </a>
+              </div>
+              <div class="input-icon-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" class="form-control" id="loginPassword" required value="password123" placeholder="••••••••">
+              </div>
+            </div>
+
+            <!-- Remember Me & Terms -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+                <label class="form-check-label small text-muted" for="rememberMe">Remember my device</label>
+              </div>
+            </div>
+
+            <!-- Sign In Button -->
+            <button type="submit" class="btn btn-aura-gold w-100 py-3 mb-3">
+              <i class="fa-solid fa-arrow-right-to-bracket me-2"></i> Sign In to My Account
+            </button>
+
+            <!-- Demo Quick Login Helper -->
+            <div class="text-center p-2 mb-3 rounded-3 bg-light border">
+              <small class="text-muted">
+                <i class="fa-solid fa-circle-info text-primary me-1"></i> Pre-filled with demo customer <strong>Ahmed Bilal</strong>
+              </small>
+            </div>
+
+            <!-- Register Redirect -->
+            <div class="text-center">
+              <p class="text-muted small mb-0">
+                Don't have an account yet? 
+                <a href="register.html" class="fw-bold text-primary">Create an Account</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Footer Copyright -->
+        <div class="pt-3 border-top text-center text-muted small">
+          © 2026 Aura Events Management Platform. All Rights Reserved.
+        </div>
+      </div>
+
+      <!-- Right: Visual Column -->
+      <div class="col-lg-7 col-md-5 d-none d-md-flex flex-column justify-content-between p-5 auth-visual-side">
+        <div class="my-auto py-5" style="max-width: 580px;">
+          <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-3">BESPOKE CELEBRATIONS</span>
+          <h1 class="display-5 fw-bold text-white mb-3">Your Event Vision, Brought to Life with Precision.</h1>
+          <p class="fs-5 text-light opacity-75 mb-4">
+            Build your wedding, gala or corporate milestone step by step. Get instant live pricing, customize gourmet catering, and lock in premier venues in Islamabad & Rawalpindi.
+          </p>
+
+          <div class="auth-quote-card p-4">
+            <div class="d-flex align-items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Client" class="rounded-circle border border-warning" style="width: 50px; height: 50px; object-fit: cover;">
+              <div>
+                <h6 class="fw-bold mb-0 text-white">Mustafa Tariq</h6>
+                <small class="text-warning">Hosted 450-Guest Royal Barat at The Grand Palm</small>
+              </div>
+            </div>
+            <p class="mb-0 mt-3 small text-light opacity-90 fst-italic">
+              "Aura Events turned what usually takes 3 weeks of hall visits and catering calls into a seamless 15-minute configurator. The live quotation transparency was incredible."
+            </p>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center text-light opacity-75 small">
+          <span><i class="fa-solid fa-lock me-1"></i> 256-Bit SSL Encrypted Session</span>
+          <span>Verified Event Planners</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function handleCustomerLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById("loginEmail").value.trim();
+      const user = getCurrentUser() || DEFAULT_USER;
+      user.email = email;
+      user.isLoggedIn = true;
+      localStorage.setItem("aura_current_user", JSON.stringify(user));
+      
+      showToast("Welcome Back!", "Signed in successfully. Redirecting to your profile...", "success");
+      setTimeout(() => {
+        window.location.href = "profile.html";
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

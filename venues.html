@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Venues Directory | Aura Events</title>
+  <meta name="description" content="Discover premier luxury wedding halls, grand ballrooms, and scenic outdoor garden pavilions in Islamabad & Rawalpindi.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Custom Master Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/configurator.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg aura-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-aura" href="index.html">
+        <div class="brand-icon">
+          <i class="fa-solid fa-gem"></i>
+        </div>
+        <div class="brand-text-container">
+          <span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span>
+          <span class="brand-tagline">Luxury Event Planning</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler navbar-toggler-aura border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <i class="fa-solid fa-bars-staggered text-dark fs-5"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura active" href="venues.html">Venues</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="services.html">Catering & Services</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="book-event.html">Plan Event</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="my-bookings.html">My Bookings</a></li>
+        </ul>
+
+        <div id="navbarAuthArea" class="d-flex align-items-center"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero Header -->
+  <section class="page-hero-banner">
+    <div class="container position-relative" style="z-index: 2;">
+      <nav aria-label="breadcrumb" class="breadcrumb-aura mb-3">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Venues Directory</li>
+        </ol>
+      </nav>
+
+      <span class="badge-gold mb-2"><i class="fa-solid fa-building-columns me-1"></i> Certified Spaces</span>
+      <h1 class="h2 text-white fw-bold">Explore Premier Event Venues</h1>
+      <p class="text-light opacity-75 mb-0" style="max-width: 650px;">
+        Browse five-star hotel ballrooms, open-air marquee lawns, and boutique hillside pavilions with transparent pricing and real guest capacities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter & Catalog Section -->
+  <main class="container my-5">
+    
+    <!-- Filter Bar -->
+    <div class="aura-card p-3 mb-4 bg-white shadow-sm">
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-4 col-md-6">
+          <div class="input-icon-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="venueSearchInput" class="form-control" placeholder="Search by name or location (e.g., Serena, Margalla)...">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <select class="form-select" id="venueSettingFilter">
+            <option value="all">All Settings (Indoor & Outdoor)</option>
+            <option value="indoor">Indoor Ballrooms Only</option>
+            <option value="outdoor">Outdoor Gardens & Pavilions</option>
+          </select>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <select class="form-select" id="venueCapacityFilter">
+            <option value="0">Any Capacity</option>
+            <option value="300">Min 300+ Guests</option>
+            <option value="500">Min 500+ Guests</option>
+            <option value="700">Min 700+ Guests</option>
+          </select>
+        </div>
+        <div class="col-lg-2 col-md-6 text-end">
+          <a href="book-event.html" class="btn btn-aura-gold w-100">
+            <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Custom Plan
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Venues Grid -->
+    <div class="row g-4" id="venuesCatalogGrid">
+      <!-- Generated via JS or Static Template -->
+    </div>
+  </main>
+
+  <!-- MODAL: Gallery Preview -->
+  <div class="modal fade" id="venueCatalogModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header bg-dark text-white p-3">
+          <h5 class="modal-title fw-bold" id="catModalTitle">Venue Details</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img id="catModalImg" src="" alt="Venue Image" class="w-100" style="max-height: 480px; object-fit: cover;">
+          <div class="p-4 bg-light">
+            <h6 class="fw-bold mb-1" id="catModalName"></h6>
+            <p class="text-muted small mb-3" id="catModalDesc"></p>
+            <div id="catModalFacilities" class="d-flex flex-wrap gap-2 mb-3"></div>
+            <a id="catModalBookBtn" href="#" class="btn btn-aura-gold w-100">Configure This Venue in Event Builder</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="aura-footer py-4">
+    <div class="container text-center text-muted small">
+      © 2026 Aura Events Management Platform. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    const VENUES_DATA = [
+      {
+        id: "v-royal-palm",
+        name: "The Royal Palm Grand Ballroom",
+        location: "Club Road, Islamabad",
+        capacity: 650,
+        price: 350000,
+        type: "indoor",
+        image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80",
+        description: "Crystal chandeliers, royal Persian carpeting, acoustic engineering, and VIP private suites for the royal bridal party.",
+        facilities: ["Dedicated Valet Parking", "Bridal Luxury Suite", "Stage LED Wall Ready", "High-power Generator Backup", "Central Air Conditioning"]
+      },
+      {
+        id: "v-serena-sheesh",
+        name: "Serena Sheesh Mahal Hall",
+        location: "Khayaban-e-Suhrawardy, Islamabad",
+        capacity: 500,
+        price: 450000,
+        type: "indoor",
+        image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80",
+        description: "Iconic hand-carved mirror work, regal mughal architecture, and five-star hospitality standards.",
+        facilities: ["Five-Star Staffing", "Secured Diplomatic Area", "VVIP Green Rooms", "In-house Master Chefs", "Valet Security Clearance"]
+      },
+      {
+        id: "v-margalla-pavilion",
+        name: "Margalla Hillview Garden Pavilion",
+        location: "Pir Sohawa Scenic Enclave",
+        capacity: 400,
+        price: 240000,
+        type: "outdoor",
+        image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80",
+        description: "Lush green manicured lawns with panoramic Margalla hill views, open-air fairy light setup, and mountain breeze.",
+        facilities: ["Panoramic Hill Views", "Fairy Light Canopy Installed", "Open-air BBQ Zone", "Ample Ridge Parking", "Outdoor Heaters"]
+      },
+      {
+        id: "v-pearl-continental",
+        name: "PC Crystal Hall & Marquee",
+        location: "Mall Road, Rawalpindi",
+        capacity: 800,
+        price: 380000,
+        type: "indoor",
+        image: "https://images.unsplash.com/photo-1545232979-fbf68fe9b1a2?auto=format&fit=crop&w=800&q=80",
+        description: "Expansive high-ceiling ballroom ideal for mega weddings, state banquets, and national galas.",
+        facilities: ["800+ Guest Capacity", "Separate Entrance & Foyer", "Executive Boardroom Attached", "Full AV Console", "High-Speed Elevators"]
+      },
+      {
+        id: "v-islamabad-club",
+        name: "The Club Poolside Gazebo",
+        location: "Murree Road, Islamabad",
+        capacity: 220,
+        price: 190000,
+        type: "outdoor",
+        image: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80",
+        description: "Chic illuminated poolside ambiance, perfect for boutique Mehndi nights, bridal showers, and private milestone parties.",
+        facilities: ["Poolside Underwater Lighting", "Chic Cocktail Bar Setup", "Intimate Setting", "Club Security", "Lounge Furnishing"]
+      }
+    ];
+
+    function renderVenuesCatalog() {
+      const grid = document.getElementById("venuesCatalogGrid");
+      const searchVal = document.getElementById("venueSearchInput").value.toLowerCase();
+      const settingVal = document.getElementById("venueSettingFilter").value;
+      const capacityVal = parseInt(document.getElementById("venueCapacityFilter").value) || 0;
+
+      const filtered = VENUES_DATA.filter(v => {
+        const matchesSearch = v.name.toLowerCase().includes(searchVal) || v.location.toLowerCase().includes(searchVal);
+        const matchesSetting = (settingVal === "all") || (v.type === settingVal);
+        const matchesCapacity = v.capacity >= capacityVal;
+        return matchesSearch && matchesSetting && matchesCapacity;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-12 text-center py-5">
+            <h5 class="fw-bold">No Venues Found</h5>
+            <p class="text-muted small">Try adjusting your filters or search terms.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(v => `
+        <div class="col-lg-4 col-md-6">
+          <div class="aura-card h-100">
+            <div class="position-relative" style="height: 220px;">
+              <img src="${v.image}" alt="${v.name}" class="w-100 h-100" style="object-fit: cover;">
+              <span class="badge-gold position-absolute top-0 start-0 m-3 text-capitalize">${v.type}</span>
+              <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+                <i class="fa-solid fa-users me-1"></i> Up to ${v.capacity} Guests
+              </span>
+            </div>
+            <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+              <div>
+                <h5 class="fw-bold mb-1">${v.name}</h5>
+                <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> ${v.location}</p>
+                <p class="text-secondary small mb-3">${v.description}</p>
+                <div class="d-flex flex-wrap gap-1 mb-3">
+                  ${v.facilities.slice(0, 3).map(f => `<span class="badge bg-light text-dark border small p-1">${f}</span>`).join('')}
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                <div>
+                  <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                  <span class="fw-bold text-primary">${formatPKR(v.price)}</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-secondary btn-sm" onclick="openVenueModal('${v.id}')">
+                    <i class="fa-solid fa-circle-info"></i>
+                  </button>
+                  <a href="book-event.html?venue=${v.id}" class="btn btn-aura-navy btn-sm">
+                    Plan Here
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openVenueModal(id) {
+      const v = VENUES_DATA.find(x => x.id === id);
+      if (!v) return;
+
+      document.getElementById("catModalImg").src = v.image;
+      document.getElementById("catModalTitle").textContent = v.name;
+      document.getElementById("catModalName").textContent = `${v.name} (${v.location})`;
+      document.getElementById("catModalDesc").textContent = `${v.description} Guest Capacity: ${v.capacity} • Starting Rate: ${formatPKR(v.price)}`;
+      
+      const facEl = document.getElementById("catModalFacilities");
+      facEl.innerHTML = v.facilities.map(f => `<span class="badge bg-white text-dark border p-2"><i class="fa-solid fa-check text-success me-1"></i> ${f}</span>`).join('');
+      
+      document.getElementById("catModalBookBtn").href = `book-event.html?venue=${v.id}`;
+
+      const modal = new bootstrap.Modal(document.getElementById("venueCatalogModal"));
+      modal.show();
+    }
+
+    document.getElementById("venueSearchInput").addEventListener("input", renderVenuesCatalog);
+    document.getElementById("venueSettingFilter").addEventListener("change", renderVenuesCatalog);
+    document.getElementById("venueCapacityFilter").addEventListener("change", renderVenuesCatalog);
+
+    document.addEventListener("DOMContentLoaded", renderVenuesCatalog);
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bookings & Quotation Tracking | Aura Events</title>
+  <meta name="description" content="Track your event booking requests, review formal company quotations, and manage date holds on Aura Events.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Custom Master Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/configurator.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg aura-navbar sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-aura" href="index.html">
+        <div class="brand-icon">
+          <i class="fa-solid fa-gem"></i>
+        </div>
+        <div class="brand-text-container">
+          <span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span>
+          <span class="brand-tagline">Luxury Event Planning</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler navbar-toggler-aura border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <i class="fa-solid fa-bars-staggered text-dark fs-5"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="venues.html">Venues</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="services.html">Catering & Services</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="book-event.html">Plan Event</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura active" href="my-bookings.html">My Bookings</a></li>
+        </ul>
+
+        <div id="navbarAuthArea" class="d-flex align-items-center"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero Banner -->
+  <section class="page-hero-banner">
+    <div class="container position-relative" style="z-index: 2;">
+      <nav aria-label="breadcrumb" class="breadcrumb-aura mb-3">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="profile.html">Customer Profile</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Booking Status</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center justify-content-between g-4">
+        <div class="col-lg-7">
+          <span class="badge-gold mb-2"><i class="fa-solid fa-timeline me-1"></i> Request Lifecycle & Quotations</span>
+          <h1 class="h2 text-white fw-bold">My Event Requests & Quotations</h1>
+          <p class="text-light opacity-75 mb-0">
+            Monitor the status of your planned events in real time. Review manager quotations, download official estimates, and confirm your venue dates.
+          </p>
+        </div>
+
+        <!-- Quick Reference Search Box -->
+        <div class="col-lg-5">
+          <div class="bg-white p-2 rounded-3 shadow d-flex align-items-center gap-2">
+            <i class="fa-solid fa-magnifying-glass text-muted ms-2"></i>
+            <input type="text" id="searchRefInput" class="form-control border-0 shadow-none" placeholder="Search by Reference (e.g. AURA-2026-8942)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Booking Tracking Section -->
+  <main class="container my-5">
+    
+    <!-- Filter Pills & Action Bar -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+      <div class="d-flex flex-wrap gap-2">
+        <button class="btn btn-sm btn-aura-navy filter-booking-btn active" data-filter="all">
+          All Requests
+        </button>
+        <button class="btn btn-sm btn-outline-secondary filter-booking-btn" data-filter="active">
+          Active / In Review
+        </button>
+        <button class="btn btn-sm btn-outline-secondary filter-booking-btn" data-filter="confirmed">
+          Confirmed Bookings
+        </button>
+        <button class="btn btn-sm btn-outline-secondary filter-booking-btn" data-filter="completed">
+          Past / Completed
+        </button>
+      </div>
+
+      <a href="book-event.html" class="btn btn-aura-gold btn-sm">
+        <i class="fa-solid fa-plus me-1"></i> Configure Another Event
+      </a>
+    </div>
+
+    <!-- Booking Requests List Container -->
+    <div id="bookingsListContainer"></div>
+
+  </main>
+
+  <!-- MODAL: Detailed Booking & Quotation Review -->
+  <div class="modal fade" id="bookingDetailsModal" tabindex="-1" aria-labelledby="bookingDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg" style="border-radius: var(--aura-radius-lg);">
+        <div class="modal-header bg-dark text-white p-4">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <span class="badge bg-warning text-dark fw-bold" id="modalDetailRef">AURA-2026-8942</span>
+              <small class="text-light opacity-75">Event Specification</small>
+            </div>
+            <h5 class="modal-title fw-bold text-white mb-0" id="modalDetailType">Barat & Royal Reception</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-4">
+          <div class="row g-4 mb-4">
+            <div class="col-md-6">
+              <div class="p-3 bg-light rounded-3 h-100">
+                <h6 class="fw-bold text-dark border-bottom pb-2 mb-3"><i class="fa-solid fa-location-dot text-gold me-2"></i> Venue & Schedule</h6>
+                <p class="mb-2 small"><strong>Venue:</strong> <span id="modalDetailVenue">The Royal Palm Grand Ballroom</span></p>
+                <p class="mb-2 small"><strong>Date & Slot:</strong> <span id="modalDetailDate">Nov 28, 2026 (Evening)</span></p>
+                <p class="mb-0 small"><strong>Expected Attendance:</strong> <span id="modalDetailGuests">350 Guests</span></p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="p-3 bg-light rounded-3 h-100">
+                <h6 class="fw-bold text-dark border-bottom pb-2 mb-3"><i class="fa-solid fa-utensils text-gold me-2"></i> Food & Seating</h6>
+                <p class="mb-2 small"><strong>Catering Package:</strong> <span id="modalDetailCatering">Platinum Royal Feast</span></p>
+                <p class="mb-2 small"><strong>Seating Setup:</strong> <span id="modalDetailSeating">Royal Banquet Round Tables</span></p>
+                <p class="mb-0 small"><strong>Music / Entertainment:</strong> <span id="modalDetailEntertainment">Live Instrumental</span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Addons -->
+          <div class="mb-4">
+            <h6 class="fw-bold text-dark mb-2">Live Cooking Counters & Add-on Services:</h6>
+            <div id="modalDetailAddons" class="d-flex flex-wrap"></div>
+          </div>
+
+          <!-- Quotation Offer Area (SRS Requirement FR-TRK-03) -->
+          <div id="modalDetailQuotationArea"></div>
+        </div>
+
+        <div class="modal-footer p-3 bg-light">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Cancel Request with Reason -->
+  <div class="modal fade" id="cancelRequestModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg" style="border-radius: var(--aura-radius-lg);">
+        <div class="modal-header bg-danger text-white p-3">
+          <h5 class="modal-title fw-bold"><i class="fa-solid fa-triangle-exclamation me-2"></i> Cancel Event Request</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="text-muted small">
+            Are you sure you want to cancel this booking request? If you have received an active quotation, cancelling will release the preliminary venue hold.
+          </p>
+          <div class="mb-3">
+            <label class="form-label" for="cancelReasonSelect">Please state reason for cancellation <span class="text-danger">*</span></label>
+            <select class="form-select" id="cancelReasonSelect" required>
+              <option value="Event date changed">Event date changed or postponed</option>
+              <option value="Budget constraints">Budget constraints / Found lower alternative</option>
+              <option value="Changed venue choice">Decided on another venue / own private venue</option>
+              <option value="Family personal reasons">Personal / Family circumstances</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer p-3 bg-light">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keep Request</button>
+          <button type="button" class="btn btn-danger" onclick="confirmCancellation()">Confirm Cancellation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="aura-footer py-4">
+    <div class="container text-center text-muted small">
+      © 2026 Aura Events Management Platform. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/bookings.js"></script>
+</body>
+</html>
