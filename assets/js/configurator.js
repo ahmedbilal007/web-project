@@ -272,6 +272,7 @@ let eventPlan = {
 // 3. Initialization
 // --------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
+  if (!requireLogin()) return;
   setupDefaultDates();
   prefillPlanFromParams();
   renderWizardSteps();
@@ -779,6 +780,7 @@ function updateMobileBar(total) {
 // 7. Render Step 7 Summary & Final Booking Submission
 // --------------------------------------------------------------------------
 function renderBookingSummary() {
+  if (!requireLogin()) return;
   const summaryVenueEl = document.getElementById("sumVenue");
   const summaryGuestsEl = document.getElementById("sumGuests");
   const summaryDateEl = document.getElementById("sumDate");
@@ -828,6 +830,33 @@ function renderBookingSummary() {
 }
 
 function submitBookingRequest() {
+  if (!requireLogin()) return;
+  const user = getCurrentUser();
+
+  // Recheck required details even if a wizard step was skipped.
+  const guests = document.getElementById("evtGuests");
+  const date = document.getElementById("evtDate");
+  if (!guests.value || !guests.reportValidity() || !date.reportValidity()) return;
+  eventPlan.guestCount = Number(guests.value);
+  eventPlan.eventDate = date.value;
+  eventPlan.eventType = document.getElementById("evtType").value;
+  eventPlan.timeSlot = document.getElementById("evtSlot").value;
+  eventPlan.useOwnVenue = document.getElementById("ownVenueCheck").checked;
+  eventPlan.ownVenueAddress = document.getElementById("ownVenueAddress").value.trim();
+  if (eventPlan.useOwnVenue ? !eventPlan.ownVenueAddress : !eventPlan.venue) {
+    showToast("Venue Required", "Please select a venue or enter your own venue address.", "warning");
+    return;
+  }
+  if (!eventPlan.useOwnVenue && eventPlan.guestCount > eventPlan.venue.capacity) {
+    showToast("Venue Capacity", "Please select a venue that can accommodate your guests.", "warning");
+    return;
+  }
+  if (!eventPlan.seating || !eventPlan.cateringPackage) {
+    showToast("Missing Details", "Please select seating and a catering package.", "warning");
+    return;
+  }
+  if (!document.getElementById("submitContactEmail").reportValidity()) return;
+  recalculatePricing();
   const termsCheckbox = document.getElementById("agreeTermsCheckbox");
   if (termsCheckbox && !termsCheckbox.checked) {
     showToast("Accept Terms", "Please accept the booking terms & conditions before submitting.", "warning");
@@ -844,12 +873,12 @@ function submitBookingRequest() {
     return;
   }
 
-  // Generate unique booking reference (e.g. AURA-2026-9482)
-  const randomRefNum = Math.floor(1000 + Math.random() * 9000);
-  const newBookingId = `AURA-2026-${randomRefNum}`;
+  // Use the current time to avoid repeating a four-digit booking reference.
+  const newBookingId = `AURA-${new Date().getFullYear()}-${Date.now()}`;
 
   const newBooking = {
     id: newBookingId,
+    userId: user.id,
     eventType: eventPlan.eventType,
     guestCount: eventPlan.guestCount,
     date: eventPlan.eventDate,
@@ -876,7 +905,12 @@ function submitBookingRequest() {
   const raw = localStorage.getItem("aura_bookings");
   const bookings = raw ? JSON.parse(raw) : [];
   bookings.unshift(newBooking);
-  localStorage.setItem("aura_bookings", JSON.stringify(bookings));
+  try {
+    localStorage.setItem("aura_bookings", JSON.stringify(bookings));
+  } catch (error) {
+    showToast("Booking Not Saved", "Browser storage is full or unavailable. Please try again.", "error");
+    return;
+  }
 
   // Show Success Confirmation Modal
   const modalEl = document.getElementById("bookingConfirmationModal");

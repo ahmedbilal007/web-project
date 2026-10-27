@@ -35,6 +35,7 @@
       border-radius: var(--aura-radius-lg);
     }
   </style>
+  <script src="assets/js/main.js"></script>
 </head>
 <body class="bg-light">
 
@@ -150,19 +151,33 @@
 
   <!-- Bootstrap 5.3 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
   <script>
     function handleCustomerLogin(e) {
       e.preventDefault();
-      const email = document.getElementById("loginEmail").value.trim();
-      const user = getCurrentUser() || DEFAULT_USER;
-      user.email = email;
-      user.isLoggedIn = true;
-      localStorage.setItem("aura_current_user", JSON.stringify(user));
+      if (!document.getElementById("loginForm").reportValidity()) return;
+      const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+      const current = getCurrentUser();
+      const users = JSON.parse(localStorage.getItem("aura_users") || "[]");
+      let user = users.find(saved => saved.email.toLowerCase() === email);
+      if (!user && current && current.email.toLowerCase() === email) user = current;
+      if (!user && email === DEFAULT_USER.email) user = { ...DEFAULT_USER };
+
+      // Preserve the existing demo sign-in for other email addresses.
+      if (!user) {
+        const name = email.split("@")[0];
+        user = {
+          id: "CUST-" + email, name: name, firstName: name, lastName: "",
+          email: email, phone: "", altPhone: "", address: "", city: "",
+          membershipTier: "Member Planner", avatar: DEFAULT_USER.avatar,
+          dietaryPreferences: "", preferredEventTypes: [], bio: ""
+        };
+      }
+      saveCurrentUser({ ...user, email: email, isLoggedIn: true });
+      const destination = getLoginDestination();
       
-      showToast("Welcome Back!", "Signed in successfully. Redirecting to your profile...", "success");
+      showToast("Welcome Back!", "Signed in successfully. Opening your portal...", "success");
       setTimeout(() => {
-        window.location.href = "profile.html";
+        window.location.href = destination;
       }, 1000);
     }
   </script>

@@ -19,6 +19,7 @@
   <!-- Custom Master Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/configurator.css">
+  <script src="assets/js/main.js"></script>
 </head>
 <body class="bg-light">
 
@@ -467,15 +468,15 @@
             <div class="row g-3 mb-4">
               <div class="col-md-4">
                 <label class="form-label" for="submitContactName">Full Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="submitContactName" required value="Ahmed Bilal">
+                <input type="text" class="form-control" id="submitContactName" required>
               </div>
               <div class="col-md-4">
                 <label class="form-label" for="submitContactEmail">Email Address <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="submitContactEmail" required value="ahmed.bilal@example.com">
+                <input type="email" class="form-control" id="submitContactEmail" required>
               </div>
               <div class="col-md-4">
                 <label class="form-label" for="submitContactPhone">Phone Number <span class="text-danger">*</span></label>
-                <input type="tel" class="form-control" id="submitContactPhone" required value="+92 300 1234567">
+                <input type="tel" class="form-control" id="submitContactPhone" required>
               </div>
               <div class="col-12">
                 <label class="form-label" for="submitSpecialNotes">Special Instructions / Preferences</label>
@@ -628,8 +629,8 @@
 
           <div class="p-3 bg-light rounded-3 mb-3 border">
             <small class="text-muted d-block">Your Official Reference Number:</small>
-            <div class="fs-4 fw-bold text-primary my-1" id="modalBookingRef">AURA-2026-9482</div>
-            <small class="text-muted" id="modalEventSummaryText">Barat for 250 guests</small>
+            <div class="fs-4 fw-bold text-primary my-1" id="modalBookingRef"></div>
+            <small class="text-muted" id="modalEventSummaryText"></small>
           </div>
 
           <p class="small text-secondary mb-4">
@@ -658,7 +659,6 @@
 
   <!-- Bootstrap 5.3 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
   <script src="assets/js/configurator.js"></script>
 </body>
 </html>

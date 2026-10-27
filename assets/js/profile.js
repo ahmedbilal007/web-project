@@ -4,6 +4,7 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
+  if (!requireLogin()) return;
   loadUserProfileData();
   setupProfileEventListeners();
   renderProfileBookingsPreview();
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // --------------------------------------------------------------------------
 function loadUserProfileData() {
   const user = getCurrentUser();
-  if (!user) return;
+  if (!user || !requireLogin()) return;
 
   // Header & Hero Elements
   const heroNameEl = document.getElementById("profileHeroName");
@@ -29,6 +30,9 @@ function loadUserProfileData() {
   if (heroPhoneEl) heroPhoneEl.textContent = user.phone || "";
   if (heroAvatarEl) heroAvatarEl.src = user.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80";
   if (heroTierEl) heroTierEl.textContent = user.membershipTier || "VIP Member";
+
+  document.getElementById("profileCustomerId").textContent = user.id;
+  document.getElementById("profileCity").textContent = user.city || "Not specified";
 
   // Form Input Fields
   const setVal = (id, val) => {
@@ -64,6 +68,7 @@ function setupProfileEventListeners() {
   if (profileForm) {
     profileForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      if (!requireLogin()) return;
 
       const firstName = document.getElementById("inputFirstName").value.trim();
       const lastName = document.getElementById("inputLastName").value.trim();
@@ -118,7 +123,7 @@ function setupProfileEventListeners() {
           const newAvatar = event.target.result;
           const heroAvatarEl = document.getElementById("profileHeroAvatar");
           if (heroAvatarEl) heroAvatarEl.src = newAvatar;
-          updateCurrentUser({ avatar: newAvatar });
+          if (!updateCurrentUser({ avatar: newAvatar })) return;
           showToast("Photo Updated", "Your profile photo was updated successfully.", "success");
         };
         reader.readAsDataURL(file);
@@ -163,11 +168,16 @@ function setupProfileEventListeners() {
 // 3. Render Profile Bookings Overview (Quick summary on Profile tab)
 // --------------------------------------------------------------------------
 function renderProfileBookingsPreview() {
+  if (!requireLogin()) return;
   const container = document.getElementById("profileBookingsContainer");
   if (!container) return;
 
-  const raw = localStorage.getItem("aura_bookings");
-  const bookings = raw ? JSON.parse(raw) : [];
+  const bookings = getUserBookings();
+  const active = bookings.filter(b => !["Completed", "Cancelled"].includes(b.status));
+  document.getElementById("profileActiveRequests").textContent = active.length;
+  document.getElementById("profileEstimatedTotal").textContent = formatPKR(
+    active.reduce((total, b) => total + (b.estimatedTotal || 0), 0)
+  );
 
   if (bookings.length === 0) {
     container.innerHTML = `

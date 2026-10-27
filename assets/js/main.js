@@ -4,7 +4,7 @@
  */
 
 // --------------------------------------------------------------------------
-// 1. Initial State & Mock Data Seeder
+// 1. Demo Profile & Initial State
 // --------------------------------------------------------------------------
 const DEFAULT_USER = {
   id: "CUST-8042",
@@ -22,106 +22,95 @@ const DEFAULT_USER = {
   dietaryPreferences: "Halal, No Seafood, Special Desserts",
   preferredEventTypes: ["Wedding", "Barat", "Corporate Gala"],
   bio: "Planning family luxury wedding functions and corporate summits in Islamabad & Lahore.",
-  isLoggedIn: true
+  isLoggedIn: false
 };
 
-// Seed local storage if empty
+// Keep the existing localStorage booking list, without creating demo bookings.
 function initializeAuraState() {
-  if (!localStorage.getItem("aura_current_user")) {
-    localStorage.setItem("aura_current_user", JSON.stringify(DEFAULT_USER));
-  }
-
-  // Sample customer bookings for status tracking
   if (!localStorage.getItem("aura_bookings")) {
-    const initialBookings = [
-      {
-        id: "AURA-2026-8942",
-        eventType: "Barat & Royal Reception",
-        guestCount: 350,
-        date: "2026-11-28",
-        timeSlot: "Evening / Dinner (7:00 PM - 11:30 PM)",
-        venueName: "The Royal Palm Grand Ballroom",
-        venueLocation: "Club Road, Islamabad",
-        venueImage: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80",
-        cateringPackage: "Platinum Royal Feast",
-        seatingType: "Banquet Round Tables with Floral Chandeliers",
-        entertainment: "Traditional Live Instrumental & Shehnai",
-        addons: ["Live BBQ Counters", "Artisan Chaat Stall", "Drone & 4K Videography", "Executive Valet Service"],
-        estimatedTotal: 1850000,
-        quotedAmount: 1780000,
-        status: "Quotation Sent", // Pending | Under Review | Quotation Sent | Confirmed | Completed | Cancelled
-        quotationExpires: "2026-10-25",
-        quotationNotes: "Includes complimentary VIP lounge decor and customized welcome drinks.",
-        submittedOn: "2026-10-16"
-      },
-      {
-        id: "AURA-2026-7821",
-        eventType: "Corporate Tech Gala & Dinner",
-        guestCount: 200,
-        date: "2026-12-15",
-        timeSlot: "Full Day Summit & Banquet",
-        venueName: "Serena Sheesh Mahal Hall",
-        venueLocation: "Khayaban-e-Suhrawardy, Islamabad",
-        venueImage: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80",
-        cateringPackage: "Gold Continental & Desi Buffet",
-        seatingType: "Theater & Banquet Hybrid",
-        entertainment: "LED Screen Stage & Modern AV Setup",
-        addons: ["Espresso & Mocktail Bar", "Sound Engineering Team"],
-        estimatedTotal: 980000,
-        quotedAmount: 980000,
-        status: "Confirmed",
-        submittedOn: "2026-09-22"
-      },
-      {
-        id: "AURA-2026-6510",
-        eventType: "Mehndi Night of Lights",
-        guestCount: 250,
-        date: "2026-11-26",
-        timeSlot: "Evening / Dinner (6:30 PM - 11:00 PM)",
-        venueName: "Margalla Hillview Garden Pavilion",
-        venueLocation: "Pir Sohawa Scenic Enclave",
-        venueImage: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80",
-        cateringPackage: "Silver Traditional Feast",
-        seatingType: "Traditional Floor Diwan & Low Moroccan Lounges",
-        entertainment: "Live Dhol & Acoustic Ensemble",
-        addons: ["Fresh Jalebi Live Station", "Fairy Light Canopy"],
-        estimatedTotal: 720000,
-        quotedAmount: null,
-        status: "Under Review",
-        submittedOn: "2026-10-18"
-      }
-    ];
-    localStorage.setItem("aura_bookings", JSON.stringify(initialBookings));
+    localStorage.setItem("aura_bookings", JSON.stringify([]));
   }
 }
 
 // --------------------------------------------------------------------------
-// 2. Auth Helper Utilities
+// 2. Auth Helper Utilities (frontend demonstration only)
 // --------------------------------------------------------------------------
+const RESTRICTED_PAGES = [
+  "book-event.html", "my-bookings.html", "profile.html",
+  "venues.html", "venue-detail.html", "services.html"
+];
+
 function getCurrentUser() {
-  const user = localStorage.getItem("aura_current_user");
-  return user ? JSON.parse(user) : null;
+  try {
+    const user = localStorage.getItem("aura_current_user");
+    return user ? JSON.parse(user) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function requireLogin() {
+  const user = getCurrentUser();
+  if (user && user.id && user.isLoggedIn === true) return true;
+
+  // Remember the local page, including a selected venue or booking reference.
+  const page = decodeURIComponent(window.location.pathname).split("/").pop().toLowerCase();
+  if (RESTRICTED_PAGES.includes(page)) {
+    sessionStorage.setItem("aura_login_redirect", page + window.location.search + window.location.hash);
+  }
+  document.documentElement.style.visibility = "hidden";
+  window.location.replace("login.html");
+  return false;
+}
+
+function checkPageAccess() {
+  const page = decodeURIComponent(window.location.pathname).split("/").pop().toLowerCase();
+  if (RESTRICTED_PAGES.includes(page) && !requireLogin()) return false;
+  document.documentElement.style.visibility = "";
+  return true;
+}
+
+function getLoginDestination() {
+  const destination = sessionStorage.getItem("aura_login_redirect") || "profile.html";
+  sessionStorage.removeItem("aura_login_redirect");
+  // Only allow known local pages as the return destination.
+  return RESTRICTED_PAGES.includes(destination.split(/[?#]/)[0]) ? destination : "profile.html";
+}
+
+function saveCurrentUser(user) {
+  const users = JSON.parse(localStorage.getItem("aura_users") || "[]");
+  const index = users.findIndex(saved => saved.id === user.id);
+  // Saved profiles are separate from the active login state; no passwords are stored.
+  const profile = { ...user, isLoggedIn: false };
+  if (index === -1) users.push(profile);
+  else users[index] = profile;
+  localStorage.setItem("aura_users", JSON.stringify(users));
+  localStorage.setItem("aura_current_user", JSON.stringify(user));
 }
 
 function updateCurrentUser(userData) {
-  const current = getCurrentUser() || {};
-  const updated = { ...current, ...userData };
-  localStorage.setItem("aura_current_user", JSON.stringify(updated));
+  if (!requireLogin()) return null;
+  const updated = { ...getCurrentUser(), ...userData };
+  saveCurrentUser(updated);
   renderNavbarAuth();
   return updated;
 }
 
-function logoutUser() {
+function getUserBookings() {
   const user = getCurrentUser();
-  if (user) {
-    user.isLoggedIn = false;
-    localStorage.setItem("aura_current_user", JSON.stringify(user));
-  }
-  showToast("Logged Out", "You have successfully logged out.", "info");
-  setTimeout(() => {
-    window.location.href = "login.html";
-  }, 900);
+  if (!user || !user.id || user.isLoggedIn !== true) return [];
+  const bookings = JSON.parse(localStorage.getItem("aura_bookings") || "[]");
+  return bookings.filter(booking => booking.userId === user.id);
 }
+
+function logoutUser() {
+  localStorage.removeItem("aura_current_user");
+  sessionStorage.removeItem("aura_login_redirect");
+  window.location.replace("index.html");
+}
+
+// Run before restricted page content is displayed.
+checkPageAccess();
 
 // --------------------------------------------------------------------------
 // 3. Dynamic Global Navbar Rendering
@@ -132,7 +121,7 @@ function renderNavbarAuth() {
 
   const user = getCurrentUser();
 
-  if (user && user.isLoggedIn) {
+  if (user && user.id && user.isLoggedIn === true) {
     authContainer.innerHTML = `
       <div class="dropdown">
         <button class="user-avatar-btn border-0 shadow-sm" type="button" id="userMenuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -268,6 +257,23 @@ window.addEventListener("scroll", () => {
 
 // Run on document load
 document.addEventListener("DOMContentLoaded", () => {
+  if (!checkPageAccess()) return;
   initializeAuraState();
   renderNavbarAuth();
+});
+
+// Recheck pages restored with Back and sessions changed in another tab.
+window.addEventListener("pageshow", (event) => {
+  if (!checkPageAccess()) return;
+  if (event.persisted) {
+    document.documentElement.style.visibility = "hidden";
+    window.location.reload();
+    return;
+  }
+  renderNavbarAuth();
+});
+window.addEventListener("storage", (event) => {
+  if (event.key === "aura_current_user" || event.key === null) {
+    if (checkPageAccess()) window.location.reload();
+  }
 });

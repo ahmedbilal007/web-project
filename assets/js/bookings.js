@@ -4,6 +4,7 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
+  if (!requireLogin()) return;
   renderBookingsPortal();
   setupFilterTabs();
   checkUrlReferenceParam();
@@ -15,11 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
 let currentFilter = "all";
 
 function renderBookingsPortal() {
+  if (!requireLogin()) return;
   const container = document.getElementById("bookingsListContainer");
   if (!container) return;
 
-  const raw = localStorage.getItem("aura_bookings");
-  const bookings = raw ? JSON.parse(raw) : [];
+  const bookings = getUserBookings();
 
   let filtered = bookings;
   if (currentFilter === "active") {
@@ -164,8 +165,8 @@ function setupFilterTabs() {
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       const q = e.target.value.trim().toUpperCase();
-      const raw = localStorage.getItem("aura_bookings");
-      const bookings = raw ? JSON.parse(raw) : [];
+      if (!requireLogin()) return;
+      const bookings = getUserBookings();
 
       if (!q) {
         renderBookingsPortal();
@@ -204,8 +205,8 @@ function setupFilterTabs() {
 let activeModalBookingId = null;
 
 function openBookingDetailsModal(id) {
-  const raw = localStorage.getItem("aura_bookings");
-  const bookings = raw ? JSON.parse(raw) : [];
+  if (!requireLogin()) return;
+  const bookings = getUserBookings();
   const booking = bookings.find(b => b.id === id);
   if (!booking) return;
 
@@ -287,9 +288,10 @@ function openBookingDetailsModal(id) {
 // 4. Quotation Actions & Cancellation
 // --------------------------------------------------------------------------
 function acceptQuotation(id) {
+  if (!requireLogin()) return;
   const raw = localStorage.getItem("aura_bookings");
   const bookings = raw ? JSON.parse(raw) : [];
-  const b = bookings.find(x => x.id === id);
+  const b = bookings.find(x => x.id === id && x.userId === getCurrentUser().id);
   if (b) {
     b.status = "Confirmed";
     localStorage.setItem("aura_bookings", JSON.stringify(bookings));
@@ -305,22 +307,25 @@ function acceptQuotation(id) {
 }
 
 function downloadQuotationPDF(id) {
+  if (!requireLogin() || !getUserBookings().some(b => b.id === id)) return;
   showToast("Downloading PDF", `Generating itemized quotation for ${id}...`, "info");
 }
 
 function openCancelModal(id) {
+  if (!requireLogin() || !getUserBookings().some(b => b.id === id)) return;
   activeModalBookingId = id;
   const modal = new bootstrap.Modal(document.getElementById("cancelRequestModal"));
   modal.show();
 }
 
 function confirmCancellation() {
+  if (!requireLogin()) return;
   if (!activeModalBookingId) return;
 
   const reason = document.getElementById("cancelReasonSelect").value;
   const raw = localStorage.getItem("aura_bookings");
   const bookings = raw ? JSON.parse(raw) : [];
-  const b = bookings.find(x => x.id === activeModalBookingId);
+  const b = bookings.find(x => x.id === activeModalBookingId && x.userId === getCurrentUser().id);
   if (b) {
     b.status = "Cancelled";
     b.cancellationReason = reason;
