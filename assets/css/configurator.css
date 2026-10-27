@@ -1,18 +1,29 @@
 /* ==========================================================================
    AURA EVENTS - CONFIGURATOR & DASHBOARD STYLES
    Event Builder Wizard, Seating Cards, Live Sticky Price Tracker & Status
+   Web Technologies Course Syllabus Compliant (Lectures 5-9: Box Model & Spacing)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Multi-Step Wizard Progress Bar
+   0. Box Model Consistency
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   1. Multi-Step Wizard Progress Bar (Lectures 6, 7, 8, 9)
    -------------------------------------------------------------------------- */
 .wizard-progress-wrapper {
-  background: #FFFFFF;
-  border-radius: var(--aura-radius-lg);
-  padding: 1.25rem 1.5rem;
-  box-shadow: var(--aura-shadow-sm);
-  border: 1px solid var(--aura-border);
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  padding: 20px 28px;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
+  border: 1px solid #E5E3DC;
   margin-bottom: 2rem;
+  box-sizing: border-box;
 }
 
 .wizard-steps {
@@ -23,16 +34,17 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .wizard-steps::before {
   content: '';
   position: absolute;
-  top: 24px;
+  top: 18px;
   left: 30px;
   right: 30px;
-  height: 3px;
-  background: #E2E8F0;
+  height: 1px;
+  background-color: #E5E3DC;
   z-index: 1;
 }
 
@@ -42,106 +54,109 @@
   text-align: center;
   flex: 1;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .wizard-step-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 2px solid #CBD5E1;
-  color: #64748B;
-  font-weight: 700;
-  font-size: 0.95rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E3DC;
+  color: #5E5D59;
+  font-weight: 600;
+  font-size: 0.85rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 0.5rem;
-  transition: var(--aura-transition);
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .wizard-step-label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #64748B;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #5E5D59;
   display: block;
   white-space: nowrap;
-  transition: var(--aura-transition);
+  letter-spacing: -0.01em;
+  padding-top: 4px;
+  box-sizing: border-box;
+  transition: color 0.15s ease;
 }
 
 .wizard-step-item.active .wizard-step-circle {
-  background: var(--aura-primary);
-  border-color: var(--aura-gold);
-  color: var(--aura-gold);
-  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.2);
-  transform: scale(1.08);
+  background-color: #141413;
+  border-color: #141413;
+  color: #FFFFFF;
 }
 
 .wizard-step-item.active .wizard-step-label {
-  color: var(--aura-primary);
-  font-weight: 700;
+  color: #141413;
+  font-weight: 600;
 }
 
 .wizard-step-item.completed .wizard-step-circle {
-  background: var(--aura-gold);
-  border-color: var(--aura-gold);
-  color: #0B132B;
+  background-color: #1B4332;
+  border-color: #1B4332;
+  color: #FFFFFF;
 }
 
 .wizard-step-item.completed .wizard-step-label {
-  color: var(--aura-primary);
+  color: #1B4332;
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
-   2. Sticky Live Price Tracker Sidebar
+   2. Sticky Live Price Tracker Sidebar (Lectures 6, 7, 8, 9)
+   Generous box padding prevents price and text clipping against borders
    -------------------------------------------------------------------------- */
 .sticky-price-tracker {
   position: sticky;
   top: 95px;
-  background: #FFFFFF;
-  border-radius: var(--aura-radius-lg);
-  border: 1px solid var(--aura-border);
-  box-shadow: var(--aura-shadow-md);
-  padding: 1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  border: 1px solid #E5E3DC;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
+  padding: 24px 28px;
   overflow: hidden;
-  transition: var(--aura-transition);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
 }
 
 .tracker-header {
-  border-bottom: 1px solid #EDF2F7;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  border-bottom: 1px solid #E5E3DC;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .tracker-total-badge {
-  background: var(--aura-navy-gradient);
+  background-color: #141413;
   color: #FFFFFF;
-  border-radius: var(--aura-radius-md);
-  padding: 1.2rem;
+  border-radius: 4px;
+  padding: 20px 24px;
   margin-bottom: 1.2rem;
   position: relative;
-  overflow: hidden;
+  border: 1px solid #282825;
+  box-sizing: border-box;
 }
 
 .tracker-total-badge::after {
-  content: '';
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+  display: none !important;
 }
 
 .tracker-total-amount {
-  font-family: var(--font-heading);
-  font-size: 1.95rem;
-  font-weight: 800;
-  color: var(--aura-gold-light);
-  line-height: 1.1;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   margin-top: 0.25rem;
 }
 
@@ -149,9 +164,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0.65rem 0;
-  border-bottom: 1px dashed #E2E8F0;
+  padding: 10px 0;
+  border-bottom: 1px dashed #E5E3DC;
   font-size: 0.88rem;
+  box-sizing: border-box;
 }
 
 .tracker-item-row:last-child {
@@ -159,41 +175,44 @@
 }
 
 .tracker-item-title {
-  color: var(--aura-primary);
+  color: #141413;
   font-weight: 600;
 }
 
 .tracker-item-sub {
   font-size: 0.78rem;
-  color: #64748B;
+  color: #5E5D59;
 }
 
 .tracker-item-price {
-  font-weight: 700;
-  color: var(--aura-dark);
+  font-weight: 600;
+  color: #141413;
   white-space: nowrap;
 }
 
-/* Budget Progress Bar */
+/* Budget Status Progress Box */
 .budget-status-card {
-  background: #F8FAFC;
-  border-radius: var(--aura-radius-sm);
-  padding: 0.85rem;
-  margin-top: 1rem;
-  border: 1px solid #E2E8F0;
+  background-color: #F7F6F2;
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-top: 1.25rem;
+  border: 1px solid #E5E3DC;
+  box-sizing: border-box;
 }
 
 .progress-budget {
-  height: 8px;
-  border-radius: 4px;
-  background-color: #E2E8F0;
+  height: 6px;
+  border-radius: 2px;
+  background-color: #E5E3DC;
   overflow: hidden;
-  margin: 0.5rem 0 0.3rem;
+  margin: 0.6rem 0 0.4rem;
+  box-sizing: border-box;
 }
 
 .progress-budget-bar {
   height: 100%;
-  transition: width 0.4s ease, background-color 0.3s ease;
+  border-radius: 2px;
+  transition: width 0.2s ease, background-color 0.2s ease;
 }
 
 .budget-alert {
@@ -207,304 +226,317 @@
 
 /* --------------------------------------------------------------------------
    3. Selectable Selection Cards (Venues, Packages, Seating)
+   (Lectures 6, 7, 8, 9 - Box Model Spacing)
    -------------------------------------------------------------------------- */
 .selectable-card {
   position: relative;
-  background: #FFFFFF;
-  border: 2px solid #E2E8F0;
-  border-radius: var(--aura-radius-lg);
+  background-color: #FFFFFF;
+  border: 1px solid #E5E3DC;
+  border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  transition: var(--aura-transition);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .selectable-card:hover {
-  transform: translateY(-4px);
-  border-color: #CBD5E1;
-  box-shadow: var(--aura-shadow-md);
+  border-color: #B5B2A7;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
 }
 
 .selectable-card.selected {
-  border-color: var(--aura-gold);
-  background-color: rgba(254, 252, 246, 0.6);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.22);
+  border: 2px solid #D9381E;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
 }
 
 .selectable-card.selected::before {
   content: '✓ Selected';
   position: absolute;
-  top: 14px;
-  right: 14px;
-  background: var(--aura-gold-gradient);
-  color: #0B132B;
-  font-weight: 700;
-  font-size: 0.76rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  top: 10px;
+  right: 10px;
+  background-color: #D9381E;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  padding: 5px 12px !important;
+  line-height: 1.2;
+  border-radius: 3px;
   z-index: 5;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
 }
 
 .card-img-wrapper {
   position: relative;
   height: 190px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .card-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.selectable-card:hover .card-img-wrapper img {
-  transform: scale(1.05);
+  box-sizing: border-box;
 }
 
 .card-capacity-pill {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: rgba(11, 19, 43, 0.85);
-  backdrop-filter: blur(4px);
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(20, 20, 19, 0.9);
   color: #FFFFFF;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 0.3rem 0.75rem;
-  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 5px 12px !important;
+  line-height: 1.2;
+  border-radius: 3px;
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  box-sizing: border-box;
 }
 
 .card-price-pill {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(4px);
-  color: var(--aura-primary);
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 0.35rem 0.75rem;
-  border-radius: 20px;
-  box-shadow: var(--aura-shadow-sm);
+  top: 10px;
+  left: 10px;
+  background-color: #FFFFFF;
+  color: #141413;
+  border: 1px solid #E5E3DC;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 12px !important;
+  line-height: 1.2;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
+  box-sizing: border-box;
 }
 
 .selectable-card-body {
-  padding: 1.25rem;
+  padding: 20px 24px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
-/* Disabled Venue card if exceeds capacity */
 .selectable-card.disabled-venue {
-  opacity: 0.55;
-  filter: grayscale(80%);
+  opacity: 0.5;
   cursor: not-allowed;
-  pointer-events: none;
 }
 
 .selectable-card.disabled-venue::before {
-  content: '⚠️ Exceeds Capacity';
+  content: 'Exceeds Capacity';
   position: absolute;
-  top: 14px;
-  right: 14px;
-  background: #EF4444;
+  top: 10px;
+  right: 10px;
+  background-color: #5E5D59;
   color: #FFFFFF;
-  font-weight: 700;
-  font-size: 0.76rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 5px 12px !important;
+  line-height: 1.2;
+  border-radius: 3px;
   z-index: 5;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   4. Seating Layout Option Cards
+   4. Seating Layout Option Cards (Lectures 6, 7, 8, 9)
    -------------------------------------------------------------------------- */
 .seating-card {
-  border: 2px solid #E2E8F0;
-  border-radius: var(--aura-radius-md);
-  padding: 1.2rem;
-  background: #FFFFFF;
+  border: 1px solid #E5E3DC;
+  border-radius: 6px;
+  padding: 20px 24px;
+  background-color: #FFFFFF;
   cursor: pointer;
-  transition: var(--aura-transition);
+  transition: border-color 0.15s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
+  box-sizing: border-box;
 }
 
 .seating-card:hover {
-  border-color: #CBD5E1;
-  transform: translateY(-3px);
-  box-shadow: var(--aura-shadow-md);
+  border-color: #B5B2A7;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
 }
 
 .seating-card.selected {
-  border-color: var(--aura-gold);
-  background: rgba(254, 252, 246, 0.8);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.18);
+  border: 2px solid #D9381E;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
 }
 
 .seating-card.selected .check-indicator {
-  background: var(--aura-gold);
-  border-color: var(--aura-gold);
-  color: #0B132B;
+  background-color: #D9381E;
+  border-color: #D9381E;
+  color: #FFFFFF;
 }
 
 .check-indicator {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid #CBD5E1;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid #E5E3DC;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: transparent;
-  transition: var(--aura-transition);
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .seating-icon-img {
   width: 100%;
   height: 130px;
   object-fit: cover;
-  border-radius: var(--aura-radius-sm);
-  margin-bottom: 0.85rem;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   5. Food & Menu Package Tabs & Dish Pickers
+   5. Food & Menu Package Tabs & Dish Pickers (Lectures 6, 7, 8, 9)
+   Badge positioned cleanly INSIDE the card with generous internal padding
    -------------------------------------------------------------------------- */
 .menu-pkg-card {
-  border: 2px solid #E2E8F0;
-  border-radius: var(--aura-radius-lg);
-  padding: 1.5rem;
-  background: #FFFFFF;
-  transition: var(--aura-transition);
+  border: 1px solid #E5E3DC;
+  border-radius: 6px;
+  padding: 24px 28px;
+  background-color: #FFFFFF;
+  transition: border-color 0.15s ease;
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .menu-pkg-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: var(--aura-shadow-md);
+  border-color: #B5B2A7;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
 }
 
 .menu-pkg-card.selected {
-  border-color: var(--aura-gold);
-  background: #FEFCF6;
-  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.2);
+  border: 2px solid #D9381E;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
 }
 
 .menu-pkg-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--aura-navy-gradient);
-  color: var(--aura-gold-light);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.3rem 1rem;
-  border-radius: 20px;
+  display: inline-block !important;
+  position: static;
+  background-color: #D9381E;
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 6px 14px !important;
+  border-radius: 3px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  line-height: 1.2;
+  box-sizing: border-box;
 }
 
 .menu-pkg-card.featured-pkg {
-  border-color: var(--aura-gold);
+  border: 2px solid #141413;
 }
 
 .dish-item-card {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: var(--aura-radius-md);
-  padding: 0.85rem 1rem;
-  transition: var(--aura-transition);
+  background-color: #FFFFFF;
+  border: 1px solid #E5E3DC;
+  border-radius: 4px;
+  padding: 12px 16px;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .dish-item-card:hover {
-  border-color: #CBD5E1;
-  background: #F8FAFC;
+  border-color: #B5B2A7;
+  background-color: #F7F6F2;
 }
 
 .dish-item-card.selected {
-  border-color: var(--aura-gold);
-  background: rgba(254, 252, 246, 0.7);
+  border-color: #D9381E;
+  background-color: #FBF2EF;
 }
 
 .dish-thumb {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--aura-radius-sm);
+  width: 56px;
+  height: 56px;
+  border-radius: 3px;
   object-fit: cover;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   6. Add-ons & Live Counters Checkboxes
+   6. Add-ons & Live Counters Checkboxes (Lectures 6, 8, 9)
    -------------------------------------------------------------------------- */
 .addon-card {
-  border: 1.5px solid #E2E8F0;
-  border-radius: var(--aura-radius-md);
-  padding: 1.15rem;
-  background: #FFFFFF;
+  border: 1px solid #E5E3DC;
+  border-radius: 4px;
+  padding: 16px 20px;
+  background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   cursor: pointer;
-  transition: var(--aura-transition);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .addon-card:hover {
-  border-color: #CBD5E1;
-  background: #F8FAFC;
+  border-color: #B5B2A7;
+  background-color: #F7F6F2;
 }
 
 .addon-card.selected {
-  border-color: var(--aura-gold);
-  background: #FEFCF6;
-  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.15);
+  border-color: #D9381E;
+  background-color: #FBF2EF;
 }
 
 .addon-thumb {
-  width: 70px;
-  height: 70px;
-  border-radius: var(--aura-radius-sm);
+  width: 60px;
+  height: 60px;
+  border-radius: 3px;
   object-fit: cover;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   7. Customer Booking Status Timeline (SRS Section 4.13)
+   7. Customer Booking Status Timeline (Lectures 6, 7, 8, 9)
    -------------------------------------------------------------------------- */
 .booking-status-stepper {
   display: flex;
   justify-content: space-between;
   position: relative;
   margin: 2rem 0 1.5rem;
+  box-sizing: border-box;
 }
 
 .booking-status-stepper::before {
   content: '';
   position: absolute;
-  top: 20px;
+  top: 18px;
   left: 20px;
   right: 20px;
-  height: 3px;
-  background: #E2E8F0;
+  height: 1px;
+  background-color: #E5E3DC;
   z-index: 1;
 }
 
@@ -513,49 +545,53 @@
   z-index: 2;
   text-align: center;
   flex: 1;
+  padding: 0 8px;
+  box-sizing: border-box;
 }
 
 .status-step-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 2px solid #CBD5E1;
-  color: #94A3B8;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E3DC;
+  color: #5E5D59;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   margin: 0 auto 0.5rem;
-  transition: var(--aura-transition);
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .status-step-node.completed .status-step-icon {
-  background: var(--aura-success);
-  border-color: var(--aura-success);
+  background-color: #1B4332;
+  border-color: #1B4332;
   color: #FFFFFF;
 }
 
 .status-step-node.active .status-step-icon {
-  background: var(--aura-gold);
-  border-color: var(--aura-gold);
-  color: #0B132B;
-  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.25);
+  background-color: #D9381E;
+  border-color: #D9381E;
+  color: #FFFFFF;
 }
 
 .status-step-text {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #64748B;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #5E5D59;
+  padding-top: 4px;
+  box-sizing: border-box;
 }
 
 .status-step-node.active .status-step-text {
-  color: var(--aura-primary);
-  font-weight: 700;
+  color: #141413;
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
-   8. Mobile Bottom Bar for Price Tracker
+   8. Mobile Bottom Bar for Price Tracker (Lectures 6, 7, 9)
    -------------------------------------------------------------------------- */
 .mobile-price-bar {
   display: none;
@@ -563,11 +599,12 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #FFFFFF;
-  border-top: 1px solid #E2E8F0;
-  padding: 0.85rem 1.25rem;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+  border-top: 1px solid #E5E3DC;
+  padding: 14px 20px;
+  box-shadow: 0 -2px 8px rgba(20, 20, 19, 0.05);
   z-index: 1040;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991.98px) {
@@ -584,8 +621,8 @@
     font-size: 0.72rem;
   }
   .wizard-step-circle {
-    width: 38px;
-    height: 38px;
-    font-size: 0.85rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
   }
 }

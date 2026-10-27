@@ -1,230 +1,377 @@
 /* ==========================================================================
    AURA EVENTS - LUXURY EVENT MANAGEMENT & PLANNING PLATFORM
-   Master Design System & Custom CSS
+   Master Stylesheet (Web Technologies Course Syllabus Compliant)
+   Topics: CSS Fundamentals, Box Model, Positioning, CSS3, Flexbox & Grid
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Design Tokens & CSS Variables
+   0. Font Imports (Google Fonts: Plus Jakarta Sans & DM Sans)
    -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,500&family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+
+/* Minimal token reference maintained for dynamic script hooks */
 :root {
-  /* Brand Color Palette */
-  --aura-primary: #0B132B;          /* Deep Royal Obsidian Navy */
-  --aura-primary-light: #1C2541;    /* Slate Midnight */
-  --aura-primary-lighter: #283556;
-  --aura-gold: #D4AF37;             /* Champagne Gold */
-  --aura-gold-light: #F3E5AB;       /* Soft Gold Tint */
-  --aura-gold-hover: #C59B27;       /* Deep Gold */
-  --aura-gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F5D77F 50%, #AA8010 100%);
-  --aura-navy-gradient: linear-gradient(135deg, #0B132B 0%, #1C2541 60%, #3A506B 100%);
-  --aura-card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-
-  /* Neutral Tones */
-  --aura-dark: #111827;
-  --aura-body: #4B5563;
-  --aura-muted: #6B7280;
-  --aura-light: #F9FAFB;
-  --aura-border: #E5E7EB;
-  --aura-border-focus: #D4AF37;
-  --aura-white: #FFFFFF;
-
-  /* Accent & Status Colors */
-  --aura-success: #10B981;
-  --aura-warning: #F59E0B;
-  --aura-danger: #EF4444;
-  --aura-info: #3B82F6;
-
-  /* Shadows */
-  --aura-shadow-sm: 0 2px 8px rgba(11, 19, 43, 0.05);
-  --aura-shadow-md: 0 8px 24px rgba(11, 19, 43, 0.08);
-  --aura-shadow-lg: 0 16px 40px rgba(11, 19, 43, 0.12);
-  --aura-shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.25);
-
-  /* Typography */
-  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-  /* Transitions */
-  --aura-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --aura-radius-sm: 8px;
-  --aura-radius-md: 14px;
-  --aura-radius-lg: 20px;
-  --aura-radius-xl: 28px;
+  --aura-gold: #D9381E;
+  --aura-danger: #D9381E;
+  --aura-warning: #B45309;
+  --aura-success: #1B4332;
+  --aura-info: #1B4332;
+  --aura-radius-lg: 6px;
+  --aura-radius-md: 4px;
+  --aura-radius-sm: 4px;
 }
 
 /* --------------------------------------------------------------------------
-   2. Base & Typography Reset
+   1. Global Box Model & Typography Reset (Lectures 5 & 6)
+   Universal box-sizing: border-box ensures padding never causes box overflow
    -------------------------------------------------------------------------- */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: var(--font-body);
-  color: var(--aura-body);
-  background-color: #F8FAFC;
+body,
+body.bg-light,
+.bg-light {
+  font-family: 'DM Sans', sans-serif;
+  color: #141413;
+  background-color: #F7F6F2 !important;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: var(--font-heading);
-  color: var(--aura-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #141413;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+p {
+  line-height: 1.6;
+  color: #141413;
+  margin-bottom: 1rem;
+}
+
+.text-muted,
+.text-secondary {
+  color: #5E5D59 !important;
+}
+
+.text-dark {
+  color: #141413 !important;
 }
 
 a {
   text-decoration: none;
-  transition: var(--aura-transition);
+  color: inherit;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Tables (Box Model Padding) */
+table, .table {
+  border-color: #E5E3DC;
+  color: #141413;
+  box-sizing: border-box;
+}
+
+.table th {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #141413;
+  background-color: #F7F6F2;
+  border-bottom: 1px solid #E5E3DC;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+.table td {
+  border-bottom: 1px solid #EBE9E2;
+  color: #141413;
+  padding: 12px 16px;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   3. Custom Buttons & Badges
+   2. Buttons & Badges (Lectures 5, 6, 8, 9 - Box Model & Padding)
    -------------------------------------------------------------------------- */
+.btn {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  border-radius: 4px !important;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
 .btn-aura-gold {
-  background: var(--aura-gold-gradient);
-  color: #0B132B !important;
+  background-color: #D9381E !important;
+  color: #FFFFFF !important;
   font-weight: 600;
-  font-family: var(--font-heading);
-  border: none;
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--aura-radius-md);
-  box-shadow: var(--aura-shadow-gold);
-  transition: var(--aura-transition);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.01em;
+  border: 1px solid #D9381E;
+  padding: 10px 22px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  box-sizing: border-box;
 }
 
-.btn-aura-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 35px rgba(212, 175, 55, 0.38);
-  color: #0B132B !important;
+.btn-aura-gold:hover,
+.btn-aura-gold:focus {
+  background-color: #B82D16 !important;
+  border-color: #B82D16 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.08) !important;
 }
 
 .btn-aura-outline {
-  background: transparent;
-  color: var(--aura-primary) !important;
-  border: 1.5px solid var(--aura-primary);
+  background-color: transparent;
+  color: #141413 !important;
+  border: 1px solid #E5E3DC;
   font-weight: 600;
-  font-family: var(--font-heading);
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--aura-radius-md);
-  transition: var(--aura-transition);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.01em;
+  padding: 10px 22px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  box-sizing: border-box;
 }
 
-.btn-aura-outline:hover {
-  background: var(--aura-primary);
+.btn-aura-outline:hover,
+.btn-aura-outline:focus {
+  background-color: #141413;
   color: #FFFFFF !important;
-  transform: translateY(-2px);
-  box-shadow: var(--aura-shadow-md);
+  border-color: #141413;
 }
 
 .btn-aura-navy {
-  background: var(--aura-primary);
+  background-color: #141413;
   color: #FFFFFF !important;
   font-weight: 600;
-  font-family: var(--font-heading);
-  border: none;
-  padding: 0.75rem 1.75rem;
-  border-radius: var(--aura-radius-md);
-  transition: var(--aura-transition);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.01em;
+  border: 1px solid #141413;
+  padding: 10px 22px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  box-sizing: border-box;
 }
 
-.btn-aura-navy:hover {
-  background: var(--aura-primary-light);
-  transform: translateY(-2px);
-  box-shadow: var(--aura-shadow-md);
+.btn-aura-navy:hover,
+.btn-aura-navy:focus {
+  background-color: #2A2A28;
+  border-color: #2A2A28;
   color: #FFFFFF !important;
 }
 
-.badge-gold {
-  background-color: rgba(212, 175, 55, 0.15);
-  color: #946E0A;
-  border: 1px solid rgba(212, 175, 55, 0.35);
+.btn-primary {
+  background-color: #D9381E !important;
+  border-color: #D9381E !important;
+  color: #FFFFFF !important;
+  border-radius: 4px !important;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #B82D16 !important;
+  border-color: #B82D16 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-outline-primary {
+  background-color: transparent !important;
+  border-color: #D9381E !important;
+  color: #D9381E !important;
+  border-radius: 4px !important;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+  background-color: #D9381E !important;
+  color: #FFFFFF !important;
+  border-color: #D9381E !important;
+}
+
+.btn-outline-secondary {
+  border-color: #E5E3DC !important;
+  color: #141413 !important;
+  background-color: transparent !important;
+  border-radius: 4px !important;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary.active {
+  background-color: #141413 !important;
+  border-color: #141413 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-light {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E3DC !important;
+  color: #141413 !important;
+  border-radius: 4px !important;
+  padding: 8px 18px;
+  box-sizing: border-box;
+}
+
+.btn-light:hover {
+  background-color: #F7F6F2 !important;
+  border-color: #D2CEC4 !important;
+}
+
+.btn-danger, .btn-outline-danger {
+  border-radius: 4px !important;
+  padding: 8px 16px;
+  box-sizing: border-box;
+}
+
+/* Badges & Section Tags (Internal Box Model Padding Fix) */
+.badge {
+  font-family: 'DM Sans', sans-serif;
   font-weight: 600;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  letter-spacing: 0.01em;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+/* Primary Brand Tag / Section Header Pill ("Curated Celebrations", "Seamless Process", "Interactive Event Builder") */
+.badge-gold {
+  background-color: #FBF2EF !important;
+  color: #D9381E !important;
+  border: 1px solid #F0D5CF !important;
+  border-radius: 4px !important;
+  padding: 6px 14px !important;
+  display: inline-block !important;
+  vertical-align: middle;
   font-size: 0.8rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: 30px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
 }
 
 .badge-navy {
-  background-color: rgba(11, 19, 43, 0.08);
-  color: var(--aura-primary);
-  border: 1px solid rgba(11, 19, 43, 0.15);
-  font-weight: 600;
+  background-color: #ECEBE6 !important;
+  color: #141413 !important;
+  border: 1px solid #E5E3DC !important;
+  border-radius: 4px !important;
+  padding: 6px 14px !important;
+  display: inline-block !important;
+  vertical-align: middle;
   font-size: 0.8rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+}
+
+.badge.bg-success {
+  background-color: #EEF4F0 !important;
+  color: #1B4332 !important;
+  border: 1px solid #C4D7CB !important;
+  padding: 6px 12px !important;
+}
+
+.badge.bg-warning {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+  border: 1px solid #FDE68A !important;
+  padding: 6px 12px !important;
+}
+
+.badge.bg-danger {
+  background-color: #FBF2EF !important;
+  color: #D9381E !important;
+  border: 1px solid #F0D5CF !important;
+  padding: 6px 12px !important;
+}
+
+.badge.bg-info {
+  background-color: #EEF4F0 !important;
+  color: #1B4332 !important;
+  border: 1px solid #C4D7CB !important;
+  padding: 6px 12px !important;
 }
 
 /* --------------------------------------------------------------------------
-   4. Luxury Navbar Styling
+   3. Navbar Component (Lectures 6, 7, 8, 9)
    -------------------------------------------------------------------------- */
 .aura-navbar {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
-  transition: var(--aura-transition);
-  padding: 0.75rem 0;
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid #E5E3DC;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
+  padding: 14px 20px;
   z-index: 1030;
+  box-sizing: border-box;
 }
 
 .aura-navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 6px 24px rgba(11, 19, 43, 0.08);
-  padding: 0.55rem 0;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05) !important;
+  padding: 10px 20px;
 }
 
 .navbar-brand-aura {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.4rem;
-  color: var(--aura-primary);
-  letter-spacing: -0.02em;
-  text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #141413;
+  letter-spacing: -0.025em;
+  box-sizing: border-box;
 }
 
 .brand-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: var(--aura-navy-gradient);
-  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #141413;
+  border: 1px solid #E5E3DC;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--aura-gold);
-  box-shadow: 0 4px 14px rgba(11, 19, 43, 0.18);
-  font-size: 1.15rem;
+  color: #D9381E;
+  font-size: 1rem;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .brand-sparkle {
-  color: var(--aura-gold);
+  color: #D9381E;
 }
 
 .brand-text-container {
@@ -234,15 +381,16 @@ img {
 
 .brand-title {
   line-height: 1.1;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
+  color: #141413;
 }
 
 .brand-tagline {
   font-size: 0.65rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--aura-gold-hover);
-  font-weight: 700;
+  color: #5E5D59;
+  font-weight: 500;
 }
 
 .navbar-nav {
@@ -250,119 +398,121 @@ img {
 }
 
 .nav-link-aura {
-  color: #334155 !important;
+  color: #5E5D59 !important;
   font-weight: 500;
-  font-size: 0.92rem;
-  padding: 0.5rem 0.95rem !important;
-  border-radius: 30px;
-  transition: all 0.25s ease;
+  font-size: 0.9rem;
+  padding: 8px 16px !important;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .nav-link-aura:hover {
-  color: var(--aura-gold-hover) !important;
-  background-color: rgba(212, 175, 55, 0.09);
+  color: #141413 !important;
+  background-color: #F7F6F2;
 }
 
 .nav-link-aura.active {
-  color: var(--aura-primary) !important;
-  font-weight: 700;
-  background-color: rgba(212, 175, 55, 0.14);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.12);
+  color: #D9381E !important;
+  font-weight: 600;
+  background-color: #FBF2EF;
+  border: 1px solid #F0D5CF;
 }
 
-/* User profile button & dropdown */
 .user-avatar-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.35rem 0.95rem 0.35rem 0.38rem;
-  border-radius: 50px;
-  background: #FFFFFF;
-  border: 1.5px solid #E2E8F0;
-  box-shadow: 0 2px 8px rgba(11, 19, 43, 0.06);
-  transition: all 0.25s ease;
+  padding: 6px 14px 6px 6px;
+  border-radius: 4px !important;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E3DC;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05);
   cursor: pointer;
+  box-sizing: border-box;
 }
 
-/* Hide default bootstrap triangle arrow */
 .user-avatar-btn::after {
   display: none !important;
 }
 
-.user-avatar-btn:hover, .user-avatar-btn[aria-expanded="true"] {
-  border-color: var(--aura-gold);
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.22);
-  background: #FFFFFF;
+.user-avatar-btn:hover,
+.user-avatar-btn[aria-expanded="true"] {
+  border-color: #D2CEC4;
+  background-color: #F7F6F2;
 }
 
 .user-avatar-img {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
   object-fit: cover;
-  border: 1.5px solid var(--aura-gold);
+  border: 1px solid #E5E3DC;
+  box-sizing: border-box;
 }
 
 .aura-user-dropdown {
-  border-radius: 16px !important;
-  border: 1px solid rgba(212, 175, 55, 0.3) !important;
-  box-shadow: 0 18px 45px rgba(11, 19, 43, 0.14) !important;
-  padding: 0.6rem !important;
-  min-width: 250px;
+  border-radius: 4px !important;
+  border: 1px solid #E5E3DC !important;
+  box-shadow: 0 1px 3px rgba(20, 20, 19, 0.06), 0 1px 2px rgba(20, 20, 19, 0.04) !important;
+  padding: 8px !important;
+  min-width: 240px;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
 }
 
 .aura-user-dropdown .dropdown-item {
-  border-radius: 10px;
-  padding: 0.65rem 1rem;
+  border-radius: 3px;
+  padding: 8px 16px;
   font-size: 0.88rem;
   font-weight: 500;
-  color: #334155;
-  transition: all 0.2s ease;
+  color: #141413;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .aura-user-dropdown .dropdown-item:hover {
-  background-color: rgba(212, 175, 55, 0.1);
-  color: var(--aura-primary);
-  transform: translateX(4px);
+  background-color: #F7F6F2;
+  color: #D9381E;
 }
 
 .navbar-toggler-aura {
-  border: 1.5px solid #E2E8F0;
-  border-radius: 12px;
-  padding: 0.45rem 0.75rem;
-  background: #FFFFFF;
-  transition: var(--aura-transition);
+  border: 1px solid #E5E3DC;
+  border-radius: 4px;
+  padding: 8px 12px;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
 }
 
-.navbar-toggler-aura:hover, .navbar-toggler-aura:focus {
-  border-color: var(--aura-gold);
-  background: rgba(212, 175, 55, 0.05);
-  box-shadow: none;
+.navbar-toggler-aura:hover,
+.navbar-toggler-aura:focus {
+  border-color: #E5E3DC;
+  background-color: #F7F6F2;
 }
 
 @media (max-width: 991.98px) {
   .navbar-collapse {
-    background: #FFFFFF;
-    border-radius: 18px;
-    padding: 1.25rem;
-    margin-top: 0.85rem;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 16px 36px rgba(11, 19, 43, 0.1);
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 12px;
+    border: 1px solid #E5E3DC;
+    box-shadow: 0 1px 3px rgba(20, 20, 19, 0.06), 0 1px 2px rgba(20, 20, 19, 0.04);
+    box-sizing: border-box;
   }
   .nav-link-aura {
-    padding: 0.75rem 1rem !important;
-    margin-bottom: 0.35rem;
+    padding: 10px 14px !important;
+    margin-bottom: 4px;
     width: 100%;
   }
   #navbarAuthArea {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #E2E8F0;
+    border-top: 1px solid #E5E3DC;
     flex-direction: column;
     align-items: stretch !important;
     gap: 0.6rem;
@@ -377,180 +527,289 @@ img {
 }
 
 /* --------------------------------------------------------------------------
-   5. Reusable Cards & Surfaces
+   4. Cards & Content Surfaces (Lectures 6, 7, 8 - Box Model Spacing)
+   Generous internal padding ensures text and child elements never touch borders
    -------------------------------------------------------------------------- */
-.aura-card {
-  background: var(--aura-white);
-  border: 1px solid var(--aura-border);
-  border-radius: var(--aura-radius-lg);
-  box-shadow: var(--aura-shadow-sm);
-  transition: var(--aura-transition);
+.aura-card,
+.card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E3DC !important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05) !important;
   overflow: hidden;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Explicit internal box padding for standard and utility-classed cards */
+.aura-card.p-4,
+.card.p-4,
+.aura-card .p-4 {
+  padding: 24px 32px !important;
+  box-sizing: border-box;
+}
+
+.aura-card.p-3,
+.card.p-3,
+.aura-card .p-3 {
+  padding: 16px 20px !important;
+  box-sizing: border-box;
+}
+
+.aura-card.p-5,
+.card.p-5,
+.aura-card .p-5 {
+  padding: 40px 48px !important;
+  box-sizing: border-box;
 }
 
 .aura-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--aura-shadow-lg);
-  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 1px 3px rgba(20, 20, 19, 0.06), 0 1px 2px rgba(20, 20, 19, 0.04) !important;
+  border-color: #D2CEC4 !important;
 }
 
 .aura-card-no-hover {
-  background: var(--aura-white);
-  border: 1px solid var(--aura-border);
-  border-radius: var(--aura-radius-lg);
-  box-shadow: var(--aura-shadow-sm);
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E3DC !important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05) !important;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: var(--aura-radius-lg);
-  box-shadow: var(--aura-shadow-md);
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E3DC !important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 2px rgba(20, 20, 19, 0.05) !important;
+  padding: 24px 32px;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   6. Form Inputs & Custom Styling
+   5. Catering & Service Section: "Most Popular" Badge Alignment & Padding
+   (Lectures 6 & 7: Positioning & Box Model)
+   Places badge cleanly INSIDE the card with proper 6px 14px padding
+   -------------------------------------------------------------------------- */
+.aura-card > span.translate-middle,
+.aura-card > .position-absolute.top-0 {
+  position: absolute !important;
+  top: 24px !important;
+  right: 32px !important;
+  left: auto !important;
+  transform: none !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+  padding: 6px 14px !important;
+  line-height: 1.2;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+@media (max-width: 575.98px) {
+  .aura-card > span.translate-middle,
+  .aura-card > .position-absolute.top-0 {
+    position: static !important;
+    display: inline-block !important;
+    margin-bottom: 12px !important;
+    vertical-align: middle !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Form Inputs & Checkboxes (Lectures 5, 6, 8 - Box Model Padding)
    -------------------------------------------------------------------------- */
 .form-label {
   font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--aura-primary);
-  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  color: #141413;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
-.form-control, .form-select {
-  border: 1.5px solid #E2E8F0;
-  border-radius: var(--aura-radius-md);
-  padding: 0.75rem 1rem;
-  font-size: 0.95rem;
-  color: var(--aura-dark);
+.form-control,
+.form-select {
+  border: 1px solid #E5E3DC !important;
+  border-radius: 4px !important;
+  padding: 10px 14px !important;
+  font-size: 0.92rem;
+  color: #141413;
   background-color: #FFFFFF;
-  transition: var(--aura-transition);
+  line-height: 1.5;
+  height: auto;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.form-control:focus, .form-select:focus {
-  border-color: var(--aura-gold);
-  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.18);
-  outline: none;
+.form-control:focus,
+.form-select:focus {
+  border-color: #D9381E !important;
+  box-shadow: 0 0 0 1px #D9381E !important;
+  outline: none !important;
+}
+
+.form-check-input {
+  border: 1px solid #E5E3DC;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.form-check-input:checked {
+  background-color: #D9381E;
+  border-color: #D9381E;
 }
 
 .input-icon-wrapper {
   position: relative;
+  box-sizing: border-box;
 }
 
 .input-icon-wrapper i {
   position: absolute;
-  left: 1.1rem;
+  left: 14px;
   top: 50%;
-  transform: translateY(-50%);
-  color: #94A3B8;
+  margin-top: -7px;
+  color: #5E5D59;
   pointer-events: none;
 }
 
 .input-icon-wrapper .form-control {
-  padding-left: 2.85rem;
+  padding-left: 42px !important;
+  padding-right: 14px !important;
+}
+
+.custom-checkbox-card {
+  border: 1px solid #E5E3DC !important;
+  border-radius: 4px !important;
+  background-color: #FFFFFF !important;
+  padding: 16px 20px !important;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.custom-checkbox-card:hover {
+  border-color: #D2CEC4 !important;
 }
 
 /* --------------------------------------------------------------------------
-   7. Page Headers & Section Dividers
+   7. Page Headers & Section Containers (Lectures 6 & 7)
+   "Interactive Event Builder" Hero Box Spacing
    -------------------------------------------------------------------------- */
-.page-hero-banner {
-  background: var(--aura-navy-gradient);
+.page-hero-banner,
+.page-hero-banner.py-4 {
+  background-color: #141413 !important;
   position: relative;
-  padding: 4.5rem 0 3.5rem;
-  color: var(--aura-white);
+  padding: 48px 24px !important;
+  color: #FFFFFF;
+  border-bottom: 1px solid #282825;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .page-hero-banner::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  display: none !important;
 }
 
 .page-hero-banner h1 {
-  color: var(--aura-white);
-  font-size: 2.5rem;
-  font-weight: 800;
+  color: #FFFFFF;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
-.breadcrumb-aura .breadcrumb-item, .breadcrumb-aura .breadcrumb-item a {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+.breadcrumb-aura .breadcrumb-item,
+.breadcrumb-aura .breadcrumb-item a {
+  color: #9E9D96;
+  font-size: 0.88rem;
 }
 
 .breadcrumb-aura .breadcrumb-item.active {
-  color: var(--aura-gold-light);
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* Section Container Holding "Curated Celebrations" */
+section.container.my-5,
+section.container.py-4 {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important;
+  box-sizing: border-box;
+}
+
+/* Section Container Holding "Seamless Process" */
+section.bg-white.py-5.border-top.border-bottom {
+  padding: 60px 24px !important;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   8. Global Footer
+   8. Global Footer (Lectures 5, 6, 7, 8)
    -------------------------------------------------------------------------- */
 .aura-footer {
-  background: var(--aura-primary);
-  color: #CBD5E1;
-  padding: 4.5rem 0 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #141413;
+  color: #9E9D96;
+  padding: 60px 24px 30px !important;
+  border-top: 1px solid #282825;
+  box-sizing: border-box;
 }
 
 .aura-footer h5 {
   color: #FFFFFF;
-  font-size: 1.1rem;
-  margin-bottom: 1.35rem;
-  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .aura-footer ul li {
   margin-bottom: 0.65rem;
+  list-style: none;
 }
 
 .aura-footer a {
-  color: #94A3B8;
-  transition: var(--aura-transition);
+  color: #B5B3AA;
+  transition: color 0.15s ease;
 }
 
 .aura-footer a:hover {
-  color: var(--aura-gold-light);
-  padding-left: 4px;
+  color: #FFFFFF;
+  padding-left: 0 !important;
 }
 
 .footer-social-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #1F1F1D;
+  border: 1px solid #333330;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #E2E8F0;
-  transition: var(--aura-transition);
+  color: #E5E3DC;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .footer-social-icon:hover {
-  background: var(--aura-gold);
-  color: #0B132B !important;
-  transform: translateY(-3px);
+  background-color: #D9381E;
+  border-color: #D9381E;
+  color: #FFFFFF !important;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #282825;
   margin-top: 3rem;
   padding-top: 1.5rem;
-  font-size: 0.88rem;
-  color: #64748B;
+  font-size: 0.85rem;
+  color: #787670;
 }
 
 /* --------------------------------------------------------------------------
-   9. Toast & Alert Notifications
+   9. Toast Notifications (Lectures 6, 7, 8)
    -------------------------------------------------------------------------- */
 .aura-toast {
   position: fixed;
@@ -558,59 +817,218 @@ img {
   right: 2rem;
   z-index: 2000;
   min-width: 320px;
-  background: var(--aura-white);
-  border-left: 5px solid var(--aura-gold);
-  border-radius: var(--aura-radius-md);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
-  padding: 1rem 1.25rem;
+  background-color: #FFFFFF;
+  border-left: 3px solid #D9381E;
+  border-top: 1px solid #E5E3DC;
+  border-right: 1px solid #E5E3DC;
+  border-bottom: 1px solid #E5E3DC;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(20, 20, 19, 0.06), 0 1px 2px rgba(20, 20, 19, 0.04);
+  padding: 14px 20px !important;
   display: flex;
   align-items: center;
   gap: 1rem;
-  transform: translateY(120%);
   opacity: 0;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+  visibility: hidden;
+  box-sizing: border-box;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .aura-toast.show {
-  transform: translateY(0);
   opacity: 1;
+  visibility: visible;
 }
 
 .toast-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(212, 175, 55, 0.15);
-  color: var(--aura-gold-hover);
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #FBF2EF;
+  color: #D9381E;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   10. Interactive Micro-animations
+   10. Template & Layout Overrides (Lectures 6, 7, 8, 9)
+   Box model padding applied to hero search, category overlays, and step circles
    -------------------------------------------------------------------------- */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.hero-main-section {
+  background-color: #141413 !important;
+  background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1920&q=80') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  padding: 80px 24px 70px !important;
+  border-bottom: 1px solid #282825;
+  position: relative;
+  box-sizing: border-box;
 }
 
-.fade-in-up {
-  animation: fadeIn 0.45s ease-out forwards;
+.hero-main-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(20, 20, 19, 0.88);
+  z-index: 1;
+}
+
+.hero-main-section > .container {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.hero-search-card {
+  background-color: #FFFFFF !important;
+  border-radius: 6px !important;
+  border: 1px solid #E5E3DC !important;
+  padding: 24px 32px !important;
+  box-shadow: 0 1px 3px rgba(20, 20, 19, 0.06), 0 1px 2px rgba(20, 20, 19, 0.04) !important;
+  color: #141413 !important;
+  box-sizing: border-box;
+}
+
+.category-card {
+  border-radius: 6px !important;
+  border: 1px solid #E5E3DC !important;
+  overflow: hidden !important;
+  position: relative;
+  height: 260px;
+  box-sizing: border-box;
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+.category-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 24px !important;
+  background-color: rgba(20, 20, 19, 0.9) !important;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.feature-step-circle {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 4px !important;
+  background-color: #141413 !important;
+  border: 1px solid #E5E3DC !important;
+  color: #D9381E !important;
+  font-size: 1.25rem !important;
+  box-shadow: none !important;
+  margin: 0 auto 16px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.auth-visual-side {
+  background-color: #141413 !important;
+  background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=80') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  position: relative;
+  padding: 40px 30px;
+  box-sizing: border-box;
+}
+
+.auth-visual-side::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(20, 20, 19, 0.85);
+  z-index: 1;
+}
+
+.auth-visual-side > * {
+  position: relative;
+  z-index: 2;
+}
+
+.auth-quote-card {
+  background-color: rgba(20, 20, 19, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+  padding: 24px 32px !important;
+  box-sizing: border-box;
+}
+
+.otp-input-field {
+  border-radius: 4px !important;
+  border: 1px solid #E5E3DC !important;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.otp-input-field:focus {
+  border-color: #D9381E !important;
+  box-shadow: 0 0 0 1px #D9381E !important;
+}
+
+.benefit-icon {
+  border-radius: 4px !important;
+  background-color: #FBF2EF !important;
+  border: 1px solid #F0D5CF !important;
+  color: #D9381E !important;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.custom-profile-tabs .nav-link {
+  border-radius: 4px !important;
+  color: #141413 !important;
+  font-weight: 500;
+  border: 1px solid transparent;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.custom-profile-tabs .nav-link.active {
+  background-color: #FBF2EF !important;
+  color: #D9381E !important;
+  border-color: #F0D5CF !important;
+  font-weight: 600;
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+  box-shadow: none !important;
 }
 
-/* Responsive tweaks */
+.fade-in-up {
+  opacity: 1;
+}
+
 @media (max-width: 991.98px) {
-  .page-hero-banner {
-    padding: 3rem 0 2.5rem;
+  .page-hero-banner,
+  .page-hero-banner.py-4 {
+    padding: 36px 16px !important;
   }
   .page-hero-banner h1 {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 }
