@@ -112,26 +112,7 @@
     </div>
   </main>
 
-  <!-- MODAL: Gallery Preview -->
-  <div class="modal fade" id="venueCatalogModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content border-0 shadow-lg">
-        <div class="modal-header bg-dark text-white p-3">
-          <h5 class="modal-title fw-bold" id="catModalTitle">Venue Details</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0">
-          <img id="catModalImg" src="" alt="Venue Image" class="w-100" style="max-height: 480px; object-fit: cover;">
-          <div class="p-4 bg-light">
-            <h6 class="fw-bold mb-1" id="catModalName"></h6>
-            <p class="text-muted small mb-3" id="catModalDesc"></p>
-            <div id="catModalFacilities" class="d-flex flex-wrap gap-2 mb-3"></div>
-            <a id="catModalBookBtn" href="#" class="btn btn-aura-gold w-100">Configure This Venue in Event Builder</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Venue Detail Navigation Note: Clicking 'Detail' navigates directly to the dedicated venue detail screen -->
 
   <!-- Global Footer -->
   <footer class="aura-footer py-4">
@@ -228,16 +209,20 @@
       grid.innerHTML = filtered.map(v => `
         <div class="col-lg-4 col-md-6">
           <div class="aura-card h-100">
-            <div class="position-relative" style="height: 220px;">
+            <a href="venue-detail.html?id=${v.id}" class="d-block position-relative" style="height: 220px;">
               <img src="${v.image}" alt="${v.name}" class="w-100 h-100" style="object-fit: cover;">
               <span class="badge-gold position-absolute top-0 start-0 m-3 text-capitalize">${v.type}</span>
               <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
                 <i class="fa-solid fa-users me-1"></i> Up to ${v.capacity} Guests
               </span>
-            </div>
+            </a>
             <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
               <div>
-                <h5 class="fw-bold mb-1">${v.name}</h5>
+                <h5 class="fw-bold mb-1">
+                  <a href="venue-detail.html?id=${v.id}" class="text-dark text-decoration-none">
+                    ${v.name}
+                  </a>
+                </h5>
                 <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> ${v.location}</p>
                 <p class="text-secondary small mb-3">${v.description}</p>
                 <div class="d-flex flex-wrap gap-1 mb-3">
@@ -250,11 +235,11 @@
                   <span class="fw-bold text-primary">${formatPKR(v.price)}</span>
                 </div>
                 <div class="d-flex gap-2">
-                  <button class="btn btn-outline-secondary btn-sm" onclick="openVenueModal('${v.id}')">
-                    <i class="fa-solid fa-circle-info"></i>
-                  </button>
-                  <a href="book-event.html?venue=${v.id}" class="btn btn-aura-navy btn-sm">
-                    Plan Here
+                  <a href="venue-detail.html?id=${v.id}" class="btn btn-outline-secondary btn-sm" title="View Venue Details, Past Events & Reviews">
+                    <i class="fa-solid fa-circle-info me-1"></i> Detail
+                  </a>
+                  <a href="book-event.html?venue=${v.id}" class="btn btn-aura-navy btn-sm" title="Book This Venue">
+                    <i class="fa-solid fa-calendar-check me-1"></i> Venue Booking
                   </a>
                 </div>
               </div>
@@ -265,21 +250,7 @@
     }
 
     function openVenueModal(id) {
-      const v = VENUES_DATA.find(x => x.id === id);
-      if (!v) return;
-
-      document.getElementById("catModalImg").src = v.image;
-      document.getElementById("catModalTitle").textContent = v.name;
-      document.getElementById("catModalName").textContent = `${v.name} (${v.location})`;
-      document.getElementById("catModalDesc").textContent = `${v.description} Guest Capacity: ${v.capacity} • Starting Rate: ${formatPKR(v.price)}`;
-      
-      const facEl = document.getElementById("catModalFacilities");
-      facEl.innerHTML = v.facilities.map(f => `<span class="badge bg-white text-dark border p-2"><i class="fa-solid fa-check text-success me-1"></i> ${f}</span>`).join('');
-      
-      document.getElementById("catModalBookBtn").href = `book-event.html?venue=${v.id}`;
-
-      const modal = new bootstrap.Modal(document.getElementById("venueCatalogModal"));
-      modal.show();
+      window.location.href = `venue-detail.html?id=${id}`;
     }
 
     document.getElementById("venueSearchInput").addEventListener("input", renderVenuesCatalog);
