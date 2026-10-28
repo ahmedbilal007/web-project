@@ -26,6 +26,15 @@
       object-fit: cover;
       border-radius: 4px;
     }
+    #venueCarousel .carousel-control-prev,
+    #venueCarousel .carousel-control-next {
+      opacity: 1;
+    }
+    .venue-carousel-control-icon {
+      background-color: rgba(20, 20, 19, 0.75);
+      border-radius: 50%;
+      background-size: 60% 60%;
+    }
     .spec-item-box {
       background: #FFFFFF;
       border: 1px solid #E5E3DC;
@@ -141,16 +150,49 @@
       <!-- Left Column: Details, Specifications, Gallery & Reviews -->
       <div class="col-lg-8">
         
-        <!-- Showcase Image Banner -->
+        <!-- Main Venue & Previous Events Carousel -->
         <div class="aura-card p-0 mb-4 overflow-hidden shadow-sm">
-          <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80" alt="The Royal Palm Grand Ballroom" class="venue-hero-gallery-img">
-            <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-0 m-3 px-3 py-2 rounded-2">
-              <i class="fa-solid fa-location-dot text-danger me-1"></i> Club Road, Islamabad
-            </span>
-            <span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 end-0 m-3 px-3 py-2 rounded-2">
-              Indoor Royal Ballroom
-            </span>
+          <div id="venueCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="false" role="region" aria-label="Venue and previous event photos">
+            <div class="carousel-indicators bg-dark bg-opacity-75 rounded">
+              <button type="button" data-bs-target="#venueCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="The Royal Palm Grand Ballroom"></button>
+              <button type="button" data-bs-target="#venueCarousel" data-bs-slide-to="1" aria-label="Royal Barat: Hamza & Ayesha"></button>
+              <button type="button" data-bs-target="#venueCarousel" data-bs-slide-to="2" aria-label="Pakistan Tech Leadership Summit"></button>
+              <button type="button" data-bs-target="#venueCarousel" data-bs-slide-to="3" aria-label="Celestial White Walima: Daniyal & Maria"></button>
+              <button type="button" data-bs-target="#venueCarousel" data-bs-slide-to="4" aria-label="Diplomatic Silver Jubilee Gala Dinner"></button>
+            </div>
+            <div class="carousel-inner">
+              <!-- Original Venue Photo -->
+              <div class="carousel-item active">
+                <img src="assets/images/royal-palm.jpg" alt="The Royal Palm Grand Ballroom" class="venue-hero-gallery-img">
+                <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-0 m-3 mb-5 px-3 py-2 rounded-2">
+                  <i class="fa-solid fa-location-dot text-danger me-1"></i> Club Road, Islamabad
+                </span>
+                <span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 end-0 m-3 px-3 py-2 rounded-2">
+                  Indoor Royal Ballroom
+                </span>
+              </div>
+              <!-- Previous Events in the Same Order as the Gallery -->
+              <div class="carousel-item">
+                <img src="assets/images/serena-hall.jpg" alt="Chandeliers and decorated wedding banquet tables" class="venue-hero-gallery-img">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/images/corporate.jpg" alt="Corporate Summit" class="venue-hero-gallery-img">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/images/garden-venue.jpg" alt="Walima Reception" class="venue-hero-gallery-img">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/images/gala.jpg" alt="Diplomatic Gala" class="venue-hero-gallery-img">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#venueCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon venue-carousel-control-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#venueCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon venue-carousel-control-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
 
@@ -232,79 +274,8 @@
           </div>
         </div>
 
-        <!-- Section 4: Past Events Gallery -->
-        <div class="aura-card p-4 mb-4" id="gallery">
-          <div class="border-bottom pb-3 mb-4">
-            <h4 class="fw-bold text-dark mb-1">Previous Events Photo Gallery</h4>
-            <p class="text-muted small mb-0">Real photography from past weddings, corporate galas, and celebrations held at this venue.</p>
-          </div>
+       
 
-          <div class="row g-3">
-            <!-- Event Photo 1 -->
-            <div class="col-md-6">
-              <div class="gallery-preview-card h-100">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Royal Barat" class="w-100" style="height: 200px; object-fit: cover;">
-                <div class="p-3">
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="badge bg-danger">Royal Barat</span>
-                    <small class="text-muted">620 Guests • Nov 2025</small>
-                  </div>
-                  <h6 class="fw-bold mb-1">Royal Barat: Hamza & Ayesha</h6>
-                  <p class="text-secondary small mb-2">Imperial Crimson & Gold themed Barat reception featuring 8,000 imported roses and crystal candelabras.</p>
-                  <small class="text-muted d-block"><strong class="text-dark">Highlight:</strong> Dutch Red Roses & 24k Gold Candelabras</small>
-                </div>
-              </div>
-            </div>
-
-            <!-- Event Photo 2 -->
-            <div class="col-md-6">
-              <div class="gallery-preview-card h-100">
-                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Corporate Summit" class="w-100" style="height: 200px; object-fit: cover;">
-                <div class="p-3">
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="badge bg-primary">Corporate Summit</span>
-                    <small class="text-muted">500 Guests • Jan 2026</small>
-                  </div>
-                  <h6 class="fw-bold mb-1">Pakistan Tech Leadership Summit</h6>
-                  <p class="text-secondary small mb-2">National executive summit attended by tech founders and officials with dual 4K LED screen setup.</p>
-                  <small class="text-muted d-block"><strong class="text-dark">Highlight:</strong> Synchronized Dual 4K LED Screen Setup</small>
-                </div>
-              </div>
-            </div>
-
-            <!-- Event Photo 3 -->
-            <div class="col-md-6">
-              <div class="gallery-preview-card h-100">
-                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=80" alt="Walima Reception" class="w-100" style="height: 200px; object-fit: cover;">
-                <div class="p-3">
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="badge bg-danger">Walima Reception</span>
-                    <small class="text-muted">580 Guests • Dec 2025</small>
-                  </div>
-                  <h6 class="fw-bold mb-1">Celestial White Walima: Daniyal & Maria</h6>
-                  <p class="text-secondary small mb-2">Dreamlike winter pastel aesthetic with hanging wisteria floral clouds and warm amber pin-spot lighting.</p>
-                  <small class="text-muted d-block"><strong class="text-dark">Highlight:</strong> Hanging Wisteria Floral Clouds</small>
-                </div>
-              </div>
-            </div>
-
-            <!-- Event Photo 4 -->
-            <div class="col-md-6">
-              <div class="gallery-preview-card h-100">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=800&q=80" alt="Diplomatic Gala" class="w-100" style="height: 200px; object-fit: cover;">
-                <div class="p-3">
-                  <div class="d-flex justify-content-between align-items-center mb-1">
-                    <span class="badge bg-secondary">Diplomatic Gala</span>
-                    <small class="text-muted">450 Guests • Oct 2025</small>
-                  </div>
-                  <h6 class="fw-bold mb-1">Diplomatic Silver Jubilee Gala Dinner</h6>
-                  <p class="text-secondary small mb-2">Black-tie banquet for international delegates with formal 5-course seated dining and high-security protocol.</p>
-                  <small class="text-muted d-block"><strong class="text-dark">Highlight:</strong> Five-Course Formal Silver Service</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- Section 5: Host Reviews & Comments -->
         <div class="aura-card p-4 mb-4" id="reviews">
@@ -320,7 +291,7 @@
             <!-- Review 1 -->
             <div class="p-3 bg-light rounded-3 border">
               <div class="d-flex align-items-center gap-3 mb-2">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Brigadier (R) Tariq Mahmood" class="review-avatar">
+                <img src="assets/images/client-tariq.jpg" alt="Brigadier (R) Tariq Mahmood" class="review-avatar" loading="lazy">
                 <div>
                   <h6 class="fw-bold text-dark mb-0">Brigadier (R) Tariq Mahmood</h6>
                   <small class="text-muted">Hosted Daughter's Barat Reception (620 Guests) • November 2025</small>
@@ -337,7 +308,7 @@
             <!-- Review 2 -->
             <div class="p-3 bg-light rounded-3 border">
               <div class="d-flex align-items-center gap-3 mb-2">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Dr. Samina Qureshi" class="review-avatar">
+                <img src="assets/images/client-samina.jpg" alt="Dr. Samina Qureshi" class="review-avatar" loading="lazy">
                 <div>
                   <h6 class="fw-bold text-dark mb-0">Dr. Samina Qureshi</h6>
                   <small class="text-muted">Hosted Son's Walima Reception (580 Guests) • December 2025</small>
@@ -354,7 +325,7 @@
             <!-- Review 3 -->
             <div class="p-3 bg-light rounded-3 border">
               <div class="d-flex align-items-center gap-3 mb-2">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Shahmir Khan Niazi" class="review-avatar">
+                <img src="assets/images/client-daniyal.jpg" alt="Shahmir Khan Niazi" class="review-avatar" loading="lazy">
                 <div>
                   <h6 class="fw-bold text-dark mb-0">Shahmir Khan Niazi</h6>
                   <small class="text-muted">Lead Organizer, Pakistan Tech Summit • January 2026</small>
@@ -454,7 +425,7 @@
           </div>
 
           <!-- Included in Hall Hire -->
-          <div class="aura-card p-4 mb-4">
+          <!-- <div class="aura-card p-4 mb-4">
             <h6 class="fw-bold text-dark mb-3"><i class="fa-solid fa-gift text-danger me-2"></i> Included with Booking</h6>
             <ul class="list-unstyled small mb-0 d-flex flex-column gap-2 text-secondary">
               <li class="d-flex align-items-center gap-2">
@@ -473,26 +444,9 @@
                 <i class="fa-solid fa-circle-check text-success"></i> Post-Event Deep Sanitization & Cleaning Squad
               </li>
             </ul>
-          </div>
+          </div> -->
 
-          <!-- Direct Coordinator Assistance -->
-          <div class="aura-card p-4">
-            <h6 class="fw-bold text-dark mb-1">Need a Private Walkthrough?</h6>
-            <p class="text-muted small mb-3">Our dedicated Twin Cities venue specialist can arrange an on-site guided tour.</p>
-            <div class="d-flex align-items-center gap-2 mb-3">
-              <div class="brand-icon" style="width: 40px; height: 40px; font-size: 1rem;">
-                <i class="fa-solid fa-phone"></i>
-              </div>
-              <div>
-                <small class="text-muted d-block">Venue Concierge Hotline</small>
-                <a href="tel:+92511112872" class="fw-bold text-dark">+92 51 111-AURA (2872)</a>
-              </div>
-            </div>
-            <a href="https://wa.me/923001234567" target="_blank" class="btn btn-outline-success w-100 btn-sm">
-              <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp Venue Inquiries
-            </a>
-          </div>
-
+          
         </div>
       </div>
 
@@ -516,7 +470,7 @@
           <div class="aura-card h-100 p-3">
             <div class="row g-3 align-items-center">
               <div class="col-sm-4">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Serena Sheesh Mahal Hall" class="rounded w-100" style="height: 120px; object-fit: cover;">
+                <img src="assets/images/serena-hall.jpg" alt="Serena Sheesh Mahal Hall" class="rounded w-100" style="height: 120px; object-fit: cover;" loading="lazy">
               </div>
               <div class="col-sm-8">
                 <span class="badge-gold small mb-1">Indoor • 500 Guests</span>
@@ -536,7 +490,7 @@
           <div class="aura-card h-100 p-3">
             <div class="row g-3 align-items-center">
               <div class="col-sm-4">
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Margalla Hillview Garden Pavilion" class="rounded w-100" style="height: 120px; object-fit: cover;">
+                <img src="assets/images/garden-venue.jpg" alt="Margalla Hillview Garden Pavilion" class="rounded w-100" style="height: 120px; object-fit: cover;" loading="lazy">
               </div>
               <div class="col-sm-8">
                 <span class="badge-gold small mb-1">Outdoor • 400 Guests</span>
@@ -561,5 +515,7 @@
     </div>
   </footer>
 
+  <!-- Bootstrap 5.3.3 Bundle: built-in carousel controls -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
