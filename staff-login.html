@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Portal Login | Aura Events</title>
+  <meta name="description" content="Secure internal staff portal login for Aura Events venue operations and booking management.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,500&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Master and Staff Stylesheets (No CSS variables, no calc, syllabus compliant) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/staff.css">
+</head>
+<body class="staff-body">
+
+  <!-- Top Header Navigation -->
+  <header class="staff-header">
+    <div class="staff-header-container">
+      <a href="index.html" class="staff-brand-link" title="Return to Aura Events Homepage">
+        <div class="staff-brand-box">A</div>
+        <div>
+          <span class="staff-brand-text">AURA.EVENTS</span>
+          <span class="staff-brand-subtext">Luxury Event Planning</span>
+        </div>
+      </a>
+      <div class="staff-header-actions">
+        <a href="index.html" class="staff-btn staff-btn-outline">Back to Website</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Centered Login Card -->
+  <main class="staff-login-main">
+    <section class="staff-login-card">
+      
+      <!-- Card Title and Introduction -->
+      <div style="margin-bottom: 20px;">
+        <span class="staff-badge staff-badge-green" style="margin-bottom: 10px;">Internal Staff Portal</span>
+        <h1 class="staff-font-heading" style="font-size: 24px; margin: 0 0 6px 0;">Staff Authentication</h1>
+        <p class="staff-text-muted" style="margin: 0;">Sign in to review booking requests, check venue availability schedules, and update event statuses.</p>
+      </div>
+
+      <!-- Administrator Account Notice (No self-registration permitted) -->
+      <div class="staff-notice-box">
+        <span class="staff-notice-title">Notice</span>
+        Note: Staff accounts are created and managed exclusively by the System Administrator. Contact Admin for credentials.
+      </div>
+
+      <!-- Staff Login Form (method="get" is used only because this is a no-backend demo) -->
+      <form action="staff-dashboard.html" method="get">
+        
+        <!-- Staff Email Input -->
+        <div class="staff-form-group" style="margin-bottom: 16px;">
+          <label class="staff-label" for="staffEmail">Staff ID / Official Email <span class="staff-text-danger">*</span></label>
+          <input type="email" class="staff-input" id="staffEmail" name="staffEmail" required value="staff.operations@auraevents.pk" placeholder="staff.name@auraevents.pk">
+        </div>
+
+        <!-- Password Input -->
+        <div class="staff-form-group" style="margin-bottom: 12px;">
+          <label class="staff-label" for="staffPassword">Password <span class="staff-text-danger">*</span></label>
+          <input type="password" class="staff-input" id="staffPassword" name="staffPassword" required value="staffPass2026" placeholder="Enter password">
+        </div>
+
+        <!-- Remember Device Checkbox -->
+        <div class="staff-checkbox-wrapper">
+          <input type="checkbox" class="staff-checkbox" id="staffRemember" name="staffRemember" checked>
+          <label class="staff-label" for="staffRemember" style="font-weight: 400; cursor: pointer; margin: 0;">Remember my login on this device</label>
+        </div>
+
+        <!-- Submit Button to Dashboard -->
+        <button type="submit" class="staff-btn staff-btn-primary staff-btn-block">Sign In to Staff Portal</button>
+
+      </form>
+
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="staff-footer">
+    <p style="margin: 0;">© 2026 Aura Events Management Platform. All Rights Reserved. Staff Portal.</p>
+  </footer>
+
+</body>
+</html>
+

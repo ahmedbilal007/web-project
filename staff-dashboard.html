@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Portal Dashboard | Aura Events</title>
+  <meta name="description" content="Internal operations dashboard for Aura Events staff to view bookings, verify venue availability, update profile, and manage credentials.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,500&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Master and Staff Stylesheets (No CSS variables, no calc, syllabus compliant) -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/staff.css">
+</head>
+<body class="staff-body">
+
+  <!-- Staff Portal Top Header -->
+  <header class="staff-header">
+    <div class="staff-header-container">
+      <a href="index.html" class="staff-brand-link" title="Return to Main Website">
+        <div class="staff-brand-box">A</div>
+        <div>
+          <span class="staff-brand-text">AURA.EVENTS</span>
+          <span class="staff-brand-subtext">Internal Staff Operations</span>
+        </div>
+      </a>
+      <div class="staff-header-actions">
+        <span class="staff-user-chip">Staff: Fatima Zahra (Operations)</span>
+        <a href="staff-login.html" class="staff-btn staff-btn-outline">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Grid Layout: Sticky Sidebar & Main Content -->
+  <div class="staff-dashboard-wrapper">
+    
+    <!-- Sidebar Navigation (Sticky Positioning) -->
+    <aside class="staff-sidebar">
+      <div class="staff-sidebar-heading">Staff Navigation</div>
+      <nav>
+        <ul class="staff-sidebar-nav">
+          <li><a href="#all-bookings" class="staff-sidebar-link">All Bookings</a></li>
+          <li><a href="#booking-requests" class="staff-sidebar-link">Booking Requests</a></li>
+          <li><a href="#update-profile" class="staff-sidebar-link">Update Profile</a></li>
+          <li><a href="#change-password" class="staff-sidebar-link">Change Password</a></li>
+          <li class="staff-sidebar-logout"><a href="staff-login.html" class="staff-sidebar-link">Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="staff-main-content">
+
+      <!-- FUNCTIONALITY 3: All Bookings Directory -->
+      <section id="all-bookings" class="staff-card-section">
+        <div class="staff-card-header">
+          <h2 class="staff-card-title">All Event Bookings</h2>
+          <p class="staff-card-subtitle">Master directory of all reservations across luxury venues, displaying live date slots and conflict checks.</p>
+        </div>
+
+        <p class="staff-helper-note">
+          <strong>Availability Note:</strong> When two bookings that are neither Rejected nor Cancelled share the same venue, date, and time slot, both are flagged as <em>Conflict</em> to alert staff before decisions are made.
+        </p>
+
+        <!-- Horizontally Scrollable Table Wrapper -->
+        <div class="staff-table-container">
+          <table class="staff-data-table">
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Client Name</th>
+                <th>Event Type</th>
+                <th>Venue Name</th>
+                <th>Event Date &amp; Slot</th>
+                <th>Venue Availability</th>
+                <th>Current Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1: Accepted with Conflict (shares date/slot with Row 2) -->
+              <tr>
+                <td><strong>BK-2026-101</strong></td>
+                <td>Mustafa Tariq</td>
+                <td>Barat &amp; Wedding Reception</td>
+                <td>The Royal Palm Grand Ballroom</td>
+                <td>2026-11-20 (Evening)</td>
+                <td><span class="staff-badge staff-badge-red">Conflict</span></td>
+                <td><span class="staff-badge staff-badge-green">Accepted</span></td>
+                <td>
+                  <form action="#all-bookings" method="get" class="staff-inline-form">
+                    <input type="hidden" name="booking_id" value="BK-2026-101">
+                    <input type="hidden" name="action_type" value="cancel">
+                    <button type="submit" class="staff-btn staff-btn-cancel">Cancel</button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Row 2: Pending with Conflict (shares date/slot with Row 1) -->
+              <tr>
+                <td><strong>BK-2026-102</strong></td>
+                <td>Ayesha Malik</td>
+                <td>Walima Dinner</td>
+                <td>The Royal Palm Grand Ballroom</td>
+                <td>2026-11-20 (Evening)</td>
+                <td><span class="staff-badge staff-badge-red">Conflict</span></td>
+                <td><span class="staff-badge staff-badge-amber">Pending</span></td>
+                <td>
+                  <div class="staff-actions-cell">
+                    <form action="#all-bookings" method="get" class="staff-inline-form">
+                      <input type="hidden" name="booking_id" value="BK-2026-102">
+                      <input type="hidden" name="action_type" value="accept">
+                      <button type="submit" class="staff-btn staff-btn-accept">Accept</button>
+                    </form>
+                    <form action="#all-bookings" method="get" class="staff-inline-form">
+                      <input type="hidden" name="booking_id" value="BK-2026-102">
+                      <input type="hidden" name="action_type" value="reject">
+                      <button type="submit" class="staff-btn staff-btn-reject">Reject</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 3: Pending and Available -->
+              <tr>
+                <td><strong>BK-2026-103</strong></td>
+                <td>Hamza Abbasi</td>
+                <td>Corporate Gala &amp; Banquet</td>
+                <td>Serena Sheesh Mahal Hall</td>
+                <td>2026-11-24 (Evening)</td>
+                <td><span class="staff-badge staff-badge-green">Available</span></td>
+                <td><span class="staff-badge staff-badge-amber">Pending</span></td>
+                <td>
+                  <div class="staff-actions-cell">
+                    <form action="#all-bookings" method="get" class="staff-inline-form">
+                      <input type="hidden" name="booking_id" value="BK-2026-103">
+                      <input type="hidden" name="action_type" value="accept">
+                      <button type="submit" class="staff-btn staff-btn-accept">Accept</button>
+                    </form>
+                    <form action="#all-bookings" method="get" class="staff-inline-form">
+                      <input type="hidden" name="booking_id" value="BK-2026-103">
+                      <input type="hidden" name="action_type" value="reject">
+                      <button type="submit" class="staff-btn staff-btn-reject">Reject</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 4: Pending and Available -->
+              <tr>
+                <td><strong>BK-2026-104</strong></td>
+                <td>Zainab Qureshi</td>
+                <td>Mehndi &amp; Sangeet</td>
+                <td>Margalla Hillview Garden Pavilion</td>
+                <td>2026-11-27 (Evening)</td>
+                <td><span class="staff-badge staff-badge-green">Available</span></td>
+                <td><span class="staff-badge staff-badge-amber">Pending</span></td>
+                <td>
+                  <div class="staff-actions-cell">
+                    <form action="#all-bookings" method="get" class="staff-inline-form">
+                      <input type="hidden" name="booking_id" value="BK-2026-104">
+                      <input type="hidden" name="action_type" value="accept">
+                      <button type="submit" class="staff-btn staff-btn-accept">Accept</button>
+                    </form>
+                    <form action="#all-bookings" method="get" class="staff-inline-form">
+                      <input type="hidden" name="booking_id" value="BK-2026-104">
+                      <input type="hidden" name="action_type" value="reject">
+                      <button type="submit" class="staff-btn staff-btn-reject">Reject</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 5: Accepted and Available -->
+              <tr>
+                <td><strong>BK-2026-105</strong></td>
+                <td>Bilal Asghar</td>
+                <td>Barat &amp; Wedding Reception</td>
+                <td>PC Crystal Hall &amp; Marquee</td>
+                <td>2026-12-02 (Afternoon)</td>
+                <td><span class="staff-badge staff-badge-green">Available</span></td>
+                <td><span class="staff-badge staff-badge-green">Accepted</span></td>
+                <td>
+                  <form action="#all-bookings" method="get" class="staff-inline-form">
+                    <input type="hidden" name="booking_id" value="BK-2026-105">
+                    <input type="hidden" name="action_type" value="cancel">
+                    <button type="submit" class="staff-btn staff-btn-cancel">Cancel</button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Row 6: Accepted and Available -->
+              <tr>
+                <td><strong>BK-2026-106</strong></td>
+                <td>Mariam Siddiqui</td>
+                <td>Milestone Birthday</td>
+                <td>The Club Poolside Gazebo</td>
+                <td>2026-12-05 (Evening)</td>
+                <td><span class="staff-badge staff-badge-green">Available</span></td>
+                <td><span class="staff-badge staff-badge-green">Accepted</span></td>
+                <td>
+                  <form action="#all-bookings" method="get" class="staff-inline-form">
+                    <input type="hidden" name="booking_id" value="BK-2026-106">
+                    <input type="hidden" name="action_type" value="cancel">
+                    <button type="submit" class="staff-btn staff-btn-cancel">Cancel</button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Row 7: Rejected Status (No conflict caused) -->
+              <tr>
+                <td><strong>BK-2026-107</strong></td>
+                <td>Usman Javed</td>
+                <td>Walima Dinner</td>
+                <td>Serena Sheesh Mahal Hall</td>
+                <td>2026-11-15 (Evening)</td>
+                <td><span class="staff-badge staff-badge-green">Available</span></td>
+                <td><span class="staff-badge staff-badge-red">Rejected</span></td>
+                <td><span class="staff-text-muted">No action</span></td>
+              </tr>
+
+              <!-- Row 8: Cancelled Status (No conflict caused) -->
+              <tr>
+                <td><strong>BK-2026-108</strong></td>
+                <td>Sarah Farooq</td>
+                <td>Corporate Gala &amp; Banquet</td>
+                <td>The Royal Palm Grand Ballroom</td>
+                <td>2026-11-10 (Afternoon)</td>
+                <td><span class="staff-badge staff-badge-green">Available</span></td>
+                <td><span class="staff-badge staff-badge-grey">Cancelled</span></td>
+                <td><span class="staff-text-muted">No action</span></td>
+              </tr>
+
+              <!-- Row 9: Pending and Available -->
+              <tr>
+                <td><strong>BK-2026-109</strong></td>
+                <td>Taimoor Shah</td>
+                <td>Milestone Birthday</td>
+                <td>The Club Poolside Gazebo</td>
+                <td>2026-12-12 (Evening)</td>
+                <td><span class="staff-badge staff-badge-green">Available</span></td>
+                <td><span class="staff-badge staff-badge-amber">Pending</span></td>
+                <td>
+                  <div class="staff-actions-cell">
+                    <form action="#all-bookings" method="get" class="staff-inline-form">
+                      <input type="hidden" name="booking_id" value="BK-2026-109">
+                      <input type="hidden" name="action_type" value="accept">
+                      <button type="submit" class="staff-btn staff-btn-accept">Accept</button>
+                    </form>
+                    <form action="#all-bookings" method="get" class="staff-inline-form">
+                      <input type="hidden" name="booking_id" value="BK-2026-109">
+                      <input type="hidden" name="action_type" value="reject">
+                      <button type="submit" class="staff-btn staff-btn-reject">Reject</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FUNCTIONALITY 2: Booking Requests & Availability Check -->
+      <section id="booking-requests" class="staff-card-section">
+        <div class="staff-card-header">
+          <h2 class="staff-card-title">Pending Booking Requests</h2>
+          <p class="staff-card-subtitle">Review incoming reservation requests, evaluate date availability, and accept, reject, or cancel requests.</p>
+        </div>
+
+        <p class="staff-helper-note">
+          Note: Action buttons submit via HTML GET forms to reload the directory view. In this academic course project, status changes are demonstrated on the front-end and are not permanently saved because there is no backend database.
+        </p>
+
+        <!-- Grid of Pending Request Cards -->
+        <div class="staff-requests-grid">
+          
+          <!-- Pending Card 1 (Conflict Detected) -->
+          <article class="staff-request-item">
+            <div class="staff-request-head">
+              <div>
+                <h3 class="staff-request-id">Booking #BK-2026-102</h3>
+                <small class="staff-text-muted">Submitted by Ayesha Malik</small>
+              </div>
+              <span class="staff-badge staff-badge-red">Venue Already Booked / Conflict</span>
+            </div>
+
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Event Type:</span>
+              <span class="staff-detail-value">Walima Dinner</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Requested Venue:</span>
+              <span class="staff-detail-value">The Royal Palm Grand Ballroom</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Date &amp; Slot:</span>
+              <span class="staff-detail-value">2026-11-20 (Evening)</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Current Status:</span>
+              <span class="staff-badge staff-badge-amber">Pending</span>
+            </div>
+
+            <!-- Action Controls Form -->
+            <form action="#all-bookings" method="get" class="staff-request-buttons">
+              <input type="hidden" name="request_id" value="BK-2026-102">
+              <button type="submit" name="decision" value="accept" class="staff-btn staff-btn-accept">Accept Request</button>
+              <button type="submit" name="decision" value="reject" class="staff-btn staff-btn-reject">Reject Request</button>
+              <button type="submit" name="decision" value="cancel" class="staff-btn staff-btn-cancel">Cancel Booking</button>
+            </form>
+          </article>
+
+          <!-- Pending Card 2 (Available) -->
+          <article class="staff-request-item">
+            <div class="staff-request-head">
+              <div>
+                <h3 class="staff-request-id">Booking #BK-2026-103</h3>
+                <small class="staff-text-muted">Submitted by Hamza Abbasi</small>
+              </div>
+              <span class="staff-badge staff-badge-green">Venue Available on Date</span>
+            </div>
+
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Event Type:</span>
+              <span class="staff-detail-value">Corporate Gala &amp; Banquet</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Requested Venue:</span>
+              <span class="staff-detail-value">Serena Sheesh Mahal Hall</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Date &amp; Slot:</span>
+              <span class="staff-detail-value">2026-11-24 (Evening)</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Current Status:</span>
+              <span class="staff-badge staff-badge-amber">Pending</span>
+            </div>
+
+            <!-- Action Controls Form -->
+            <form action="#all-bookings" method="get" class="staff-request-buttons">
+              <input type="hidden" name="request_id" value="BK-2026-103">
+              <button type="submit" name="decision" value="accept" class="staff-btn staff-btn-accept">Accept Request</button>
+              <button type="submit" name="decision" value="reject" class="staff-btn staff-btn-reject">Reject Request</button>
+              <button type="submit" name="decision" value="cancel" class="staff-btn staff-btn-cancel">Cancel Booking</button>
+            </form>
+          </article>
+
+          <!-- Pending Card 3 (Available) -->
+          <article class="staff-request-item">
+            <div class="staff-request-head">
+              <div>
+                <h3 class="staff-request-id">Booking #BK-2026-104</h3>
+                <small class="staff-text-muted">Submitted by Zainab Qureshi</small>
+              </div>
+              <span class="staff-badge staff-badge-green">Venue Available on Date</span>
+            </div>
+
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Event Type:</span>
+              <span class="staff-detail-value">Mehndi &amp; Sangeet</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Requested Venue:</span>
+              <span class="staff-detail-value">Margalla Hillview Garden Pavilion</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Date &amp; Slot:</span>
+              <span class="staff-detail-value">2026-11-27 (Evening)</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Current Status:</span>
+              <span class="staff-badge staff-badge-amber">Pending</span>
+            </div>
+
+            <!-- Action Controls Form -->
+            <form action="#all-bookings" method="get" class="staff-request-buttons">
+              <input type="hidden" name="request_id" value="BK-2026-104">
+              <button type="submit" name="decision" value="accept" class="staff-btn staff-btn-accept">Accept Request</button>
+              <button type="submit" name="decision" value="reject" class="staff-btn staff-btn-reject">Reject Request</button>
+              <button type="submit" name="decision" value="cancel" class="staff-btn staff-btn-cancel">Cancel Booking</button>
+            </form>
+          </article>
+
+          <!-- Pending Card 4 (Available) -->
+          <article class="staff-request-item">
+            <div class="staff-request-head">
+              <div>
+                <h3 class="staff-request-id">Booking #BK-2026-109</h3>
+                <small class="staff-text-muted">Submitted by Taimoor Shah</small>
+              </div>
+              <span class="staff-badge staff-badge-green">Venue Available on Date</span>
+            </div>
+
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Event Type:</span>
+              <span class="staff-detail-value">Milestone Birthday</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Requested Venue:</span>
+              <span class="staff-detail-value">The Club Poolside Gazebo</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Date &amp; Slot:</span>
+              <span class="staff-detail-value">2026-12-12 (Evening)</span>
+            </div>
+            <div class="staff-detail-row">
+              <span class="staff-detail-label">Current Status:</span>
+              <span class="staff-badge staff-badge-amber">Pending</span>
+            </div>
+
+            <!-- Action Controls Form -->
+            <form action="#all-bookings" method="get" class="staff-request-buttons">
+              <input type="hidden" name="request_id" value="BK-2026-109">
+              <button type="submit" name="decision" value="accept" class="staff-btn staff-btn-accept">Accept Request</button>
+              <button type="submit" name="decision" value="reject" class="staff-btn staff-btn-reject">Reject Request</button>
+              <button type="submit" name="decision" value="cancel" class="staff-btn staff-btn-cancel">Cancel Booking</button>
+            </form>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- FUNCTIONALITY 5: Update Staff Profile -->
+      <section id="update-profile" class="staff-card-section">
+        <div class="staff-card-header">
+          <h2 class="staff-card-title">Staff Profile Information</h2>
+          <p class="staff-card-subtitle">View and update your internal staff profile details, official contact info, and assigned department role.</p>
+        </div>
+
+        <form action="#update-profile" method="get">
+          <fieldset class="staff-fieldset">
+            <legend class="staff-legend">Personal &amp; Departmental Information</legend>
+
+            <div class="staff-form-grid">
+              <!-- Staff ID (Read Only) -->
+              <div class="staff-form-group">
+                <label class="staff-label" for="staffProfileId">Staff ID (Assigned by Administrator)</label>
+                <input type="text" class="staff-input" id="staffProfileId" name="staffId" value="STAFF-ISB-104" readonly>
+              </div>
+
+              <!-- Full Name -->
+              <div class="staff-form-group">
+                <label class="staff-label" for="staffProfileName">Full Name <span class="staff-text-danger">*</span></label>
+                <input type="text" class="staff-input" id="staffProfileName" name="staffName" value="Fatima Zahra" required>
+              </div>
+
+              <!-- Official Email -->
+              <div class="staff-form-group">
+                <label class="staff-label" for="staffProfileEmail">Official Staff Email <span class="staff-text-danger">*</span></label>
+                <input type="email" class="staff-input" id="staffProfileEmail" name="staffEmail" value="fatima.zahra@auraevents.pk" required>
+              </div>
+
+              <!-- Phone Number -->
+              <div class="staff-form-group">
+                <label class="staff-label" for="staffProfilePhone">Phone Number <span class="staff-text-danger">*</span></label>
+                <input type="tel" class="staff-input" id="staffProfilePhone" name="staffPhone" value="+92 312 9876543" required>
+              </div>
+
+              <!-- Assigned Role / Department -->
+              <div class="staff-form-group staff-form-group-full">
+                <label class="staff-label" for="staffProfileRole">Assigned Department / Venue Role <span class="staff-text-danger">*</span></label>
+                <select class="staff-select" id="staffProfileRole" name="staffRole" required>
+                  <option value="operations" selected>Event Operations &amp; Venue Allocation</option>
+                  <option value="coordination">Client Coordination &amp; Bookings</option>
+                  <option value="catering">Bespoke Catering &amp; Menus</option>
+                  <option value="logistics">AV &amp; Stage Logistics</option>
+                  <option value="concierge">VIP Concierge Desk</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+              <button type="submit" class="staff-btn staff-btn-primary">Save Profile Changes</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- FUNCTIONALITY 4: Change Password -->
+      <section id="change-password" class="staff-card-section">
+        <div class="staff-card-header">
+          <h2 class="staff-card-title">Change Portal Password</h2>
+          <p class="staff-card-subtitle">Maintain account security by regularly updating your internal staff access credentials.</p>
+        </div>
+
+        <form action="#change-password" method="get">
+          <fieldset class="staff-fieldset">
+            <legend class="staff-legend">Portal Security Credentials</legend>
+
+            <div class="staff-form-grid">
+              <!-- Current Password -->
+              <div class="staff-form-group staff-form-group-full">
+                <label class="staff-label" for="currentPassword">Current Password <span class="staff-text-danger">*</span></label>
+                <input type="password" class="staff-input" id="currentPassword" name="currentPassword" required placeholder="Enter current password">
+              </div>
+
+              <!-- New Password -->
+              <div class="staff-form-group">
+                <label class="staff-label" for="newPassword">New Password (Min 8 Characters) <span class="staff-text-danger">*</span></label>
+                <input type="password" class="staff-input" id="newPassword" name="newPassword" minlength="8" required placeholder="At least 8 characters">
+              </div>
+
+              <!-- Confirm New Password -->
+              <div class="staff-form-group">
+                <label class="staff-label" for="confirmPassword">Confirm New Password <span class="staff-text-danger">*</span></label>
+                <input type="password" class="staff-input" id="confirmPassword" name="confirmPassword" minlength="8" required placeholder="Re-type new password">
+              </div>
+            </div>
+
+            <!-- Helper Text Requirement -->
+            <p class="staff-helper-note">Password must be at least 8 characters and match the confirmation.</p>
+
+            <div>
+              <button type="submit" class="staff-btn staff-btn-primary">Update Password</button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="staff-footer">
+    <p style="margin: 0;">© 2026 Aura Events Management Platform. All Rights Reserved. Staff Operations Dashboard.</p>
+  </footer>
+
+</body>
+</html>
+
