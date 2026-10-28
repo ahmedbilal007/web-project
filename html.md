@@ -16,24 +16,24 @@ Aura Events is built across **18 production HTML5 documents** utilizing **55 uni
 
 | File Name | Page Role / Architectural Purpose | Key HTML Features Present |
 | :--- | :--- | :--- |
-| `index.html` | **Homepage / Landing Portal:** Brand hero, quick search filter, event category showcase, featured venues, reviews, and call-to-action. | `<header>`, `<nav>`, `<section>`, `<article>` cards, `<h1>`-`<h6>`, `<form>`, carousel indicators, inline `<style>`. |
-| `venues.html` | **Venue Directory & Catalog:** Filterable grid of venues, capacity/location sorting, pagination, and pricing badges. | `<aside>`/filter bars, grid layouts with `<div>`, badge `<span>`, anchor links, image cards. |
-| `venue-detail.html` | **Single Venue Showcase:** Detailed venue specs, multi-photo Bootstrap carousel, amenities grid, client reviews, and direct booking CTA. | `<script>` (Bootstrap JS bundle), Bootstrap Carousel structure (`data-bs-ride`, `data-bs-slide`), `<blockquote>`, review ratings. |
-| `services.html` | **Services & Add-ons Catalog:** Detailed breakdown of Catering, Photography, Decor, Sound/Lighting, and VIP hospitality services. | Categorized `<section>` blocks, feature list `<ul>`, pricing highlight cards, badge pills. |
-| `book-event.html` | **Interactive Event Configurator (Core Project Innovation):** Multi-step wizard (Venue -> Seating -> Catering -> Add-ons -> Review). | `<aside class="sticky-price-tracker">`, `<table>` with `<thead>`, `<tbody>`, `<tfoot>`, `colspan`, dynamic inputs, radio/checkbox sets. |
-| `my-bookings.html` | **User Booking Management Dashboard:** Tabbed view of active, confirmed, and past events with a milestone status timeline. | `<ol>` breadcrumbs, status filter buttons (`data-filter`), timeline card components, badge tags. |
-| `profile.html` | **Customer Profile & Account Settings:** Personal info form, security settings (password change), and VIP tier status card. | Avatar `<img>`, multi-input `<form>`, `<textarea>`, `<select>` dropdowns, tab containers. |
-| `login.html` | **Authentication - Sign In:** Split-screen login interface with background hero, credential inputs, validation states, and recovery link. | Two-column split layout, `<form method="GET">`, `<input type="email">`, `<input type="password">`, remember-me checkbox. |
-| `register.html` | **Authentication - Sign Up:** User account creation form with contact info, city selector, terms acknowledgment, and validation. | Form inputs with `required`, `pattern` readiness, `<select>` with `<option>` elements, legal checkbox. |
-| `forgot-password.html` | **Password Recovery Portal:** Minimalist recovery form allowing users to submit registered email for reset instructions. | Focused `<main>` container, recovery `<form>`, helper `<p>`, return navigation link. |
-| `staff-login.html` | **Staff Portal - Team Authentication:** Dedicated sign-in portal for event coordinators and venue managers with employee ID and secure authentication. | Split visual hero, employee ID input, role selector, remember checkbox, back to customer link. |
-| `staff-dashboard.html` | **Staff Operations Management Dashboard:** Back-office administrative suite for approving/rejecting booking requests, schedule conflicts, and profile management. | `<article>` request cards, `<fieldset>` and `<legend>` forms, availability `<table>`, tab panels, quick metrics. |
-| `admin-login.html` | **Admin Portal - Super Admin Sign In:** Secure authentication gateway for system administrators with notice banners and error states. | Accessible `<form>`, `<aside>` notice, role badge, disabled state triggers. |
-| `admin-dashboard.html` | **Admin Portal - Executive Overview:** High-level enterprise analytics dashboard with six KPI metric cards and upcoming events. | Metric stat cards, `<time>`, status badges, breadcrumbs, responsive grid. |
-| `admin-bookings.html` | **Admin Portal - Master Bookings Directory:** Comprehensive enterprise booking ledger displaying all 7 booking statuses with deep filtering. | Data `<table>`, `<caption>`, `<th scope="col">`, status badges, horizontal scroll. |
-| `admin-booking-details.html` | **Admin Portal - Granular Booking Inspector:** In-depth read-only audit records with itemized PKR charges, histories, and notes. | `<dl>`, `<dt>`, `<dd>` description lists, `<time datetime="...">`, invoice `<table>`. |
-| `admin-staff.html` | **Admin Portal - Staff & Role Directory:** Personnel management interface for onboarding staff, credential resets, and deactivation safeguards. | Management forms, confirmation checkboxes, minlength validations, audit tables. |
-| `admin-settings.html` | **Admin Portal - Platform Configuration:** Core platform parameters, quotation rules, seasonal rate multipliers, and roles matrix. | Form groups, readonly inputs, toggle switches, documentation links. |
+| `customer/index.html` | **Customer Homepage / Landing Portal:** Brand hero, quick search filter, event category showcase, featured venues, reviews, and call-to-action. | `<header>`, `<nav>`, `<section>`, `<article>` cards, `<h1>`-`<h6>`, `<form>`, carousel indicators, inline `<style>`. |
+| `customer/venues.html` | **Venue Directory & Catalog:** Filterable grid of venues, capacity/location sorting, pagination, and pricing badges. | `<aside>`/filter bars, grid layouts with `<div>`, badge `<span>`, anchor links, image cards. |
+| `customer/venue-detail.html` | **Single Venue Showcase:** Detailed venue specs, multi-photo Bootstrap carousel, amenities grid, client reviews, and direct booking CTA. | `<script>` (Bootstrap JS bundle), Bootstrap Carousel structure (`data-bs-ride`, `data-bs-slide`), `<blockquote>`, review ratings. |
+| `customer/services.html` | **Services & Add-ons Catalog:** Detailed breakdown of Catering, Photography, Decor, Sound/Lighting, and VIP hospitality services. | Categorized `<section>` blocks, feature list `<ul>`, pricing highlight cards, badge pills. |
+| `customer/book-event.html` | **Interactive Event Configurator (Core Project Innovation):** Multi-step wizard (Venue -> Seating -> Catering -> Add-ons -> Review). | `<aside class="sticky-price-tracker">`, `<table>` with `<thead>`, `<tbody>`, `<tfoot>`, `colspan`, dynamic inputs, radio/checkbox sets. |
+| `customer/my-bookings.html` | **User Booking Management Dashboard:** Tabbed view of active, confirmed, and past events with a milestone status timeline. | `<ol>` breadcrumbs, status filter buttons (`data-filter`), timeline card components, badge tags. |
+| `customer/profile.html` | **Customer Profile & Account Settings:** Personal info form, security settings (password change), and VIP tier status card. | Avatar `<img>`, multi-input `<form>`, `<textarea>`, `<select>` dropdowns, tab containers. |
+| `customer/login.html` | **Authentication - Sign In:** Split-screen login interface with background hero, credential inputs, validation states, and recovery link. | Two-column split layout, `<form method="GET">`, `<input type="email">`, `<input type="password">`, remember-me checkbox. |
+| `customer/register.html` | **Authentication - Sign Up:** User account creation form with contact info, city selector, terms acknowledgment, and validation. | Form inputs with `required`, `pattern` readiness, `<select>` with `<option>` elements, legal checkbox. |
+| `customer/forgot-password.html` | **Password Recovery Portal:** Minimalist recovery form allowing users to submit registered email for reset instructions. | Focused `<main>` container, recovery `<form>`, helper `<p>`, return navigation link. |
+| `staff/staff-login.html` | **Staff Portal - Team Authentication:** Dedicated sign-in portal for event coordinators and venue managers with employee ID and secure authentication. | Split visual hero, employee ID input, role selector, remember checkbox, back to customer link. |
+| `staff/staff-dashboard.html` | **Staff Operations Management Dashboard:** Back-office administrative suite for approving/rejecting booking requests, schedule conflicts, and profile management. | `<article>` request cards, `<fieldset>` and `<legend>` forms, availability `<table>`, tab panels, quick metrics. |
+| `admin/admin-login.html` | **Admin Portal - Super Admin Sign In:** Secure authentication gateway for system administrators with notice banners and error states. | Accessible `<form>`, `<aside>` notice, role badge, disabled state triggers. |
+| `admin/admin-dashboard.html` | **Admin Portal - Executive Overview:** High-level enterprise analytics dashboard with six KPI metric cards and upcoming events. | Metric stat cards, `<time>`, status badges, breadcrumbs, responsive grid. |
+| `admin/admin-bookings.html` | **Admin Portal - Master Bookings Directory:** Comprehensive enterprise booking ledger displaying all 7 booking statuses with deep filtering. | Data `<table>`, `<caption>`, `<th scope="col">`, status badges, horizontal scroll. |
+| `admin/admin-booking-details.html` | **Admin Portal - Granular Booking Inspector:** In-depth read-only audit records with itemized PKR charges, histories, and notes. | `<dl>`, `<dt>`, `<dd>` description lists, `<time datetime="...">`, invoice `<table>`. |
+| `admin/admin-staff.html` | **Admin Portal - Staff & Role Directory:** Personnel management interface for onboarding staff, credential resets, and deactivation safeguards. | Management forms, confirmation checkboxes, minlength validations, audit tables. |
+| `admin/admin-settings.html` | **Admin Portal - Platform Configuration:** Core platform parameters, quotation rules, seasonal rate multipliers, and roles matrix. | Form groups, readonly inputs, toggle switches, documentation links. |
 
 ---
 
@@ -103,13 +103,13 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
   ```
 
 #### 7. `<style>`
-* **Count:** 4 occurrences | **Files:** `index.html`, `login.html`, `register.html`, `venue-detail.html`
+* **Count:** 4 occurrences | **Files:** `index.html`, `customer/login.html`, `customer/register.html`, `customer/venue-detail.html`
 * **Attributes Used:** None (standard CSS type assumed in HTML5)
 * **Purpose & Role:** Encapsulates page-specific internal CSS declarations directly inside the document `<head>`.
 * **Where Used in Project:**
   * `index.html`: Custom `.hero-main-section` linear-gradient overlay and background image.
-  * `login.html` & `register.html`: Custom `.auth-split-wrapper` and `.auth-visual-side` flex layouts.
-  * `venue-detail.html`: Carousel image fixed height rules and control button glassmorphism.
+  * `customer/login.html` & `customer/register.html`: Custom `.auth-split-wrapper` and `.auth-visual-side` flex layouts.
+  * `customer/venue-detail.html`: Carousel image fixed height rules and control button glassmorphism.
 
 ---
 
@@ -118,7 +118,7 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 #### 8. `<body>`
 * **Count:** 10 occurrences | **Files:** All 10 HTML files
 * **Attributes Used:** `class="bg-light"`, `class="bg-light d-flex flex-column min-vh-100"`
-* **Purpose & Role:** Contains all rendered visual content. In Aura Events, sticky footer flexbox utilities (`d-flex flex-column min-vh-100`) are applied directly to `<body>` so that the footer always hugs the viewport bottom even on low-content pages like `forgot-password.html`.
+* **Purpose & Role:** Contains all rendered visual content. In Aura Events, sticky footer flexbox utilities (`d-flex flex-column min-vh-100`) are applied directly to `<body>` so that the footer always hugs the viewport bottom even on low-content pages like `customer/forgot-password.html`.
 
 #### 9. `<header>`
 * **Count:** 1 occurrence | **Files:** `index.html`
@@ -126,12 +126,12 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 * **Purpose & Role:** Semantic container for introductory content or navigational aids. Serves as the high-impact hero banner of the Aura Events homepage containing the primary brand statement, value proposition, and quick booking entry point.
 
 #### 10. `<nav>`
-* **Count:** 13 occurrences | **Files:** 8 files (`index.html`, `venues.html`, `venue-detail.html`, `services.html`, `book-event.html`, `my-bookings.html`, `profile.html`, `forgot-password.html`)
+* **Count:** 13 occurrences | **Files:** 8 files (`index.html`, `customer/venues.html`, `customer/venue-detail.html`, `customer/services.html`, `customer/book-event.html`, `customer/my-bookings.html`, `customer/profile.html`, `customer/forgot-password.html`)
 * **Attributes Used:** `class="navbar navbar-expand-lg aura-navbar"`, `class="breadcrumb-aura"`, `aria-label="breadcrumb"`
 * **Purpose & Role:** Identifies blocks intended for website navigation. Used for both the primary site navigation bar (`.aura-navbar`) and the breadcrumb navigation bars (`<nav aria-label="breadcrumb">`).
 
 #### 11. `<main>`
-* **Count:** 7 occurrences | **Files:** 7 files (`login.html`, `register.html`, `forgot-password.html`, `venues.html`, `services.html`, `my-bookings.html`, `profile.html`)
+* **Count:** 7 occurrences | **Files:** 7 files (`customer/login.html`, `customer/register.html`, `customer/forgot-password.html`, `customer/venues.html`, `customer/services.html`, `customer/my-bookings.html`, `customer/profile.html`)
 * **Attributes Used:** `class="flex-grow-1"`, `class="container my-5 py-4"`
 * **Purpose & Role:** Encloses the unique, central content of each page, distinctly separating it from repeated headers, navigation bars, and footers. Promotes accessibility for keyboard and screen reader skip-to-content shortcuts.
 
@@ -141,14 +141,14 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 * **Purpose & Role:** Represents a standalone thematic grouping of content, typically including a heading. Used to separate the Event Categories section, Why Choose Us section, Testimonials section, and Service Package tiers.
 
 #### 13. `<aside>`
-* **Count:** 1 occurrence | **Files:** `book-event.html`
+* **Count:** 1 occurrence | **Files:** `customer/book-event.html`
 * **Attributes Used:** `class="sticky-price-tracker"`
-* **Purpose & Role:** Represents secondary content related to the surrounding main content. In `book-event.html`, it is used to encapsulate the **Sticky Live Price Calculator**, which remains pinned to the right side of the screen as the user scrolls through the multi-step booking options.
+* **Purpose & Role:** Represents secondary content related to the surrounding main content. In `customer/book-event.html`, it is used to encapsulate the **Sticky Live Price Calculator**, which remains pinned to the right side of the screen as the user scrolls through the multi-step booking options.
 
 #### 14. `<article>`
-* **Count:** 4 occurrences | **Files:** `staff-dashboard.html`
+* **Count:** 4 occurrences | **Files:** `staff/staff-dashboard.html`
 * **Attributes Used:** `class="staff-request-item"`
-* **Purpose & Role:** Represents a complete, self-contained composition in a document that is independently distributable or reusable. In `staff-dashboard.html`, each pending booking request item is encapsulated in an `<article>`, containing its request ID, client information, event details, financial totals, and action buttons (Approve / Reject).
+* **Purpose & Role:** Represents a complete, self-contained composition in a document that is independently distributable or reusable. In `staff/staff-dashboard.html`, each pending booking request item is encapsulated in an `<article>`, containing its request ID, client information, event details, financial totals, and action buttons (Approve / Reject).
 
 #### 15. `<footer>`
 * **Count:** 8 occurrences | **Files:** 8 files
@@ -170,7 +170,7 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 * **Purpose & Role:** Major section headings. Used for section titles such as "Curated Event Venues across Pakistan", "Signature Event Services", and "What Our Esteemed Clients Say".
 
 #### 17. `<h3>`
-* **Count:** 3 occurrences | **Files:** `forgot-password.html`, `services.html`, `venue-detail.html`
+* **Count:** 3 occurrences | **Files:** `customer/forgot-password.html`, `customer/services.html`, `customer/venue-detail.html`
 * **Attributes Used:** `class="fw-bold mb-2"`, `class="fw-bold text-dark"`
 * **Purpose & Role:** Sub-section headings, such as modal titles, password reset prompts, and service package subcategories.
 
@@ -205,17 +205,17 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 * **Purpose & Role:** Denotes content of strong importance or urgency. Used to highlight calculated total prices, package names, and mandatory contract terms.
 
 #### 25. `<em>`
-* **Count:** 1 occurrence | **Files:** `staff-dashboard.html`
+* **Count:** 1 occurrence | **Files:** `staff/staff-dashboard.html`
 * **Attributes Used:** None
-* **Purpose & Role:** Marks text that has stress emphasis. Used in `staff-dashboard.html` to highlight scheduling clashes: `<span class="staff-conflict-tag"><em>Conflict</em>: Double-booking risk</span>`. Screen readers pronounce emphasized words with verbal stress.
+* **Purpose & Role:** Marks text that has stress emphasis. Used in `staff/staff-dashboard.html` to highlight scheduling clashes: `<span class="staff-conflict-tag"><em>Conflict</em>: Double-booking risk</span>`. Screen readers pronounce emphasized words with verbal stress.
 
 #### 27. `<time>`
-* **Count:** 14 occurrences | **Files:** `admin-dashboard.html`, `admin-bookings.html`, `admin-booking-details.html`
+* **Count:** 14 occurrences | **Files:** `admin/admin-dashboard.html`, `admin/admin-bookings.html`, `admin/admin-booking-details.html`
 * **Attributes Used:** `datetime="YYYY-MM-DD"`, `class="..."`
 * **Purpose & Role:** Represents a specific period in time or a date. Used in the admin portal to format event dates and submission timestamps (e.g., `<time datetime="2026-11-15">Nov 15, 2026</time>`). Enables search engines and calendar scrapers to parse dates machine-readably.
 
 #### 28. `<hr>`
-* **Count:** 2 occurrences | **Files:** `login.html`, `register.html`
+* **Count:** 2 occurrences | **Files:** `customer/login.html`, `customer/register.html`
 * **Attributes Used:** `class="my-4 text-muted"`
 * **Purpose & Role:** Represents a thematic break between paragraphs of text (e.g., separating primary sign-in from demo credential buttons).
 
@@ -278,7 +278,7 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
   6. `type="number"`: Guest count with `min="50"`, `max="2500"`, and `step="10"`.
   7. `type="radio"`: Mutually exclusive options (e.g., venue selection, catering tier selection).
   8. `type="checkbox"`: Multi-select add-ons (DJ sound, drone photography, fireworks, dessert bar) and "Remember Me" flags.
-  9. `type="file"`: Avatar upload on `profile.html` with `accept="image/*"`.
+  9. `type="file"`: Avatar upload on `customer/profile.html` with `accept="image/*"`.
 * **Code Example (`book-event.html#L312-L318`):**
   ```html
   <input type="number" class="form-control" id="numGuests" name="guests"
@@ -301,17 +301,17 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 * **Purpose & Role:** Defines individual selectable items inside `<select>` dropdown controls.
 
 #### 36. `<textarea>`
-* **Count:** 3 occurrences | **Files:** 3 files (`book-event.html`, `profile.html`, `venue-detail.html`)
+* **Count:** 3 occurrences | **Files:** 3 files (`customer/book-event.html`, `customer/profile.html`, `customer/venue-detail.html`)
 * **Attributes Used:** `id`, `name`, `class="form-control"`, `rows="3"`, `placeholder="..."`, `required`
 * **Purpose & Role:** Multi-line plain text editing control for capturing special event requests, dietary restrictions, stage specifications, and venue reviews.
 
 #### 38. `<fieldset>`
-* **Count:** 2 occurrences | **Files:** `staff-dashboard.html`
+* **Count:** 2 occurrences | **Files:** `staff/staff-dashboard.html`
 * **Attributes Used:** `class="staff-fieldset"`
-* **Purpose & Role:** Groups related form controls and labels logically within a web form. In `staff-dashboard.html`, it encapsulates the "Personal & Departmental Information" controls in one box and "Security Credentials" in another.
+* **Purpose & Role:** Groups related form controls and labels logically within a web form. In `staff/staff-dashboard.html`, it encapsulates the "Personal & Departmental Information" controls in one box and "Security Credentials" in another.
 
 #### 39. `<legend>`
-* **Count:** 2 occurrences | **Files:** `staff-dashboard.html`
+* **Count:** 2 occurrences | **Files:** `staff/staff-dashboard.html`
 * **Attributes Used:** `class="staff-legend"`
 * **Purpose & Role:** Provides an accessible caption for a parent `<fieldset>`. Assistive screen reader technologies read the legend aloud whenever any child input within that fieldset receives focus.
 
@@ -330,7 +330,7 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 * **Purpose & Role:** Represents a list of items where order does not affect meaning. Used for navbar links, footer site navigation, catering dish lists, and feature checklists.
 
 #### 39. `<ol>` (Ordered List)
-* **Count:** 5 occurrences | **Files:** 5 files (`my-bookings.html`, `profile.html`, `services.html`, `venue-detail.html`, `venues.html`)
+* **Count:** 5 occurrences | **Files:** 5 files (`customer/my-bookings.html`, `customer/profile.html`, `customer/services.html`, `customer/venue-detail.html`, `customer/venues.html`)
 * **Attributes Used:** `class="breadcrumb mb-0"`
 * **Purpose & Role:** Represents a sequential list of items. Strictly used for semantic breadcrumb navigation paths (e.g. Home > Venues > Royal Palm Details) where hierarchical sequence matters.
 
@@ -342,53 +342,53 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 ---
 
 #### 43. `<dl>` (Description List)
-* **Count:** 7 occurrences | **Files:** `admin-booking-details.html`
+* **Count:** 7 occurrences | **Files:** `admin/admin-booking-details.html`
 * **Attributes Used:** `class="row mb-0"`, `class="staff-details-list"`
-* **Purpose & Role:** Encloses a list of groups of terms (`<dt>`) and descriptions (`<dd>`). Strictly used in `admin-booking-details.html` for clean, two-column key-value pairs (Client Name, Contact Email, Assigned Venue, Headcount, Security Clearance).
+* **Purpose & Role:** Encloses a list of groups of terms (`<dt>`) and descriptions (`<dd>`). Strictly used in `admin/admin-booking-details.html` for clean, two-column key-value pairs (Client Name, Contact Email, Assigned Venue, Headcount, Security Clearance).
 
 #### 44. `<dt>` (Description Term)
-* **Count:** 42 occurrences | **Files:** `admin-booking-details.html`
+* **Count:** 42 occurrences | **Files:** `admin/admin-booking-details.html`
 * **Attributes Used:** `class="col-sm-4 text-muted"`
 * **Purpose & Role:** Specifies the term, label, or concept being defined in a description list.
 
 #### 45. `<dd>` (Description Details)
-* **Count:** 42 occurrences | **Files:** `admin-booking-details.html`
+* **Count:** 42 occurrences | **Files:** `admin/admin-booking-details.html`
 * **Attributes Used:** `class="col-sm-8 fw-semibold"`
 * **Purpose & Role:** Provides the detailed definition, data value, or description for the preceding `<dt>`.
 
 ### Category H: Tabular Data (Lecture 5)
 
 #### 41. `<table>`
-* **Count:** 1 occurrence | **Files:** `book-event.html`
+* **Count:** 1 occurrence | **Files:** `customer/book-event.html`
 * **Attributes Used:** `class="table table-bordered align-middle"`
-* **Purpose & Role:** Container for two-dimensional tabular data. Specifically used in `book-event.html` to present the formal, printable invoice breakdown of the event quotation.
+* **Purpose & Role:** Container for two-dimensional tabular data. Specifically used in `customer/book-event.html` to present the formal, printable invoice breakdown of the event quotation.
 
 #### 47. `<caption>`
-* **Count:** 2 occurrences | **Files:** `admin-bookings.html`, `admin-staff.html`
+* **Count:** 2 occurrences | **Files:** `admin/admin-bookings.html`, `admin/admin-staff.html`
 * **Attributes Used:** `class="visually-hidden"`, `class="text-muted small"`
 * **Purpose & Role:** Specifies the title or accessible summary of a data table. Crucial for screen reader users so they understand the table contents before reading through dozens of cells.
 
 #### 48. `<thead>`
-* **Count:** 1 occurrence | **Files:** `book-event.html`
+* **Count:** 1 occurrence | **Files:** `customer/book-event.html`
 * **Attributes Used:** `class="table-light"`
 * **Purpose & Role:** Semantic group of table header rows defining column titles: Item, Unit Description, Quantity/Rate, and Total (PKR).
 
 #### 43. `<tbody>`
-* **Count:** 1 occurrence | **Files:** `book-event.html`
+* **Count:** 1 occurrence | **Files:** `customer/book-event.html`
 * **Purpose & Role:** Groups the body content of the data table containing line items (Venue rental fee, per-head catering calculation, chosen add-ons).
 
 #### 44. `<tr>`
-* **Count:** 8 occurrences | **Files:** `book-event.html`
+* **Count:** 8 occurrences | **Files:** `customer/book-event.html`
 * **Attributes Used:** `class="table-light"`, `class="table-warning"`
 * **Purpose & Role:** Represents a single horizontal row of table cells.
 
 #### 45. `<th>`
-* **Count:** 4 occurrences | **Files:** `book-event.html`
+* **Count:** 4 occurrences | **Files:** `customer/book-event.html`
 * **Attributes Used:** `class="text-end"`
 * **Purpose & Role:** Defines header cells for columns. Bolded and centered by default according to user agent stylesheets.
 
 #### 46. `<td>`
-* **Count:** 22 occurrences | **Files:** `book-event.html`
+* **Count:** 22 occurrences | **Files:** `customer/book-event.html`
 * **Attributes Used:** `class="fw-bold"`, `class="text-end"`, `colspan="3"`
 * **Purpose & Role:** Standard data cells containing numeric and textual invoice details.
 * **Viva High-Yield Point:** Demonstrates the use of `colspan="3"` to allow the "Grand Total (incl. Taxes)" cell to span across three columns horizontally.
@@ -398,7 +398,7 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 ### Category I: Script Integration (Lecture 10)
 
 #### `<script>`
-* **Count:** 1 occurrence | **Files:** `venue-detail.html`
+* **Count:** 1 occurrence | **Files:** `customer/venue-detail.html`
 * **Attributes Used:** `src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"`
 * **Purpose & Role:** Loads external JavaScript code. Specifically imports the Bootstrap 5.3 bundled library containing Popper.js to enable the interactive venue carousel, tooltips, and collapsing navbar menus.
 
@@ -458,7 +458,7 @@ Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 * `<header>`: The hero landing section of our homepage.
 * `<nav>`: The main navigation bar and breadcrumbs.
 * `<main>`: The unique body content of each page.
-* `<aside>`: The sticky live price tracker sidebar on `book-event.html`.
+* `<aside>`: The sticky live price tracker sidebar on `customer/book-event.html`.
 * `<footer>`: The global site footer with copyright and developer credits.
 
 **Non-semantic tags** convey zero meaning about their content and act purely as generic styling containers:
@@ -494,19 +494,19 @@ If any constraint fails, the browser displays a localized native validation tool
 **Model Answer:**  
 "The `for` attribute binds the label programmatically to the corresponding form control. This has two vital benefits:
 1. **Accessibility:** When a visually impaired user tabs into a field, their screen reader announces the bound label text.
-2. **Usability / Hit Target:** Clicking on the label automatically focuses the text field or toggles the checkbox/radio button. This is especially helpful on smartphones for tiny radio buttons and checkboxes (e.g. selecting catering packages or add-ons in `book-event.html`)."
+2. **Usability / Hit Target:** Clicking on the label automatically focuses the text field or toggles the checkbox/radio button. This is especially helpful on smartphones for tiny radio buttons and checkboxes (e.g. selecting catering packages or add-ons in `customer/book-event.html`)."
 
 ### Q7: Why are `<form>` methods set to `GET` in your project rather than `POST`?
 **Model Answer:**  
-"Because this is a frontend-only prototype for our Web Tech Semester 4 coursework without an active PHP/Node.js backend database connection, using `method="GET"` appends the submitted parameters to the browser address bar as query string pairs (e.g., `venues.html?city=Lahore&type=Wedding`). This allows us to inspect submitted form values directly and easily demonstrate page transitions during viva evaluation. In a full production environment, authentication forms (`login.html`, `register.html`) would strictly use `method="POST"` over HTTPS to protect passwords from browser history and server access logs."
+"Because this is a frontend-only prototype for our Web Tech Semester 4 coursework without an active PHP/Node.js backend database connection, using `method="GET"` appends the submitted parameters to the browser address bar as query string pairs (e.g., `venues.html?city=Lahore&type=Wedding`). This allows us to inspect submitted form values directly and easily demonstrate page transitions during viva evaluation. In a full production environment, authentication forms (`customer/login.html`, `customer/register.html`) would strictly use `method="POST"` over HTTPS to protect passwords from browser history and server access logs."
 
 ### Q8: What is the purpose of `loading="lazy"` on your `<img>` tags?
 **Model Answer:**  
 "The `loading="lazy"` attribute enables native browser lazy-loading. Instead of downloading all 47 venue and catering photos immediately upon initial page render, the browser defers loading off-screen images until the user scrolls near them. This dramatically reduces initial bandwidth consumption, improves page load speeds, and improves Google Core Web Vitals (LCP and FCP metrics)."
 
-### Q9: Why is `<aside>` used in `book-event.html`?
+### Q9: Why is `<aside>` used in `customer/book-event.html`?
 **Model Answer:**  
-"`<aside>` is a semantic HTML5 element designating tangential or complementary content related to the surrounding main content. In `book-event.html`, the main content is the step-by-step configurator form, while the **Sticky Live Price Tracker** sits alongside it as a supporting financial summary calculation. This is textbook semantic usage of `<aside>`."
+"`<aside>` is a semantic HTML5 element designating tangential or complementary content related to the surrounding main content. In `customer/book-event.html`, the main content is the step-by-step configurator form, while the **Sticky Live Price Tracker** sits alongside it as a supporting financial summary calculation. This is textbook semantic usage of `<aside>`."
 
 ### Q10: What is the structure of an accessible, semantic HTML Table?
 **Model Answer:**  
@@ -515,7 +515,7 @@ If any constraint fails, the browser displays a localized native validation tool
 2. `<thead>`: Houses header rows (`<tr>`) with `<th>` cells that describe column data.
 3. `<tbody>`: Houses data rows (`<tr>`) with `<td>` cells that display the actual dataset.
 4. `<tfoot>`: (Optional) Houses summary or total rows.
-In `book-event.html`, we also use the `colspan="3"` attribute on the grand total cell to merge three columns into one unified label row."
+In `customer/book-event.html`, we also use the `colspan="3"` attribute on the grand total cell to merge three columns into one unified label row."
 
 ### Q11: How do Bootstrap interactive components (like the mobile hamburger menu or carousel) attach to HTML without writing custom JavaScript?
 **Model Answer:**  
@@ -550,14 +550,14 @@ In contrast, `<strong>` and `<em>` are **semantic tags**: `<strong>` signifies t
 ### Q16: What is the difference between `<section>` and `<article>`?
 **Model Answer:**  
 "Both are HTML5 semantic sectioning elements, but their scope differs fundamentally:
-* `<article>`: Represents an **independent, self-contained unit of content** that makes complete sense on its own if syndicated or shared elsewhere (e.g. a blog post, a review card, or an individual staff booking request card in `staff-dashboard.html`).
+* `<article>`: Represents an **independent, self-contained unit of content** that makes complete sense on its own if syndicated or shared elsewhere (e.g. a blog post, a review card, or an individual staff booking request card in `staff/staff-dashboard.html`).
 * `<section>`: Represents a **thematic grouping of related content** that forms part of a larger document structure (e.g. the 'Hero Section', 'Why Choose Us Section', or 'Testimonials Section' on `index.html`). A section typically requires a heading and is not meant to stand alone independently."
 
 ### Q17: Why should developers use `<fieldset>` and `<legend>` in forms instead of plain `<div>` containers?
 **Model Answer:**  
 "While `<div>` provides visual grouping, `<fieldset>` and `<legend>` provide **semantic and accessibility grouping**:
 1. When a visually impaired user tabs through inputs grouped inside a `<fieldset>`, screen readers announce the `<legend>` caption before the input label (e.g., *'Personal Information - Full Name, edit text'*).
-2. It visually structures complex enterprise dashboards into clear logical sections (as demonstrated in `staff-dashboard.html` for staff profile editing).
+2. It visually structures complex enterprise dashboards into clear logical sections (as demonstrated in `staff/staff-dashboard.html` for staff profile editing).
 3. Entire fieldsets can be disabled simultaneously in HTML by setting the `disabled` attribute on `<fieldset>`, disabling all child inputs at once."
 
 ---
@@ -568,7 +568,7 @@ In contrast, `<strong>` and `<em>` are **semantic tags**: `<strong>` signifies t
 "A **Description List** (`<dl>`) is specifically designed by the W3C for key-value or term-definition metadata pairs:
 * `<dt>`: The description term or label (e.g. *Customer Name*, *Venue*, *Budget*).
 * `<dd>`: The description definition or value (e.g. *Daniyal Khan*, *Royal Palm*, *PKR 850,000*).
-In `admin-booking-details.html`, using `<dl>` instead of generic `<div>`s or heavy `<table>`s conveys precise semantic meaning to search engines and screen readers, ensuring the relationship between the label and value is programmatically linked."
+In `admin/admin-booking-details.html`, using `<dl>` instead of generic `<div>`s or heavy `<table>`s conveys precise semantic meaning to search engines and screen readers, ensuring the relationship between the label and value is programmatically linked."
 
 ### Q19: Why is `<time datetime="...">` used instead of a standard `<span>`?
 **Model Answer:**  
@@ -583,7 +583,7 @@ Browsers, calendar extensions, and search crawlers can automatically parse this 
 "The `scope` attribute explicitly defines the direction and association of a table header cell:
 * `scope="col"`: Declares that the header cell applies to all data cells in that vertical column.
 * `scope="row"`: Declares that the header cell applies to all data cells in that horizontal row.
-Without `scope`, screen readers navigating complex enterprise tables (such as `admin-bookings.html`) can lose track of which column or row a data cell belongs to when visually impaired users move through the grid."
+Without `scope`, screen readers navigating complex enterprise tables (such as `admin/admin-bookings.html`) can lose track of which column or row a data cell belongs to when visually impaired users move through the grid."
 
 ---
 
