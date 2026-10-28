@@ -95,7 +95,7 @@
         </div>
       </a>
 
-      <button class="navbar-toggler navbar-toggler-aura border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <button class="navbar-toggler navbar-toggler-aura shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa-solid fa-bars-staggered text-dark fs-5"></i>
       </button>
 
@@ -509,5 +509,30 @@
       </div>
     </div>
   </footer>
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth Mobile Navbar handling
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggler = document.querySelector('.navbar-toggler-aura');
+      var menu = document.getElementById('navbarMain');
+      if (!toggler || !menu) return;
+
+      // Close collapse when clicking any nav link on mobile
+      var links = menu.querySelectorAll('.nav-link');
+      links.forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (window.innerWidth < 992 && menu.classList.contains('show')) {
+            if (typeof bootstrap !== 'undefined' && bootstrap.Collapse) {
+              var bsCollapse = bootstrap.Collapse.getInstance(menu) || new bootstrap.Collapse(menu);
+              bsCollapse.hide();
+            } else {
+              menu.classList.remove('show');
+            }
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
