@@ -19,6 +19,7 @@ The CSS in Aura Events is engineered according to the **CSC336 Web Technologies 
 | `assets/css/style.css` (1,041 lines) | **Master Platform Stylesheet:** Core resets, typography scale, buttons, badges, navbar, card surfaces, global footer, and layout overrides. | Lectures 5 & 6 (Box Model, Resets), Lecture 7 (Positioning), Lecture 8 (Flexbox, CSS3 Effects), Lecture 9 (Media Queries). |
 | `assets/css/configurator.css` (628 lines) | **Interactive Configurator & Dashboard Stylesheet:** Multi-step wizard progress bar, sticky price calculator, selectable cards, and status timeline. | Lecture 7 (`position: sticky`), Lecture 8 (Flex layouts, CSS transitions), Lecture 9 (Responsive mobile overrides). |
 | `assets/css/staff.css` (707 lines) | **Staff Operations Management Stylesheet:** CSS Grid-based operational dashboards, request cards, status conflict pills, modal panels, and metric decks. | Lecture 8 (CSS Grid, flexbox), Lecture 6 (Box Model, status borders), Lecture 9 (Media queries). |
+| `assets/css/admin.css` (111 lines) | **Admin Management Portal Stylesheet:** Sticky layouts, audit record targets (`:target`), scroll offsets, read-only field styles, and wide table containers. | Lecture 7 (`scroll-margin-top`, positioning), Lecture 6 (Attribute selectors), Lecture 8 (`:target` pseudo-class). |
 | Internal `<style>` Tags (4 Templates) | **Page-Specific Scoped Styles:** Found in `index.html`, `login.html`, `register.html`, and `venue-detail.html`. | Custom linear-gradient hero overlays, split-screen authentication flex containers, and fixed-height photo carousels. |
 | External Frameworks & CDNs | **Bootstrap 5.3.3 & Font Awesome 6.5.2:** Loaded across all 10 templates. | 12-column flexbox grid system, ready-made responsive utility classes, and scalable vector typography. |
 
@@ -557,6 +558,26 @@ In Aura Events, we use `rem` units across typography for predictable, accessible
 2. `auto-fit`: Fills the row with as many column tracks as can physically fit, expanding existing tracks to fill vacant horizontal space.
 3. `minmax(220px, 1fr)`: Sets the minimum width of any card to 220px and allows it to grow up to 1 fractional unit (`1fr`).
 On a wide 1920px screen, it renders 4 to 6 columns; on a tablet, 2 columns; on a smartphone, 1 column — **completely fluidly without a single `@media` query**."
+
+---
+
+
+### Q17: What does the `:target` pseudo-class do, and how is it used in `admin-booking-details.html`?
+**Model Answer:**  
+"The `:target` pseudo-class represents a unique element whose `id` matches the hash fragment (`#hash`) in the browser's current URL.  
+In `assets/css/admin.css`:
+```css
+.admin-record:target {
+  outline: 2px solid #D9381E;
+  outline-offset: 4px;
+}
+```
+When an administrator clicks 'View Details' on booking `BKG-7821` from the master table, the browser navigates to `admin-booking-details.html#bkg-7821`. The `:target` rule automatically draws a high-visibility crimson outline around that specific record, highlighting it instantly without needing any JavaScript."
+
+### Q18: What is `scroll-margin-top` and why is it essential with sticky/fixed navbars?
+**Model Answer:**  
+"When a user jumps to an anchor link (`#sectionId`), the browser scrolls the page so the element aligns with the very top edge of the viewport. However, if there is a sticky or fixed navbar, the navbar obscures the top part of the target element.  
+`scroll-margin-top: 20px;` tells the browser's scrolling engine to maintain an extra offset buffer above the target element, ensuring the content scrolls into full view below any fixed header."
 
 ---
 

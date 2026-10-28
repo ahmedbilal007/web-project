@@ -10,7 +10,7 @@
 
 ## 1. Project HTML Overview & Architectural Blueprint
 
-Aura Events is built across **12 production HTML5 documents** utilizing **50 unique HTML tags** and **over 38 distinct HTML attributes**. The markup adheres to strict HTML5 standards, utilizing semantic document outlining, accessible forms, responsive viewport integration, and seamless data binding with Bootstrap 5.3.3 and Font Awesome 6.5.2.
+Aura Events is built across **18 production HTML5 documents** utilizing **55 unique HTML tags** and **over 45 distinct HTML attributes**. The markup adheres to strict HTML5 standards, utilizing semantic document outlining, accessible forms, responsive viewport integration, and seamless data binding with Bootstrap 5.3.3 and Font Awesome 6.5.2.
 
 ### 1.1 Project HTML File Registry
 
@@ -28,16 +28,22 @@ Aura Events is built across **12 production HTML5 documents** utilizing **50 uni
 | `forgot-password.html` | **Password Recovery Portal:** Minimalist recovery form allowing users to submit registered email for reset instructions. | Focused `<main>` container, recovery `<form>`, helper `<p>`, return navigation link. |
 | `staff-login.html` | **Staff Portal - Team Authentication:** Dedicated sign-in portal for event coordinators and venue managers with employee ID and secure authentication. | Split visual hero, employee ID input, role selector, remember checkbox, back to customer link. |
 | `staff-dashboard.html` | **Staff Operations Management Dashboard:** Back-office administrative suite for approving/rejecting booking requests, schedule conflicts, and profile management. | `<article>` request cards, `<fieldset>` and `<legend>` forms, availability `<table>`, tab panels, quick metrics. |
+| `admin-login.html` | **Admin Portal - Super Admin Sign In:** Secure authentication gateway for system administrators with notice banners and error states. | Accessible `<form>`, `<aside>` notice, role badge, disabled state triggers. |
+| `admin-dashboard.html` | **Admin Portal - Executive Overview:** High-level enterprise analytics dashboard with six KPI metric cards and upcoming events. | Metric stat cards, `<time>`, status badges, breadcrumbs, responsive grid. |
+| `admin-bookings.html` | **Admin Portal - Master Bookings Directory:** Comprehensive enterprise booking ledger displaying all 7 booking statuses with deep filtering. | Data `<table>`, `<caption>`, `<th scope="col">`, status badges, horizontal scroll. |
+| `admin-booking-details.html` | **Admin Portal - Granular Booking Inspector:** In-depth read-only audit records with itemized PKR charges, histories, and notes. | `<dl>`, `<dt>`, `<dd>` description lists, `<time datetime="...">`, invoice `<table>`. |
+| `admin-staff.html` | **Admin Portal - Staff & Role Directory:** Personnel management interface for onboarding staff, credential resets, and deactivation safeguards. | Management forms, confirmation checkboxes, minlength validations, audit tables. |
+| `admin-settings.html` | **Admin Portal - Platform Configuration:** Core platform parameters, quotation rules, seasonal rate multipliers, and roles matrix. | Form groups, readonly inputs, toggle switches, documentation links. |
 
 ---
 
-## 2. Master Catalog of ALL 50 HTML Tags Used in Aura Events
+## 2. Master Catalog of ALL 55 HTML Tags Used in Aura Events
 
-Below is the exhaustive inventory of all 50 HTML tags identified across the project codebase, categorized semantically according to W3C specifications and the Web Tech course syllabus.
+Below is the exhaustive inventory of all 55 HTML tags identified across the project codebase, categorized semantically according to W3C specifications and the Web Tech course syllabus.
 
 ```
-Total Tags Analyzed: 50 Unique HTML Tags
-Occurrence Count: Over 2,600 Tag Instances across 12 Documents
+Total Tags Analyzed: 55 Unique HTML Tags
+Occurrence Count: Over 4,200 Tag Instances across 18 Documents
 ```
 
 ### Category A: Document Root & Metadata Elements (Lecture 2 & 3)
@@ -203,7 +209,12 @@ Occurrence Count: Over 2,600 Tag Instances across 12 Documents
 * **Attributes Used:** None
 * **Purpose & Role:** Marks text that has stress emphasis. Used in `staff-dashboard.html` to highlight scheduling clashes: `<span class="staff-conflict-tag"><em>Conflict</em>: Double-booking risk</span>`. Screen readers pronounce emphasized words with verbal stress.
 
-#### 26. `<hr>`
+#### 27. `<time>`
+* **Count:** 14 occurrences | **Files:** `admin-dashboard.html`, `admin-bookings.html`, `admin-booking-details.html`
+* **Attributes Used:** `datetime="YYYY-MM-DD"`, `class="..."`
+* **Purpose & Role:** Represents a specific period in time or a date. Used in the admin portal to format event dates and submission timestamps (e.g., `<time datetime="2026-11-15">Nov 15, 2026</time>`). Enables search engines and calendar scrapers to parse dates machine-readably.
+
+#### 28. `<hr>`
 * **Count:** 2 occurrences | **Files:** `login.html`, `register.html`
 * **Attributes Used:** `class="my-4 text-muted"`
 * **Purpose & Role:** Represents a thematic break between paragraphs of text (e.g., separating primary sign-in from demo credential buttons).
@@ -330,6 +341,21 @@ Occurrence Count: Over 2,600 Tag Instances across 12 Documents
 
 ---
 
+#### 43. `<dl>` (Description List)
+* **Count:** 7 occurrences | **Files:** `admin-booking-details.html`
+* **Attributes Used:** `class="row mb-0"`, `class="staff-details-list"`
+* **Purpose & Role:** Encloses a list of groups of terms (`<dt>`) and descriptions (`<dd>`). Strictly used in `admin-booking-details.html` for clean, two-column key-value pairs (Client Name, Contact Email, Assigned Venue, Headcount, Security Clearance).
+
+#### 44. `<dt>` (Description Term)
+* **Count:** 42 occurrences | **Files:** `admin-booking-details.html`
+* **Attributes Used:** `class="col-sm-4 text-muted"`
+* **Purpose & Role:** Specifies the term, label, or concept being defined in a description list.
+
+#### 45. `<dd>` (Description Details)
+* **Count:** 42 occurrences | **Files:** `admin-booking-details.html`
+* **Attributes Used:** `class="col-sm-8 fw-semibold"`
+* **Purpose & Role:** Provides the detailed definition, data value, or description for the preceding `<dt>`.
+
 ### Category H: Tabular Data (Lecture 5)
 
 #### 41. `<table>`
@@ -337,7 +363,12 @@ Occurrence Count: Over 2,600 Tag Instances across 12 Documents
 * **Attributes Used:** `class="table table-bordered align-middle"`
 * **Purpose & Role:** Container for two-dimensional tabular data. Specifically used in `book-event.html` to present the formal, printable invoice breakdown of the event quotation.
 
-#### 42. `<thead>`
+#### 47. `<caption>`
+* **Count:** 2 occurrences | **Files:** `admin-bookings.html`, `admin-staff.html`
+* **Attributes Used:** `class="visually-hidden"`, `class="text-muted small"`
+* **Purpose & Role:** Specifies the title or accessible summary of a data table. Crucial for screen reader users so they understand the table contents before reading through dozens of cells.
+
+#### 48. `<thead>`
 * **Count:** 1 occurrence | **Files:** `book-event.html`
 * **Attributes Used:** `class="table-light"`
 * **Purpose & Role:** Semantic group of table header rows defining column titles: Item, Unit Description, Quantity/Rate, and Total (PKR).
@@ -528,6 +559,31 @@ In contrast, `<strong>` and `<em>` are **semantic tags**: `<strong>` signifies t
 1. When a visually impaired user tabs through inputs grouped inside a `<fieldset>`, screen readers announce the `<legend>` caption before the input label (e.g., *'Personal Information - Full Name, edit text'*).
 2. It visually structures complex enterprise dashboards into clear logical sections (as demonstrated in `staff-dashboard.html` for staff profile editing).
 3. Entire fieldsets can be disabled simultaneously in HTML by setting the `disabled` attribute on `<fieldset>`, disabling all child inputs at once."
+
+---
+
+
+### Q18: What is the purpose of `<dl>`, `<dt>`, and `<dd>`, and why are they better than `<table>` or `<div>` for metadata?
+**Model Answer:**  
+"A **Description List** (`<dl>`) is specifically designed by the W3C for key-value or term-definition metadata pairs:
+* `<dt>`: The description term or label (e.g. *Customer Name*, *Venue*, *Budget*).
+* `<dd>`: The description definition or value (e.g. *Daniyal Khan*, *Royal Palm*, *PKR 850,000*).
+In `admin-booking-details.html`, using `<dl>` instead of generic `<div>`s or heavy `<table>`s conveys precise semantic meaning to search engines and screen readers, ensuring the relationship between the label and value is programmatically linked."
+
+### Q19: Why is `<time datetime="...">` used instead of a standard `<span>`?
+**Model Answer:**  
+"While a `<span>` only provides human-readable text, the `<time>` element with its `datetime` attribute provides both **human-readable text** inside the tag and **standardized machine-readable ISO-8601 formatting** in the attribute:
+```html
+<time datetime="2026-11-15T19:00:00">Nov 15, 2026 at 7:00 PM</time>
+```
+Browsers, calendar extensions, and search crawlers can automatically parse this attribute to offer 'Add to Google Calendar' features or extract event dates for rich search snippets."
+
+### Q20: Explain the accessible table attribute `<th scope="col">` and `<th scope="row">` used in the admin portal.
+**Model Answer:**  
+"The `scope` attribute explicitly defines the direction and association of a table header cell:
+* `scope="col"`: Declares that the header cell applies to all data cells in that vertical column.
+* `scope="row"`: Declares that the header cell applies to all data cells in that horizontal row.
+Without `scope`, screen readers navigating complex enterprise tables (such as `admin-bookings.html`) can lose track of which column or row a data cell belongs to when visually impaired users move through the grid."
 
 ---
 
