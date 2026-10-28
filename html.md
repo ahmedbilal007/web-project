@@ -10,7 +10,7 @@
 
 ## 1. Project HTML Overview & Architectural Blueprint
 
-Aura Events is built across **10 production HTML5 documents** utilizing **46 unique HTML tags** and **over 35 distinct HTML attributes**. The markup adheres to strict HTML5 standards, utilizing semantic document outlining, accessible forms, responsive viewport integration, and seamless data binding with Bootstrap 5.3.3 and Font Awesome 6.5.2.
+Aura Events is built across **12 production HTML5 documents** utilizing **50 unique HTML tags** and **over 38 distinct HTML attributes**. The markup adheres to strict HTML5 standards, utilizing semantic document outlining, accessible forms, responsive viewport integration, and seamless data binding with Bootstrap 5.3.3 and Font Awesome 6.5.2.
 
 ### 1.1 Project HTML File Registry
 
@@ -26,16 +26,18 @@ Aura Events is built across **10 production HTML5 documents** utilizing **46 uni
 | `login.html` | **Authentication - Sign In:** Split-screen login interface with background hero, credential inputs, validation states, and recovery link. | Two-column split layout, `<form method="GET">`, `<input type="email">`, `<input type="password">`, remember-me checkbox. |
 | `register.html` | **Authentication - Sign Up:** User account creation form with contact info, city selector, terms acknowledgment, and validation. | Form inputs with `required`, `pattern` readiness, `<select>` with `<option>` elements, legal checkbox. |
 | `forgot-password.html` | **Password Recovery Portal:** Minimalist recovery form allowing users to submit registered email for reset instructions. | Focused `<main>` container, recovery `<form>`, helper `<p>`, return navigation link. |
+| `staff-login.html` | **Staff Portal - Team Authentication:** Dedicated sign-in portal for event coordinators and venue managers with employee ID and secure authentication. | Split visual hero, employee ID input, role selector, remember checkbox, back to customer link. |
+| `staff-dashboard.html` | **Staff Operations Management Dashboard:** Back-office administrative suite for approving/rejecting booking requests, schedule conflicts, and profile management. | `<article>` request cards, `<fieldset>` and `<legend>` forms, availability `<table>`, tab panels, quick metrics. |
 
 ---
 
-## 2. Master Catalog of ALL 46 HTML Tags Used in Aura Events
+## 2. Master Catalog of ALL 50 HTML Tags Used in Aura Events
 
-Below is the exhaustive inventory of all 46 HTML tags identified across the project codebase, categorized semantically according to W3C specifications and the Web Tech course syllabus.
+Below is the exhaustive inventory of all 50 HTML tags identified across the project codebase, categorized semantically according to W3C specifications and the Web Tech course syllabus.
 
 ```
-Total Tags Analyzed: 46 Unique HTML Tags
-Occurrence Count: 2,126 Tag Instances across 10 Documents
+Total Tags Analyzed: 50 Unique HTML Tags
+Occurrence Count: Over 2,600 Tag Instances across 12 Documents
 ```
 
 ### Category A: Document Root & Metadata Elements (Lecture 2 & 3)
@@ -137,7 +139,12 @@ Occurrence Count: 2,126 Tag Instances across 10 Documents
 * **Attributes Used:** `class="sticky-price-tracker"`
 * **Purpose & Role:** Represents secondary content related to the surrounding main content. In `book-event.html`, it is used to encapsulate the **Sticky Live Price Calculator**, which remains pinned to the right side of the screen as the user scrolls through the multi-step booking options.
 
-#### 14. `<footer>`
+#### 14. `<article>`
+* **Count:** 4 occurrences | **Files:** `staff-dashboard.html`
+* **Attributes Used:** `class="staff-request-item"`
+* **Purpose & Role:** Represents a complete, self-contained composition in a document that is independently distributable or reusable. In `staff-dashboard.html`, each pending booking request item is encapsulated in an `<article>`, containing its request ID, client information, event details, financial totals, and action buttons (Approve / Reject).
+
+#### 15. `<footer>`
 * **Count:** 8 occurrences | **Files:** 8 files
 * **Attributes Used:** `class="aura-footer"`, `class="aura-footer mt-auto py-4"`
 * **Purpose & Role:** Semantic footer for the site containing copyright notices, developer team credits (Ahmed Bilal, Abdullah Jamil, Taha Ali), quick navigation links, customer support contact info, and legal disclaimers.
@@ -191,7 +198,12 @@ Occurrence Count: 2,126 Tag Instances across 10 Documents
 * **Attributes Used:** `class="text-dark"`, `class="text-primary"`
 * **Purpose & Role:** Denotes content of strong importance or urgency. Used to highlight calculated total prices, package names, and mandatory contract terms.
 
-#### 24. `<hr>`
+#### 25. `<em>`
+* **Count:** 1 occurrence | **Files:** `staff-dashboard.html`
+* **Attributes Used:** None
+* **Purpose & Role:** Marks text that has stress emphasis. Used in `staff-dashboard.html` to highlight scheduling clashes: `<span class="staff-conflict-tag"><em>Conflict</em>: Double-booking risk</span>`. Screen readers pronounce emphasized words with verbal stress.
+
+#### 26. `<hr>`
 * **Count:** 2 occurrences | **Files:** `login.html`, `register.html`
 * **Attributes Used:** `class="my-4 text-muted"`
 * **Purpose & Role:** Represents a thematic break between paragraphs of text (e.g., separating primary sign-in from demo credential buttons).
@@ -282,7 +294,17 @@ Occurrence Count: 2,126 Tag Instances across 10 Documents
 * **Attributes Used:** `id`, `name`, `class="form-control"`, `rows="3"`, `placeholder="..."`, `required`
 * **Purpose & Role:** Multi-line plain text editing control for capturing special event requests, dietary restrictions, stage specifications, and venue reviews.
 
-#### 37. `<button>`
+#### 38. `<fieldset>`
+* **Count:** 2 occurrences | **Files:** `staff-dashboard.html`
+* **Attributes Used:** `class="staff-fieldset"`
+* **Purpose & Role:** Groups related form controls and labels logically within a web form. In `staff-dashboard.html`, it encapsulates the "Personal & Departmental Information" controls in one box and "Security Credentials" in another.
+
+#### 39. `<legend>`
+* **Count:** 2 occurrences | **Files:** `staff-dashboard.html`
+* **Attributes Used:** `class="staff-legend"`
+* **Purpose & Role:** Provides an accessible caption for a parent `<fieldset>`. Assistive screen reader technologies read the legend aloud whenever any child input within that fieldset receives focus.
+
+#### 40. `<button>`
 * **Count:** 28 occurrences | **Files:** All 10 files
 * **Attributes Used:** `type="button"`, `type="submit"`, `type="reset"`, `class="..."`, `data-bs-toggle="collapse"`, `data-bs-target="#navbarMain"`, `data-bs-slide="next"`, `data-filter="active"`
 * **Purpose & Role:** Standard interactive push-button for submitting forms, cycling carousel slides, collapsing the mobile hamburger menu, and filtering bookings.
@@ -490,6 +512,22 @@ In contrast, `<strong>` and `<em>` are **semantic tags**: `<strong>` signifies t
 1. It violates W3C accessibility compliance.
 2. Screen readers announce the raw image file path (e.g. *assets/images/royal-palm.jpg*), which disrupts the listening experience.
 3. If an image is purely decorative, an empty `alt=""` should be used so assistive software silently ignores it. For content-rich photos, an informative description should always be provided."
+
+---
+
+
+### Q16: What is the difference between `<section>` and `<article>`?
+**Model Answer:**  
+"Both are HTML5 semantic sectioning elements, but their scope differs fundamentally:
+* `<article>`: Represents an **independent, self-contained unit of content** that makes complete sense on its own if syndicated or shared elsewhere (e.g. a blog post, a review card, or an individual staff booking request card in `staff-dashboard.html`).
+* `<section>`: Represents a **thematic grouping of related content** that forms part of a larger document structure (e.g. the 'Hero Section', 'Why Choose Us Section', or 'Testimonials Section' on `index.html`). A section typically requires a heading and is not meant to stand alone independently."
+
+### Q17: Why should developers use `<fieldset>` and `<legend>` in forms instead of plain `<div>` containers?
+**Model Answer:**  
+"While `<div>` provides visual grouping, `<fieldset>` and `<legend>` provide **semantic and accessibility grouping**:
+1. When a visually impaired user tabs through inputs grouped inside a `<fieldset>`, screen readers announce the `<legend>` caption before the input label (e.g., *'Personal Information - Full Name, edit text'*).
+2. It visually structures complex enterprise dashboards into clear logical sections (as demonstrated in `staff-dashboard.html` for staff profile editing).
+3. Entire fieldsets can be disabled simultaneously in HTML by setting the `disabled` attribute on `<fieldset>`, disabling all child inputs at once."
 
 ---
 

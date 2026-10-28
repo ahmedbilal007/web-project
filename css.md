@@ -18,6 +18,7 @@ The CSS in Aura Events is engineered according to the **CSC336 Web Technologies 
 | :--- | :--- | :--- |
 | `assets/css/style.css` (1,041 lines) | **Master Platform Stylesheet:** Core resets, typography scale, buttons, badges, navbar, card surfaces, global footer, and layout overrides. | Lectures 5 & 6 (Box Model, Resets), Lecture 7 (Positioning), Lecture 8 (Flexbox, CSS3 Effects), Lecture 9 (Media Queries). |
 | `assets/css/configurator.css` (628 lines) | **Interactive Configurator & Dashboard Stylesheet:** Multi-step wizard progress bar, sticky price calculator, selectable cards, and status timeline. | Lecture 7 (`position: sticky`), Lecture 8 (Flex layouts, CSS transitions), Lecture 9 (Responsive mobile overrides). |
+| `assets/css/staff.css` (707 lines) | **Staff Operations Management Stylesheet:** CSS Grid-based operational dashboards, request cards, status conflict pills, modal panels, and metric decks. | Lecture 8 (CSS Grid, flexbox), Lecture 6 (Box Model, status borders), Lecture 9 (Media queries). |
 | Internal `<style>` Tags (4 Templates) | **Page-Specific Scoped Styles:** Found in `index.html`, `login.html`, `register.html`, and `venue-detail.html`. | Custom linear-gradient hero overlays, split-screen authentication flex containers, and fixed-height photo carousels. |
 | External Frameworks & CDNs | **Bootstrap 5.3.3 & Font Awesome 6.5.2:** Loaded across all 10 templates. | 12-column flexbox grid system, ready-made responsive utility classes, and scalable vector typography. |
 
@@ -219,7 +220,7 @@ CSS Functions Detected:
 1. var()              5. scale()
 2. rgba()             6. translateY()
 3. linear-gradient()  7. blur()
-4. url()
+4. url()              8. repeat()
 ```
 
 ### 1. `var(--custom-property-name [, fallback])`
@@ -545,6 +546,17 @@ This keeps HTML clean when components are repeated across multiple pages without
 * `rem` (Root EM): Relative exclusively to the `font-size` of the root `<html>` element (default is 16px, so $1\text{rem} = 16\text{px}$, $1.5\text{rem} = 24\text{px}$). It prevents compounding cascade sizing bugs.
 * `em`: Relative to the `font-size` of its **immediate parent element**. If nested inside multiple elements that define font sizes, `em` values compound exponentially ($1.2 \times 1.2 \times 1.2$).
 In Aura Events, we use `rem` units across typography for predictable, accessible scaling."
+
+---
+
+
+### Q16: How does `grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))` work without media queries in your staff portal?
+**Model Answer:**  
+"This is a modern responsive CSS Grid pattern used in `assets/css/staff.css`:
+1. `repeat()`: Instructs the grid engine to repeat column tracks automatically.
+2. `auto-fit`: Fills the row with as many column tracks as can physically fit, expanding existing tracks to fill vacant horizontal space.
+3. `minmax(220px, 1fr)`: Sets the minimum width of any card to 220px and allows it to grow up to 1 fractional unit (`1fr`).
+On a wide 1920px screen, it renders 4 to 6 columns; on a tablet, 2 columns; on a smartphone, 1 column — **completely fluidly without a single `@media` query**."
 
 ---
 
