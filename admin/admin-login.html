@@ -20,7 +20,7 @@
           <div class="brand-icon"><i class="fa-solid fa-gem" aria-hidden="true"></i></div>
           <div class="brand-text-container"><span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span> <span class="brand-tagline">Luxury Event Planning</span></div>
         </a>
-        <a class="btn btn-aura-outline btn-sm" href="../customer/index.html">View Customer Website</a>
+        <a class="btn btn-aura-outline btn-sm" href="../customer/index.html">Visit User Interface</a>
       </div>
     </header>
     <main id="main-content" class="container-fluid p-0 admin-login-main">
@@ -37,11 +37,8 @@
           <div class="admin-login-form w-100 mx-auto">
             <h2 class="h3 mb-2">Admin Login</h2>
             <p class="small text-muted mb-2">Use your predefined admin or staff account.</p>
-            <div class="admin-notice small mb-3" id="login-preview">
-              <strong>Frontend preview.</strong> Login is not connected. Do not enter real credentials.
-            </div>
             <!-- Connect a secure POST endpoint before enabling submission. -->
-            <form class="admin-preview-form" action="#" method="post" aria-describedby="login-preview">
+            <form class="admin-preview-form" action="#" method="post">
               <div class="mb-2">
                 <label class="form-label" for="adminUsername">Email / Username</label>
                 <input class="form-control" type="text" id="adminUsername" name="username" autocomplete="username" maxlength="150" required>
@@ -52,7 +49,7 @@
               </div>
               <!-- The backend will display incorrect-credentials errors here. -->
               <div class="small text-danger" id="login-error" role="alert" aria-live="polite"></div>
-              <button class="btn btn-aura-gold w-100" type="submit" disabled>Login (backend required)</button>
+              <button class="btn btn-aura-gold w-100" type="submit" disabled>Login</button>
             </form>
             <div class="border-top pt-3 mt-3">
               <a href="admin-dashboard.html" class="btn btn-aura-outline w-100">Open Dashboard Preview</a>

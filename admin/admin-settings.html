@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Settings | Aura Events Admin</title>
+    <title>Company Info | Aura Events Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
           <div class="brand-icon"><i class="fa-solid fa-gem" aria-hidden="true"></i></div>
           <div class="brand-text-container"><span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span> <span class="brand-tagline">Luxury Event Planning</span></div>
         </a>
-        <a class="btn btn-aura-outline btn-sm" href="../customer/index.html">View Customer Website</a>
+        <a class="btn btn-aura-outline btn-sm" href="../customer/index.html">Visit User Interface</a>
       </div>
     </header>
     <div class="container py-4">
@@ -33,19 +33,15 @@
               <a class="nav-link nav-link-aura" href="admin-dashboard.html"><i class="fa-solid fa-table-cells-large me-2" aria-hidden="true"></i>Dashboard</a>
               <a class="nav-link nav-link-aura" href="admin-bookings.html"><i class="fa-solid fa-calendar-days me-2" aria-hidden="true"></i>All Bookings</a>
               <a class="nav-link nav-link-aura" href="admin-staff.html"><i class="fa-solid fa-users me-2" aria-hidden="true"></i>Staff Management</a>
-              <a class="nav-link nav-link-aura active" href="admin-settings.html" aria-current="page"><i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Website Settings</a>
-              <button class="btn btn-aura-outline mt-2" type="button" disabled>Logout (unavailable)</button>
+              <a class="nav-link nav-link-aura active" href="admin-settings.html" aria-current="page"><i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Company Info</a>
+              <button class="btn btn-aura-outline mt-2" type="button" disabled>Logout</button>
             </nav>
           </div>
         </aside>
         <main class="col-lg-9" id="main-content">
           <div class="mb-4">
-            <h1 class="h2 mb-2">Website Settings</h1>
+            <h1 class="h2 mb-2">Company Info</h1>
             <p class="text-muted mb-0">Review company details, booking configuration and account-management access.</p>
-          </div>
-          <div class="admin-notice mb-4">
-            <strong>Frontend preview &middot; Sample data</strong>
-            <p class="small mb-0">No account is signed in. Login, logout and save actions are unavailable until a backend is connected. This preview shows the Super Admin layout; permissions are not enforced.</p>
           </div>
           <section class="aura-card p-4 mb-4">
             <span class="badge-gold">Super Admin only</span>
@@ -86,7 +82,7 @@
                   <input class="form-control" type="number" id="taxPercentage" name="taxPercentage" value="5" required min="0" max="100" step="0.01">
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-aura-gold" type="submit" disabled>Save Settings (backend required)</button>
+                  <button class="btn btn-aura-gold" type="submit" disabled>Save Settings</button>
                 </div>
               </div>
             </form>
@@ -96,10 +92,9 @@
             <h2 class="h5 mb-2">Staff Account Settings</h2>
             <p class="small text-muted">Open a sample staff record to review its password and status confirmation forms.</p>
             <div class="d-flex flex-wrap gap-2">
-              <a class="btn btn-aura-outline" href="admin-staff.html#staff-directory">View Staff</a>
-              <a class="btn btn-aura-outline" href="admin-staff.html#status-stf-002">Deactivate Staff</a>
-              <a class="btn btn-aura-outline" href="admin-staff.html#status-stf-003">Reactivate Staff</a>
-              <a class="btn btn-aura-outline" href="admin-staff.html#password-stf-001">Change Staff Password</a>
+              <a class="btn btn-aura-outline" href="admin-staff.html">View Staff</a>
+              <a class="btn btn-aura-outline" href="admin-staff-details-003.html#status-stf-003">Reactivate Staff</a>
+              <a class="btn btn-aura-outline" href="admin-staff-details-001.html#password-stf-001">Change Staff Password</a>
             </div>
           </section>
           <section class="aura-card">
@@ -131,7 +126,7 @@
                   <tr>
                     <th scope="row">Super Admin</th>
                     <td>All administrative sections, staff creation, password changes, account status changes and restricted settings.</td>
-                    <td>The predefined Super Admin must be protected from staff deactivation controls.</td>
+                    <td>The predefined Super Admin account must remain protected.</td>
                   </tr>
                 </tbody>
               </table>
