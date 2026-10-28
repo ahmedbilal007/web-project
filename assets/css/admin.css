@@ -1,4 +1,18 @@
 /* Admin-only layout. Shared colors, cards, forms and buttons use style.css. */
+/* Keep the admin header visible while the page scrolls. */
+.admin-page .aura-navbar {
+  position: sticky;
+  top: 0;
+}
+/* The sidebar stays below the header on desktop screens. */
+@media (min-width: 992px) {
+  .admin-page aside > .aura-card {
+    position: sticky;
+    top: 96px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+}
 .admin-nav .nav-link-aura {
   justify-content: flex-start;
   white-space: normal;
@@ -38,7 +52,7 @@
   min-width: 1500px;
 }
 .admin-record {
-  scroll-margin-top: 20px;
+  scroll-margin-top: 96px;
 }
 .admin-record:target {
   outline: 2px solid #D9381E;
@@ -93,6 +107,9 @@
   overflow-wrap: anywhere;
 }
 @media (max-width: 575.98px) {
+  .admin-record {
+    scroll-margin-top: 152px;
+  }
   .admin-page .aura-card.p-4 {
     padding: 20px !important;
   }
