@@ -35,7 +35,6 @@
       border-radius: var(--aura-radius-lg);
     }
   </style>
-  <script src="assets/js/main.js"></script>
 </head>
 <body class="bg-light">
 
@@ -51,9 +50,9 @@
               <i class="fa-solid fa-gem"></i>
             </div>
             <div class="brand-text-container">
-          <span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span>
-          <span class="brand-tagline">Luxury Event Planning</span>
-        </div>
+              <span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span>
+              <span class="brand-tagline">Luxury Event Planning</span>
+            </div>
           </a>
         </div>
 
@@ -65,7 +64,7 @@
             <p class="text-muted">Sign in to manage your luxury event plans, review official quotations, and coordinate with event planners.</p>
           </div>
 
-          <form id="loginForm" onsubmit="handleCustomerLogin(event)">
+          <form id="loginForm" action="profile.html" method="get">
             <!-- Email -->
             <div class="mb-3">
               <label class="form-label" for="loginEmail">Email Address <span class="text-danger">*</span></label>
@@ -124,7 +123,7 @@
           <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-3">BESPOKE CELEBRATIONS</span>
           <h1 class="display-5 fw-bold text-white mb-3">Your Event Vision, Brought to Life with Precision.</h1>
           <p class="fs-5 text-light opacity-75 mb-4">
-            Build your wedding, gala or corporate milestone step by step. Get instant live pricing, customize gourmet catering, and lock in premier venues in Islamabad & Rawalpindi.
+            Build your wedding, gala or corporate milestone step by step. Get instant transparent pricing, customize gourmet catering, and lock in premier venues in Islamabad & Rawalpindi.
           </p>
 
           <div class="auth-quote-card p-4">
@@ -143,43 +142,12 @@
 
         <div class="d-flex justify-content-between align-items-center text-light opacity-75 small">
           <span>Verified Event Planners</span>
+          <span>Aura Events Concierge</span>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- Bootstrap 5.3 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function handleCustomerLogin(e) {
-      e.preventDefault();
-      if (!document.getElementById("loginForm").reportValidity()) return;
-      const email = document.getElementById("loginEmail").value.trim().toLowerCase();
-      const current = getCurrentUser();
-      const users = JSON.parse(localStorage.getItem("aura_users") || "[]");
-      let user = users.find(saved => saved.email.toLowerCase() === email);
-      if (!user && current && current.email.toLowerCase() === email) user = current;
-      if (!user && email === DEFAULT_USER.email) user = { ...DEFAULT_USER };
-
-      // Preserve the existing demo sign-in for other email addresses.
-      if (!user) {
-        const name = email.split("@")[0];
-        user = {
-          id: "CUST-" + email, name: name, firstName: name, lastName: "",
-          email: email, phone: "", altPhone: "", address: "", city: "",
-          membershipTier: "Member Planner", avatar: DEFAULT_USER.avatar,
-          dietaryPreferences: "", preferredEventTypes: [], bio: ""
-        };
-      }
-      saveCurrentUser({ ...user, email: email, isLoggedIn: true });
-      const destination = getLoginDestination();
-      
-      showToast("Welcome Back!", "Signed in successfully. Opening your portal...", "success");
-      setTimeout(() => {
-        window.location.href = destination;
-      }, 1000);
-    }
-  </script>
 </body>
 </html>

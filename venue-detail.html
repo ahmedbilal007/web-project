@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="pageMetaTitle">Venue Details | Aura Events</title>
-  <meta name="description" content="Detailed overview, previous event photo gallery, and client reviews for premier luxury venues in Islamabad & Rawalpindi.">
+  <title>The Royal Palm Grand Ballroom | Aura Events Luxury Venues</title>
+  <meta name="description" content="Explore The Royal Palm Grand Ballroom in Islamabad. View real event photo galleries, technical capacities, and customer reviews.">
 
   <!-- Google Fonts: Plus Jakarta Sans & DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,500&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,142 +19,45 @@
   <!-- Custom Master Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/configurator.css">
-
   <style>
-    /* Scoped Venue Detail Enhancements */
     .venue-hero-gallery-img {
-      height: 480px;
+      height: 440px;
       width: 100%;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 4px;
     }
-    @media (max-width: 768px) {
-      .venue-hero-gallery-img {
-        height: 280px;
-      }
+    .spec-item-box {
+      background: #FFFFFF;
+      border: 1px solid #E5E3DC;
+      border-radius: 4px;
+      padding: 14px 18px;
     }
-    .spec-box {
-      background-color: #F7F6F2;
-      border: 1px solid #EBE9E2;
-      border-radius: 6px;
-      padding: 16px;
-      height: 100%;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
-    }
-    .spec-box:hover {
-      border-color: #D2CEC4;
-      background-color: #FFFFFF;
-    }
-    .spec-icon {
-      width: 38px;
-      height: 38px;
+    .facility-pill {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-      background: #141413;
-      color: #FFFFFF;
-      font-size: 0.95rem;
-      margin-bottom: 8px;
+      gap: 0.5rem;
+      padding: 8px 14px;
+      background: #FFFFFF;
+      border: 1px solid #E5E3DC;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #141413;
     }
-    .gallery-card {
-      position: relative;
+    .gallery-preview-card {
+      border: 1px solid #E5E3DC;
+      border-radius: 4px;
       overflow: hidden;
-      border-radius: 6px;
-      background-color: #141413;
-      cursor: pointer;
+      background: #FFFFFF;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .gallery-card:hover {
+    .gallery-preview-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(20, 20, 19, 0.15);
-    }
-    .gallery-card img {
-      height: 260px;
-      width: 100%;
-      object-fit: cover;
-      transition: transform 0.35s ease;
-    }
-    .gallery-card:hover img {
-      transform: scale(1.05);
-      opacity: 0.88;
-    }
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(20,20,19,0.05) 0%, rgba(20,20,19,0.85) 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 18px;
-      color: #FFFFFF;
-    }
-    .gallery-zoom-icon {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(20, 20, 19, 0.65);
-      backdrop-filter: blur(4px);
-      color: #FFFFFF;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-    .gallery-card:hover .gallery-zoom-icon {
-      opacity: 1;
-    }
-    .star-rating-interactive {
-      display: flex;
-      gap: 6px;
-      font-size: 1.4rem;
-      color: #E5E3DC;
-      cursor: pointer;
-    }
-    .star-rating-interactive i {
-      transition: color 0.15s ease, transform 0.15s ease;
-    }
-    .star-rating-interactive i.active,
-    .star-rating-interactive i.hovered {
-      color: #D9381E;
-    }
-    .star-rating-interactive i:hover {
-      transform: scale(1.15);
+      box-shadow: 0 4px 12px rgba(20, 20, 19, 0.08);
     }
     .sticky-booking-sidebar {
       position: sticky;
       top: 90px;
-      z-index: 10;
-    }
-    .nav-tabs-aura {
-      border-bottom: 2px solid #EBE9E2;
-      gap: 8px;
-    }
-    .nav-tabs-aura .nav-link {
-      border: none;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 600;
-      color: #5E5D59;
-      padding: 12px 18px;
-      border-radius: 4px 4px 0 0;
-      background: transparent;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -2px;
-      transition: all 0.15s ease;
-    }
-    .nav-tabs-aura .nav-link:hover {
-      color: #141413;
-      border-color: #D2CEC4;
-    }
-    .nav-tabs-aura .nav-link.active {
-      color: #D9381E;
-      background: transparent;
-      border-bottom: 2px solid #D9381E;
     }
     .review-avatar {
       width: 48px;
@@ -164,7 +67,6 @@
       border: 2px solid #E5E3DC;
     }
   </style>
-  <script src="assets/js/main.js"></script>
 </head>
 <body class="bg-light">
 
@@ -192,9 +94,13 @@
           <li class="nav-item"><a class="nav-link nav-link-aura" href="services.html">Catering & Services</a></li>
           <li class="nav-item"><a class="nav-link nav-link-aura" href="book-event.html">Plan Event</a></li>
           <li class="nav-item"><a class="nav-link nav-link-aura" href="my-bookings.html">My Bookings</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="profile.html">Profile</a></li>
         </ul>
 
-        <div id="navbarAuthArea" class="d-flex align-items-center"></div>
+        <div id="navbarAuthArea" class="d-flex align-items-center gap-2">
+          <a href="login.html" class="btn btn-aura-outline btn-sm px-3">Sign In</a>
+          <a href="register.html" class="btn btn-aura-gold btn-sm px-3">Register</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -207,7 +113,7 @@
           <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
             <li class="breadcrumb-item"><a href="venues.html">Venues Directory</a></li>
-            <li class="breadcrumb-item active" aria-current="page" id="heroBreadcrumbName">Venue Details</li>
+            <li class="breadcrumb-item active" aria-current="page">The Royal Palm Grand Ballroom</li>
           </ol>
         </nav>
         <a href="venues.html" class="btn btn-outline-light btn-sm">
@@ -216,13 +122,13 @@
       </div>
 
       <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
-        <span class="badge-gold" id="heroBadgeType"><i class="fa-solid fa-building-columns me-1"></i> Certified Luxury</span>
-        <span class="badge bg-dark border border-secondary text-white" id="heroBadgeCapacity"><i class="fa-solid fa-users me-1"></i> Up to 650 Guests</span>
-        <span class="badge bg-warning text-dark fw-bold" id="heroBadgeRating"><i class="fa-solid fa-star text-dark me-1"></i> 4.9 (48 Reviews)</span>
+        <span class="badge-gold"><i class="fa-solid fa-building-columns me-1"></i> Certified Luxury</span>
+        <span class="badge bg-dark border border-secondary text-white"><i class="fa-solid fa-users me-1"></i> Up to 650 Guests</span>
+        <span class="badge bg-warning text-dark fw-bold"><i class="fa-solid fa-star text-dark me-1"></i> 4.9 (48 Reviews)</span>
       </div>
 
-      <h1 class="h2 text-white fw-bold mb-2" id="heroVenueName">The Royal Palm Grand Ballroom</h1>
-      <p class="text-light opacity-75 mb-0" id="heroVenueTagline" style="max-width: 750px;">
+      <h1 class="h2 text-white fw-bold mb-2">The Royal Palm Grand Ballroom</h1>
+      <p class="text-light opacity-75 mb-0" style="max-width: 750px;">
         Islamabad's Most Prestigious Grand Wedding & Banquet Hall
       </p>
     </div>
@@ -232,241 +138,269 @@
   <main class="container my-5">
     <div class="row g-4">
       
-      <!-- Left Column: Media, Details, Gallery & Reviews -->
+      <!-- Left Column: Details, Specifications, Gallery & Reviews -->
       <div class="col-lg-8">
         
         <!-- Showcase Image Banner -->
         <div class="aura-card p-0 mb-4 overflow-hidden shadow-sm">
           <div class="position-relative">
-            <img id="detailHeroImage" src="" alt="Venue Image" class="venue-hero-gallery-img">
+            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80" alt="The Royal Palm Grand Ballroom" class="venue-hero-gallery-img">
             <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-0 m-3 px-3 py-2 rounded-2">
-              <i class="fa-solid fa-location-dot text-danger me-1"></i> <span id="detailHeroLocation">Club Road, Islamabad</span>
+              <i class="fa-solid fa-location-dot text-danger me-1"></i> Club Road, Islamabad
             </span>
-            <span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 end-0 m-3 px-3 py-2 rounded-2" id="detailHeroType">
-              Indoor Ballroom
+            <span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 end-0 m-3 px-3 py-2 rounded-2">
+              Indoor Royal Ballroom
             </span>
           </div>
         </div>
 
-        <!-- Section Navigation Tabs -->
-        <ul class="nav nav-tabs nav-tabs-aura mb-4" id="venueDetailTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="tab-overview-btn" data-bs-toggle="tab" data-bs-target="#tab-overview" type="button" role="tab">
-              <i class="fa-solid fa-circle-info me-1"></i> Overview & Specs
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-gallery-btn" data-bs-toggle="tab" data-bs-target="#tab-gallery" type="button" role="tab">
-              <i class="fa-solid fa-images me-1"></i> Past Events Gallery <span class="badge bg-danger ms-1" id="tabGalleryCount">4</span>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-reviews-btn" data-bs-toggle="tab" data-bs-target="#tab-reviews" type="button" role="tab">
-              <i class="fa-solid fa-comments me-1"></i> User Reviews & Comments <span class="badge bg-secondary ms-1" id="tabReviewsCount">3</span>
-            </button>
-          </li>
-        </ul>
+        <!-- Section 1: Overview & Description -->
+        <div class="aura-card p-4 mb-4">
+          <h4 class="fw-bold text-dark mb-3">About The Venue</h4>
+          <p class="text-secondary mb-0" style="line-height: 1.8; font-size: 1.02rem;">
+            The Royal Palm Grand Ballroom represents the pinnacle of luxury event architecture in the twin cities. Featuring imported Swarovski crystal chandeliers suspended from towering 26-foot ceilings, bespoke hand-tufted Persian carpeting, and professional acoustic dampening, it is designed for grand society weddings, diplomatic galas, and premier banquets. The hall features an integrated 40ft LED backdrop stage, private bridal prep sanctuary, and private VIP foyer for dignitary arrivals.
+          </p>
+        </div>
 
-        <!-- Tab Content Panes -->
-        <div class="tab-content" id="venueDetailTabContent">
-          
-          <!-- TAB 1: OVERVIEW & SPECIFICATIONS -->
-          <div class="tab-pane fade show active" id="tab-overview" role="tabpanel">
-            
-            <!-- About Narrative -->
-            <div class="aura-card p-4 mb-4">
-              <h4 class="fw-bold text-dark mb-3">About The Venue</h4>
-              <p class="text-secondary mb-0" id="detailOverviewText" style="line-height: 1.8; font-size: 1.02rem;">
-                <!-- Filled via JS -->
+        <!-- Section 2: Technical Specifications Grid -->
+        <div class="aura-card p-4 mb-4">
+          <h5 class="fw-bold text-dark mb-3">Technical Specifications & Capacities</h5>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="spec-item-box">
+                <small class="text-muted d-block" style="font-size: 0.75rem;">Total Area</small>
+                <strong class="text-dark">14,500 sq. ft.</strong>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="spec-item-box">
+                <small class="text-muted d-block" style="font-size: 0.75rem;">Ceiling Height</small>
+                <strong class="text-dark">26 ft. Clear Height</strong>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="spec-item-box">
+                <small class="text-muted d-block" style="font-size: 0.75rem;">Banquet Capacity</small>
+                <strong class="text-dark">650 Seated Guests</strong>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="spec-item-box">
+                <small class="text-muted d-block" style="font-size: 0.75rem;">Theater Capacity</small>
+                <strong class="text-dark">900 Floating Delegates</strong>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="spec-item-box">
+                <small class="text-muted d-block" style="font-size: 0.75rem;">Valet Parking Slots</small>
+                <strong class="text-dark">350+ Valet Parking Capacity</strong>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="spec-item-box">
+                <small class="text-muted d-block" style="font-size: 0.75rem;">Stage Dimensions</small>
+                <strong class="text-dark">42ft Width x 22ft Depth</strong>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="spec-item-box">
+                <small class="text-muted d-block" style="font-size: 0.75rem;">Power Generator Backup</small>
+                <strong class="text-dark">Dual 500 kVA Automatic Diesel Generators</strong>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="spec-item-box">
+                <small class="text-muted d-block" style="font-size: 0.75rem;">Climate Control</small>
+                <strong class="text-dark">Multi-Zone Central HVAC with Air Filtration</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Facilities & Amenities Checklist -->
+        <div class="aura-card p-4 mb-4">
+          <h5 class="fw-bold text-dark mb-3">Certified Facilities & Amenities Included</h5>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="facility-pill"><i class="fa-solid fa-circle-check text-success"></i> Dedicated Valet Parking with Chauffeur Lounge</span>
+            <span class="facility-pill"><i class="fa-solid fa-circle-check text-success"></i> Private Bridal Sanctuary Suite with Vanity & En-Suite Bath</span>
+            <span class="facility-pill"><i class="fa-solid fa-circle-check text-success"></i> P3 Ultra-HD Stage LED Wall Ready (40ft x 15ft)</span>
+            <span class="facility-pill"><i class="fa-solid fa-circle-check text-success"></i> Dual 500 kVA Automatic Generator Backup (Zero Downtime)</span>
+            <span class="facility-pill"><i class="fa-solid fa-circle-check text-success"></i> Central Dual-Chiller Climate Control System</span>
+            <span class="facility-pill"><i class="fa-solid fa-circle-check text-success"></i> VIP Foyer with Diplomatic Protocol Access</span>
+            <span class="facility-pill"><i class="fa-solid fa-circle-check text-success"></i> Concert-Grade Line-Array Sound & Acoustic Engineering</span>
+            <span class="facility-pill"><i class="fa-solid fa-circle-check text-success"></i> In-House Commercial Food Staging & Warming Kitchen</span>
+          </div>
+        </div>
+
+        <!-- Section 4: Past Events Gallery -->
+        <div class="aura-card p-4 mb-4" id="gallery">
+          <div class="border-bottom pb-3 mb-4">
+            <h4 class="fw-bold text-dark mb-1">Previous Events Photo Gallery</h4>
+            <p class="text-muted small mb-0">Real photography from past weddings, corporate galas, and celebrations held at this venue.</p>
+          </div>
+
+          <div class="row g-3">
+            <!-- Event Photo 1 -->
+            <div class="col-md-6">
+              <div class="gallery-preview-card h-100">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Royal Barat" class="w-100" style="height: 200px; object-fit: cover;">
+                <div class="p-3">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-danger">Royal Barat</span>
+                    <small class="text-muted">620 Guests • Nov 2025</small>
+                  </div>
+                  <h6 class="fw-bold mb-1">Royal Barat: Hamza & Ayesha</h6>
+                  <p class="text-secondary small mb-2">Imperial Crimson & Gold themed Barat reception featuring 8,000 imported roses and crystal candelabras.</p>
+                  <small class="text-muted d-block"><strong class="text-dark">Highlight:</strong> Dutch Red Roses & 24k Gold Candelabras</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Photo 2 -->
+            <div class="col-md-6">
+              <div class="gallery-preview-card h-100">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Corporate Summit" class="w-100" style="height: 200px; object-fit: cover;">
+                <div class="p-3">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-primary">Corporate Summit</span>
+                    <small class="text-muted">500 Guests • Jan 2026</small>
+                  </div>
+                  <h6 class="fw-bold mb-1">Pakistan Tech Leadership Summit</h6>
+                  <p class="text-secondary small mb-2">National executive summit attended by tech founders and officials with dual 4K LED screen setup.</p>
+                  <small class="text-muted d-block"><strong class="text-dark">Highlight:</strong> Synchronized Dual 4K LED Screen Setup</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Photo 3 -->
+            <div class="col-md-6">
+              <div class="gallery-preview-card h-100">
+                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=800&q=80" alt="Walima Reception" class="w-100" style="height: 200px; object-fit: cover;">
+                <div class="p-3">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-danger">Walima Reception</span>
+                    <small class="text-muted">580 Guests • Dec 2025</small>
+                  </div>
+                  <h6 class="fw-bold mb-1">Celestial White Walima: Daniyal & Maria</h6>
+                  <p class="text-secondary small mb-2">Dreamlike winter pastel aesthetic with hanging wisteria floral clouds and warm amber pin-spot lighting.</p>
+                  <small class="text-muted d-block"><strong class="text-dark">Highlight:</strong> Hanging Wisteria Floral Clouds</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Photo 4 -->
+            <div class="col-md-6">
+              <div class="gallery-preview-card h-100">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=800&q=80" alt="Diplomatic Gala" class="w-100" style="height: 200px; object-fit: cover;">
+                <div class="p-3">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-secondary">Diplomatic Gala</span>
+                    <small class="text-muted">450 Guests • Oct 2025</small>
+                  </div>
+                  <h6 class="fw-bold mb-1">Diplomatic Silver Jubilee Gala Dinner</h6>
+                  <p class="text-secondary small mb-2">Black-tie banquet for international delegates with formal 5-course seated dining and high-security protocol.</p>
+                  <small class="text-muted d-block"><strong class="text-dark">Highlight:</strong> Five-Course Formal Silver Service</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Host Reviews & Comments -->
+        <div class="aura-card p-4 mb-4" id="reviews">
+          <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+            <div>
+              <h4 class="fw-bold text-dark mb-0">Host & Guest Reviews</h4>
+              <p class="text-muted small mb-0">Verified experiences from families and event planners.</p>
+            </div>
+            <span class="badge bg-warning text-dark fw-bold px-3 py-2">4.9 / 5.0 Rating</span>
+          </div>
+
+          <div class="d-flex flex-column gap-3 mb-4">
+            <!-- Review 1 -->
+            <div class="p-3 bg-light rounded-3 border">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Brigadier (R) Tariq Mahmood" class="review-avatar">
+                <div>
+                  <h6 class="fw-bold text-dark mb-0">Brigadier (R) Tariq Mahmood</h6>
+                  <small class="text-muted">Hosted Daughter's Barat Reception (620 Guests) • November 2025</small>
+                </div>
+                <div class="ms-auto text-warning small">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <p class="text-secondary small mb-0">
+                "We hosted our eldest daughter's wedding here last month with 620 guests. The Royal Palm team was absolutely world-class. Valet parking on Club Road handled hundreds of vehicles without a single hitch or delay. The private bridal suite gave my daughter complete calm and luxury before the entrance. Truly magnificent ballroom!"
               </p>
             </div>
 
-            <!-- Technical Specifications Grid -->
-            <div class="aura-card p-4 mb-4">
-              <h5 class="fw-bold text-dark mb-3">Technical Specifications & Capacities</h5>
-              <div class="row g-3" id="specsGridContainer">
-                <!-- Dynamically Rendered -->
+            <!-- Review 2 -->
+            <div class="p-3 bg-light rounded-3 border">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Dr. Samina Qureshi" class="review-avatar">
+                <div>
+                  <h6 class="fw-bold text-dark mb-0">Dr. Samina Qureshi</h6>
+                  <small class="text-muted">Hosted Son's Walima Reception (580 Guests) • December 2025</small>
+                </div>
+                <div class="ms-auto text-warning small">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
               </div>
-            </div>
-
-            <!-- Facilities & Amenities Checklist -->
-            <div class="aura-card p-4 mb-4">
-              <h5 class="fw-bold text-dark mb-3">Certified Facilities & Amenities Included</h5>
-              <div class="row g-2" id="facilitiesListContainer">
-                <!-- Dynamically Rendered -->
-              </div>
-            </div>
-
-            <!-- Physical Location & Access -->
-            <div class="aura-card p-4">
-              <h5 class="fw-bold text-dark mb-2">Location & Protocol Access</h5>
-              <p class="text-muted small mb-3" id="detailFullAddress">
-                <i class="fa-solid fa-map-pin text-danger me-1"></i> Plot 12, Club Road, Near Rawal Lake, Islamabad, 44000
+              <p class="text-secondary small mb-0">
+                "The acoustic dampening inside this hall is second to none. Even with a live orchestra, conversation across the round tables remained clear and pleasant. The heating was flawless on a freezing December night in Islamabad."
               </p>
-              <div class="alert alert-secondary border-0 bg-light py-3 px-3 d-flex align-items-center gap-3 mb-0 rounded-2">
-                <i class="fa-solid fa-shield-halved text-success fs-3"></i>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="p-3 bg-light rounded-3 border">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Shahmir Khan Niazi" class="review-avatar">
                 <div>
-                  <h6 class="fw-bold text-dark mb-0">High-Security & Valet Protocol Verified</h6>
-                  <small class="text-muted">Cleared for foreign dignitary protocols, executive motorcades, and private security escorts.</small>
+                  <h6 class="fw-bold text-dark mb-0">Shahmir Khan Niazi</h6>
+                  <small class="text-muted">Lead Organizer, Pakistan Tech Summit • January 2026</small>
+                </div>
+                <div class="ms-auto text-warning small">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
               </div>
+              <p class="text-secondary small mb-0">
+                "Flawless corporate infrastructure. The 40ft stage LED screen integrated directly with our streaming rigs, and the dual generator power supply ensured zero interruptions during executive keynote addresses."
+              </p>
             </div>
-
           </div>
 
-          <!-- TAB 2: GALLERY OF PREVIOUS EVENTS -->
-          <div class="tab-pane fade" id="tab-gallery" role="tabpanel">
-            
-            <div class="aura-card p-4 mb-4">
-              <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
-                <div>
-                  <h4 class="fw-bold text-dark mb-1">Previous Events Photo Gallery</h4>
-                  <p class="text-muted small mb-0">Real photography from past weddings, corporate galas, and celebrations held at this venue.</p>
+          <!-- Comment Form -->
+          <div class="border-top pt-4">
+            <h5 class="fw-bold text-dark mb-1">Leave a Review or Comment</h5>
+            <p class="text-muted small mb-3">Share your feedback to assist future event hosts and organizers.</p>
+            <form action="venues.html" method="get">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Your Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="e.g. Dr. Tariq Mahmood" required>
                 </div>
-                
-                <!-- Category Filter Pills -->
-                <div class="btn-group btn-group-sm" role="group" id="galleryFilterGroup">
-                  <button type="button" class="btn btn-dark active" onclick="filterGallery('all')">All Events</button>
-                  <button type="button" class="btn btn-outline-secondary" onclick="filterGallery('wedding')">Weddings</button>
-                  <button type="button" class="btn btn-outline-secondary" onclick="filterGallery('corporate')">Corporate</button>
-                  <button type="button" class="btn btn-outline-secondary" onclick="filterGallery('mehndi')">Mehndi / Cultural</button>
+                <div class="col-md-6">
+                  <label class="form-label small fw-semibold">Event Type <span class="text-danger">*</span></label>
+                  <select class="form-select" required>
+                    <option value="">Select Event Type...</option>
+                    <option value="Barat">Barat & Wedding Reception</option>
+                    <option value="Walima">Walima Dinner</option>
+                    <option value="Mehndi">Mehndi & Sangeet Night</option>
+                    <option value="Corporate">Corporate Summit / Gala</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label small fw-semibold">Your Comments <span class="text-danger">*</span></label>
+                  <textarea class="form-control" rows="3" placeholder="Describe the atmosphere, stage setup, valet parking ease, staff coordination..." required></textarea>
+                </div>
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-aura-gold px-4">
+                    <i class="fa-solid fa-paper-plane me-1"></i> Submit Feedback
+                  </button>
                 </div>
               </div>
-
-              <!-- Gallery Grid -->
-              <div class="row g-3" id="previousEventsGrid">
-                <!-- Rendered dynamically via JS -->
-              </div>
-            </div>
-
+            </form>
           </div>
-
-          <!-- TAB 3: USER REVIEWS & COMMENTS -->
-          <div class="tab-pane fade" id="tab-reviews" role="tabpanel">
-            
-            <!-- Ratings Summary Overview Card -->
-            <div class="aura-card p-4 mb-4">
-              <div class="row align-items-center g-4">
-                <div class="col-md-4 text-center border-end">
-                  <h1 class="display-4 fw-bold text-dark mb-0" id="summaryScoreDisplay">4.9</h1>
-                  <div class="text-warning mb-1" style="font-size: 1.1rem;">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <small class="text-muted d-block" id="summaryReviewsTotal">Based on 48 Host Reviews</small>
-                  <span class="badge bg-success bg-opacity-10 text-success mt-2 py-1 px-2">100% Recommended</span>
-                </div>
-                <div class="col-md-8">
-                  <div class="d-flex flex-column gap-2">
-                    <div>
-                      <div class="d-flex justify-content-between small mb-1">
-                        <span class="fw-semibold">Ambiance & Lighting</span>
-                        <span class="fw-bold">5.0 / 5.0</span>
-                      </div>
-                      <div class="progress" style="height: 6px;">
-                        <div class="progress-bar bg-danger" style="width: 100%;"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="d-flex justify-content-between small mb-1">
-                        <span class="fw-semibold">Valet Parking & Ease of Access</span>
-                        <span class="fw-bold">4.8 / 5.0</span>
-                      </div>
-                      <div class="progress" style="height: 6px;">
-                        <div class="progress-bar bg-danger" style="width: 96%;"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="d-flex justify-content-between small mb-1">
-                        <span class="fw-semibold">Staff Professionalism & Coordination</span>
-                        <span class="fw-bold">4.9 / 5.0</span>
-                      </div>
-                      <div class="progress" style="height: 6px;">
-                        <div class="progress-bar bg-danger" style="width: 98%;"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="d-flex justify-content-between small mb-1">
-                        <span class="fw-semibold">Sound Engineering & Acoustics</span>
-                        <span class="fw-bold">5.0 / 5.0</span>
-                      </div>
-                      <div class="progress" style="height: 6px;">
-                        <div class="progress-bar bg-danger" style="width: 100%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Existing Comments List -->
-            <div class="aura-card p-4 mb-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4 class="fw-bold text-dark mb-0">Comments of Hosts & Guests</h4>
-                <span class="text-muted small" id="commentsCountLabel">3 Comments</span>
-              </div>
-              <div class="d-flex flex-column gap-3" id="commentsListContainer">
-                <!-- Rendered dynamically via JS -->
-              </div>
-            </div>
-
-            <!-- Add Your Review / Experience Form -->
-            <div class="aura-card p-4" id="reviewFormSection">
-              <h5 class="fw-bold text-dark mb-1">Were You a Host or Guest at this Venue?</h5>
-              <p class="text-muted small mb-3">Leave your comment and rating to assist future families and event organizers.</p>
-              
-              <form id="addVenueReviewForm" onsubmit="handleReviewSubmit(event)">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label small fw-semibold">Your Full Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="reviewAuthorName" placeholder="e.g. Dr. Tariq Mahmood" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label small fw-semibold">Event Held at This Venue <span class="text-danger">*</span></label>
-                    <select class="form-select" id="reviewEventType" required>
-                      <option value="">Select Event Type...</option>
-                      <option value="Barat & Royal Reception">Barat & Royal Reception</option>
-                      <option value="Walima Dinner">Walima Dinner</option>
-                      <option value="Mehndi / Sangeet Night">Mehndi / Sangeet Night</option>
-                      <option value="Sunset Nikkah Ceremony">Sunset Nikkah Ceremony</option>
-                      <option value="Corporate Summit / Gala">Corporate Summit / Gala</option>
-                      <option value="Birthday / Milestone Celebration">Birthday / Milestone Celebration</option>
-                    </select>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label small fw-semibold">Event Date / Month <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="reviewEventDate" placeholder="e.g. October 2025" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label small fw-semibold">Your Overall Rating <span class="text-danger">*</span></label>
-                    <div class="star-rating-interactive pt-1" id="starRatingSelector">
-                      <i class="fa-solid fa-star active" data-rating="1"></i>
-                      <i class="fa-solid fa-star active" data-rating="2"></i>
-                      <i class="fa-solid fa-star active" data-rating="3"></i>
-                      <i class="fa-solid fa-star active" data-rating="4"></i>
-                      <i class="fa-solid fa-star active" data-rating="5"></i>
-                      <span class="ms-2 small text-dark fw-bold align-self-center" id="ratingTextLabel">5.0 (Exceptional)</span>
-                    </div>
-                    <input type="hidden" id="selectedStarRating" value="5">
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label small fw-semibold">Your Detailed Comments & Experience <span class="text-danger">*</span></label>
-                    <textarea class="form-control" id="reviewCommentText" rows="4" placeholder="Describe the atmosphere, stage setup, valet parking ease, staff coordination, and how your guests enjoyed the event at this venue..." required></textarea>
-                  </div>
-                  <div class="col-12 text-end">
-                    <button type="submit" class="btn btn-aura-gold px-4">
-                      <i class="fa-solid fa-paper-plane me-1"></i> Post Comment & Review
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-
-          </div>
-
         </div>
 
       </div>
@@ -479,42 +413,42 @@
           <div class="aura-card p-4 mb-4 shadow-sm">
             <small class="text-muted text-uppercase fw-bold" style="font-size: 0.75rem; letter-spacing: 0.05em;">Base Venue Hire Fee</small>
             <div class="d-flex align-items-baseline gap-2 mb-2">
-              <h2 class="fw-bold text-danger mb-0" id="sidebarVenuePrice">PKR 350,000</h2>
+              <h2 class="fw-bold text-danger mb-0">PKR 350,000</h2>
               <span class="text-muted small">/ Event Slot</span>
             </div>
             
-            <p class="text-muted small mb-4" id="sidebarPricingSubtext">
-              Includes 10 hours exclusive hall access, full AC/heating climate control, and standard lighting.
+            <p class="text-muted small mb-4">
+              Includes 10 hours exclusive hall access, full AC/heating climate control, and standard stage lighting.
             </p>
 
             <!-- Prominent Booking Button -->
-            <a id="sidebarBookButton" href="#" class="btn btn-aura-gold w-100 py-3 mb-2 fw-bold text-center">
-              <i class="fa-solid fa-calendar-check me-2"></i> Venue Booking
+            <a href="book-event.html" class="btn btn-aura-gold w-100 py-3 mb-2 fw-bold text-center">
+              <i class="fa-solid fa-calendar-check me-2"></i> Plan Event at This Venue
             </a>
 
-            <!-- Quick Jump to Review Form -->
-            <button onclick="jumpToReviewsTab()" class="btn btn-aura-outline w-100 py-2 mb-4 text-center">
+            <!-- Jump to Review Form -->
+            <a href="#reviews" class="btn btn-aura-outline w-100 py-2 mb-4 text-center">
               <i class="fa-solid fa-pen-to-square me-2"></i> Write a Comment
-            </button>
+            </a>
 
             <!-- Key Quick Specs List -->
             <div class="border-top pt-3">
               <h6 class="fw-bold small text-dark mb-2">Venue Snapshot</h6>
               <div class="d-flex justify-content-between small py-1 border-bottom">
                 <span class="text-muted"><i class="fa-solid fa-users me-2 text-danger"></i> Max Capacity:</span>
-                <span class="fw-bold" id="sidebarCapacity">650 Guests</span>
+                <span class="fw-bold">650 Guests</span>
               </div>
               <div class="d-flex justify-content-between small py-1 border-bottom">
                 <span class="text-muted"><i class="fa-solid fa-ruler-combined me-2 text-danger"></i> Total Area:</span>
-                <span class="fw-bold" id="sidebarArea">14,500 sq. ft.</span>
+                <span class="fw-bold">14,500 sq. ft.</span>
               </div>
               <div class="d-flex justify-content-between small py-1 border-bottom">
                 <span class="text-muted"><i class="fa-solid fa-square-parking me-2 text-danger"></i> Valet Parking:</span>
-                <span class="fw-bold" id="sidebarParking">350+ Vehicles</span>
+                <span class="fw-bold">350+ Vehicles</span>
               </div>
               <div class="d-flex justify-content-between small py-1">
                 <span class="text-muted"><i class="fa-solid fa-bolt me-2 text-danger"></i> Power Backup:</span>
-                <span class="fw-bold" id="sidebarBackup">Dual Generators</span>
+                <span class="fw-bold">Dual Generators</span>
               </div>
             </div>
           </div>
@@ -576,40 +510,49 @@
         </a>
       </div>
 
-      <div class="row g-4" id="otherVenuesGrid">
-        <!-- Rendered dynamically -->
-      </div>
-    </div>
-  </main>
-
-  <!-- LIGHTBOX MODAL: Previous Event Gallery Zoom -->
-  <div class="modal fade" id="galleryLightboxModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content border-0 shadow-lg">
-        <div class="modal-header bg-dark text-white p-3">
-          <h5 class="modal-title fw-bold" id="lightboxTitle">Event Photo</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="row g-4">
+        <!-- Serena Sheesh Mahal Hall -->
+        <div class="col-md-6">
+          <div class="aura-card h-100 p-3">
+            <div class="row g-3 align-items-center">
+              <div class="col-sm-4">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Serena Sheesh Mahal Hall" class="rounded w-100" style="height: 120px; object-fit: cover;">
+              </div>
+              <div class="col-sm-8">
+                <span class="badge-gold small mb-1">Indoor • 500 Guests</span>
+                <h6 class="fw-bold mb-1">Serena Sheesh Mahal Hall</h6>
+                <p class="text-muted small mb-2">Khayaban-e-Suhrawardy, Islamabad</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="fw-bold text-primary">PKR 450,000</span>
+                  <a href="book-event.html" class="btn btn-sm btn-aura-outline">Plan Event</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="modal-body p-0">
-          <img id="lightboxImg" src="" alt="Event Photo" class="w-100" style="max-height: 520px; object-fit: cover;">
-          <div class="p-4 bg-light">
-            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
-              <span class="badge bg-danger" id="lightboxCategory">Royal Barat</span>
-              <span class="text-muted small" id="lightboxDateGuests">November 2025 • 620 Guests</span>
+
+        <!-- Margalla Hillview Garden Pavilion -->
+        <div class="col-md-6">
+          <div class="aura-card h-100 p-3">
+            <div class="row g-3 align-items-center">
+              <div class="col-sm-4">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Margalla Hillview Garden Pavilion" class="rounded w-100" style="height: 120px; object-fit: cover;">
+              </div>
+              <div class="col-sm-8">
+                <span class="badge-gold small mb-1">Outdoor • 400 Guests</span>
+                <h6 class="fw-bold mb-1">Margalla Hillview Garden Pavilion</h6>
+                <p class="text-muted small mb-2">Pir Sohawa Scenic Enclave</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="fw-bold text-primary">PKR 240,000</span>
+                  <a href="book-event.html" class="btn btn-sm btn-aura-outline">Plan Event</a>
+                </div>
+              </div>
             </div>
-            <p class="text-secondary small mb-3" id="lightboxDesc"></p>
-            <div class="alert alert-secondary border-0 bg-white py-2 px-3 small mb-3">
-              <strong class="text-dark"><i class="fa-solid fa-sparkles text-danger me-1"></i> Decor & Setup Highlight:</strong> 
-              <span id="lightboxHighlight">Imported Dutch Red Roses & 24k Gold Candelabras</span>
-            </div>
-            <a id="lightboxBookBtn" href="#" class="btn btn-aura-gold w-100">
-              <i class="fa-solid fa-calendar-check me-2"></i> Book This Venue For Your Event
-            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- Global Footer -->
   <footer class="aura-footer py-4 mt-5">
@@ -618,399 +561,5 @@
     </div>
   </footer>
 
-  <!-- Bootstrap 5.3 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/venue-details-data.js"></script>
-  <script>
-    let currentVenue = null;
-    let activeFilter = 'all';
-
-    // 1. Initialize Page Data
-    document.addEventListener("DOMContentLoaded", () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const venueId = urlParams.get("id") || "v-royal-palm";
-      
-      currentVenue = getDetailedVenueById(venueId);
-      renderVenueDetails(currentVenue);
-      renderOtherVenues(currentVenue.id);
-      setupStarRatingSelector();
-
-      // Check URL hash for tab jumping
-      if (window.location.hash === "#gallery") {
-        const tabEl = document.getElementById("tab-gallery-btn");
-        if (tabEl) new bootstrap.Tab(tabEl).show();
-      } else if (window.location.hash === "#reviews") {
-        const tabEl = document.getElementById("tab-reviews-btn");
-        if (tabEl) new bootstrap.Tab(tabEl).show();
-      }
-    });
-
-    // 2. Render Details
-    function renderVenueDetails(v) {
-      if (!v) return;
-
-      // Titles & Metadata
-      document.title = `${v.name} | Aura Events`;
-      document.getElementById("heroBreadcrumbName").textContent = v.name;
-      document.getElementById("heroVenueName").textContent = v.name;
-      document.getElementById("heroVenueTagline").textContent = v.tagline || v.description;
-      document.getElementById("heroBadgeType").innerHTML = `<i class="fa-solid fa-building-columns me-1"></i> ${v.typeBadge || v.type}`;
-      document.getElementById("heroBadgeCapacity").innerHTML = `<i class="fa-solid fa-users me-1"></i> Up to ${v.capacity} Guests`;
-      document.getElementById("heroBadgeRating").innerHTML = `<i class="fa-solid fa-star me-1"></i> ${v.rating} (${v.reviewsCount || 40} Reviews)`;
-
-      // Hero Image
-      document.getElementById("detailHeroImage").src = v.image;
-      document.getElementById("detailHeroImage").alt = v.name;
-      document.getElementById("detailHeroLocation").textContent = v.location;
-      document.getElementById("detailHeroType").textContent = v.typeBadge || v.type.toUpperCase();
-
-      // Overview Tab
-      document.getElementById("detailOverviewText").textContent = v.description;
-      document.getElementById("detailFullAddress").innerHTML = `<i class="fa-solid fa-map-pin text-danger me-2"></i> ${v.address || v.location}`;
-
-      // Specifications Grid
-      const specsGrid = document.getElementById("specsGridContainer");
-      const s = v.specifications || {};
-      specsGrid.innerHTML = `
-        <div class="col-sm-6 col-md-3">
-          <div class="spec-box">
-            <div class="spec-icon"><i class="fa-solid fa-ruler-combined"></i></div>
-            <small class="text-muted d-block">Covered Area</small>
-            <span class="fw-bold text-dark">${s.area || '14,000 sq. ft.'}</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="spec-box">
-            <div class="spec-icon"><i class="fa-solid fa-arrows-up-down"></i></div>
-            <small class="text-muted d-block">Ceiling Clearance</small>
-            <span class="fw-bold text-dark">${s.ceilingHeight || '24 ft.'}</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="spec-box">
-            <div class="spec-icon"><i class="fa-solid fa-users"></i></div>
-            <small class="text-muted d-block">Banquet Seating</small>
-            <span class="fw-bold text-dark">${s.banquetCapacity || v.capacity + ' Guests'}</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="spec-box">
-            <div class="spec-icon"><i class="fa-solid fa-square-parking"></i></div>
-            <small class="text-muted d-block">Valet Parking</small>
-            <span class="fw-bold text-dark">${s.parkingSlots || '300+ slots'}</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="spec-box">
-            <div class="spec-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
-            <small class="text-muted d-block">Stage Dimensions</small>
-            <span class="fw-bold text-dark">${s.stageDimensions || '40ft x 20ft'}</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="spec-box">
-            <div class="spec-icon"><i class="fa-solid fa-bolt"></i></div>
-            <small class="text-muted d-block">Generator Backup</small>
-            <span class="fw-bold text-dark">${s.generatorBackup || 'Dual Automatic Generators'}</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="spec-box">
-            <div class="spec-icon"><i class="fa-solid fa-snowflake"></i></div>
-            <small class="text-muted d-block">Climate Control</small>
-            <span class="fw-bold text-dark">${s.climateControl || 'Central Dual-Chiller HVAC'}</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="spec-box">
-            <div class="spec-icon"><i class="fa-solid fa-chair"></i></div>
-            <small class="text-muted d-block">Convention Floating</small>
-            <span class="fw-bold text-dark">${s.theaterCapacity || '900 Attendees'}</span>
-          </div>
-        </div>
-      `;
-
-      // Facilities Checklist
-      const facContainer = document.getElementById("facilitiesListContainer");
-      facContainer.innerHTML = (v.facilities || []).map(f => `
-        <div class="col-md-6">
-          <div class="p-2 border rounded bg-white d-flex align-items-center gap-2">
-            <i class="fa-solid fa-circle-check text-success"></i>
-            <span class="small fw-semibold text-dark">${f}</span>
-          </div>
-        </div>
-      `).join('');
-
-      // Sidebar Data
-      document.getElementById("sidebarVenuePrice").textContent = formatPKR(v.price);
-      document.getElementById("sidebarCapacity").textContent = `Up to ${v.capacity} Guests`;
-      document.getElementById("sidebarArea").textContent = s.area || "14,500 sq. ft.";
-      document.getElementById("sidebarParking").textContent = s.parkingSlots || "300+ Vehicles";
-      document.getElementById("sidebarBackup").textContent = s.generatorBackup || "Dual 500kVA";
-      document.getElementById("sidebarBookButton").href = `book-event.html?venue=${v.id}`;
-      document.getElementById("lightboxBookBtn").href = `book-event.html?venue=${v.id}`;
-
-      // Gallery & Reviews Rendering
-      renderPreviousEventsGallery(v.gallery || []);
-      renderCommentsList(v.id);
-    }
-
-    // 3. Render Previous Events Gallery
-    function renderPreviousEventsGallery(events) {
-      const container = document.getElementById("previousEventsGrid");
-      document.getElementById("tabGalleryCount").textContent = events.length;
-
-      const filtered = activeFilter === 'all' 
-        ? events 
-        : events.filter(e => e.category === activeFilter);
-
-      if (filtered.length === 0) {
-        container.innerHTML = `
-          <div class="col-12 py-5 text-center text-muted">
-            <i class="fa-regular fa-images fs-1 mb-2"></i>
-            <p class="mb-0">No event photos found under this filter.</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = filtered.map(ev => `
-        <div class="col-md-6">
-          <div class="gallery-card" onclick="openLightbox('${ev.id}')">
-            <img src="${ev.image}" alt="${ev.title}">
-            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            <div class="gallery-overlay">
-              <span class="badge bg-danger align-self-start mb-2">${ev.categoryLabel || 'Past Event'}</span>
-              <h6 class="fw-bold mb-1">${ev.title}</h6>
-              <div class="d-flex justify-content-between align-items-center small opacity-90">
-                <span><i class="fa-regular fa-calendar me-1"></i> ${ev.date}</span>
-                <span><i class="fa-solid fa-users me-1"></i> ${ev.guests} Guests</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function filterGallery(cat) {
-      activeFilter = cat;
-      const buttons = document.querySelectorAll("#galleryFilterGroup button");
-      buttons.forEach(b => {
-        b.classList.remove("btn-dark", "active");
-        b.classList.add("btn-outline-secondary");
-      });
-      event.target.classList.remove("btn-outline-secondary");
-      event.target.classList.add("btn-dark", "active");
-
-      renderPreviousEventsGallery(currentVenue.gallery || []);
-    }
-
-    function openLightbox(eventId) {
-      if (!currentVenue || !currentVenue.gallery) return;
-      const ev = currentVenue.gallery.find(x => x.id === eventId);
-      if (!ev) return;
-
-      document.getElementById("lightboxTitle").textContent = ev.title;
-      document.getElementById("lightboxImg").src = ev.image;
-      document.getElementById("lightboxCategory").textContent = ev.categoryLabel || "Past Event";
-      document.getElementById("lightboxDateGuests").innerHTML = `<i class="fa-regular fa-calendar me-1"></i> ${ev.date} &nbsp;•&nbsp; <i class="fa-solid fa-users me-1"></i> ${ev.guests} Guests`;
-      document.getElementById("lightboxDesc").textContent = ev.description;
-      document.getElementById("lightboxHighlight").textContent = ev.decorHighlight || "Custom Event Decor";
-
-      const modal = new bootstrap.Modal(document.getElementById("galleryLightboxModal"));
-      modal.show();
-    }
-
-    // 4. Render User Comments & Reviews
-    function renderCommentsList(venueId) {
-      const reviews = getStoredVenueReviews(venueId);
-      document.getElementById("tabReviewsCount").textContent = reviews.length;
-      document.getElementById("commentsCountLabel").textContent = `${reviews.length} Comments & Reviews`;
-      
-      const container = document.getElementById("commentsListContainer");
-      if (reviews.length === 0) {
-        container.innerHTML = `
-          <div class="text-center py-4 text-muted">
-            <i class="fa-regular fa-comment-dots fs-2 mb-2"></i>
-            <p>No comments published yet. Be the first host to share your experience!</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = reviews.map(r => `
-        <div class="p-3 border rounded bg-white shadow-xs">
-          <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
-            <div class="d-flex align-items-center gap-3">
-              <img src="${r.avatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80'}" alt="${r.userName}" class="review-avatar">
-              <div>
-                <div class="d-flex align-items-center gap-2">
-                  <h6 class="fw-bold text-dark mb-0">${r.userName}</h6>
-                  ${r.verified ? '<span class="badge bg-warning text-dark px-2 py-0.5" style="font-size: 0.68rem;"><i class="fa-solid fa-badge-check me-1"></i> Verified Host</span>' : ''}
-                </div>
-                <small class="text-muted d-block">${r.eventHeld} &nbsp;•&nbsp; ${r.eventDate}</small>
-              </div>
-            </div>
-            <div class="text-warning small">
-              ${Array.from({ length: 5 }).map((_, i) => `<i class="fa-solid fa-star ${i < r.rating ? 'text-warning' : 'text-muted opacity-25'}"></i>`).join('')}
-            </div>
-          </div>
-          <p class="text-secondary small mb-2" style="line-height: 1.6;">
-            "${r.text}"
-          </p>
-          <div class="d-flex align-items-center justify-content-between pt-2 border-top">
-            <small class="text-muted" style="font-size: 0.75rem;">Event successfully hosted at ${currentVenue.name}</small>
-            <button class="btn btn-sm btn-link text-decoration-none text-muted p-0" onclick="likeReview(this, ${r.helpfulCount || 12})">
-              <i class="fa-regular fa-thumbs-up me-1"></i> Helpful (${r.helpfulCount || 12})
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function likeReview(btn, count) {
-      btn.innerHTML = `<i class="fa-solid fa-thumbs-up text-danger me-1"></i> Helpful (${count + 1})`;
-      btn.classList.add("text-danger");
-      btn.disabled = true;
-    }
-
-    // 5. Star Rating Selector Setup
-    function setupStarRatingSelector() {
-      const container = document.getElementById("starRatingSelector");
-      const stars = container.querySelectorAll("i");
-      const hiddenInput = document.getElementById("selectedStarRating");
-      const label = document.getElementById("ratingTextLabel");
-
-      const labels = {
-        1: "1.0 (Needs Improvement)",
-        2: "2.0 (Fair)",
-        3: "3.0 (Good Experience)",
-        4: "4.0 (Very Good)",
-        5: "5.0 (Exceptional)"
-      };
-
-      stars.forEach(star => {
-        star.addEventListener("click", () => {
-          const val = parseInt(star.getAttribute("data-rating"));
-          hiddenInput.value = val;
-          label.textContent = labels[val];
-          stars.forEach(s => {
-            const sVal = parseInt(s.getAttribute("data-rating"));
-            if (sVal <= val) {
-              s.classList.add("active");
-            } else {
-              s.classList.remove("active");
-            }
-          });
-        });
-
-        star.addEventListener("mouseenter", () => {
-          const val = parseInt(star.getAttribute("data-rating"));
-          stars.forEach(s => {
-            const sVal = parseInt(s.getAttribute("data-rating"));
-            if (sVal <= val) {
-              s.classList.add("hovered");
-            } else {
-              s.classList.remove("hovered");
-            }
-          });
-        });
-
-        star.addEventListener("mouseleave", () => {
-          stars.forEach(s => s.classList.remove("hovered"));
-        });
-      });
-    }
-
-    // 6. Handle New Review Submission
-    function handleReviewSubmit(e) {
-      e.preventDefault();
-      if (!currentVenue) return;
-
-      const name = document.getElementById("reviewAuthorName").value.trim();
-      const eventType = document.getElementById("reviewEventType").value;
-      const date = document.getElementById("reviewEventDate").value.trim();
-      const rating = parseInt(document.getElementById("selectedStarRating").value) || 5;
-      const text = document.getElementById("reviewCommentText").value.trim();
-
-      if (!name || !eventType || !date || !text) {
-        showToast("Missing Information", "Please fill out all required fields before posting.", "warning");
-        return;
-      }
-
-      const newReview = {
-        id: "rev-" + Date.now(),
-        userName: name,
-        avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
-        rating: rating,
-        eventHeld: `${eventType}`,
-        eventDate: date,
-        verified: true,
-        text: text,
-        helpfulCount: 1
-      };
-
-      saveNewVenueReview(currentVenue.id, newReview);
-      renderCommentsList(currentVenue.id);
-
-      // Reset form
-      document.getElementById("addVenueReviewForm").reset();
-      showToast("Comment Published!", "Thank you for sharing your event experience at this venue.", "success");
-
-      // Scroll smoothly to comments list
-      document.getElementById("commentsListContainer").scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function jumpToReviewsTab() {
-      const tabEl = document.getElementById("tab-reviews-btn");
-      if (tabEl) {
-        new bootstrap.Tab(tabEl).show();
-        setTimeout(() => {
-          document.getElementById("reviewFormSection").scrollIntoView({ behavior: 'smooth' });
-        }, 150);
-      }
-    }
-
-    // 7. Render Other Recommended Venues
-    function renderOtherVenues(currentId) {
-      const container = document.getElementById("otherVenuesGrid");
-      const others = DETAILED_VENUES.filter(v => v.id !== currentId).slice(0, 3);
-
-      container.innerHTML = others.map(v => `
-        <div class="col-lg-4 col-md-6">
-          <div class="aura-card h-100">
-            <div class="position-relative" style="height: 200px;">
-              <img src="${v.image}" alt="${v.name}" class="w-100 h-100" style="object-fit: cover;">
-              <span class="badge-gold position-absolute top-0 start-0 m-3">${v.typeBadge || v.type}</span>
-              <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
-                <i class="fa-solid fa-users me-1"></i> Up to ${v.capacity} Guests
-              </span>
-            </div>
-            <div class="p-3 d-flex flex-column justify-content-between flex-grow-1">
-              <div>
-                <h6 class="fw-bold mb-1">${v.name}</h6>
-                <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-danger"></i> ${v.location}</p>
-                <p class="text-secondary small mb-3 text-truncate-2" style="font-size: 0.82rem;">${v.description}</p>
-              </div>
-              <div class="d-flex justify-content-between align-items-center pt-2 border-top">
-                <div>
-                  <small class="text-muted d-block" style="font-size: 0.7rem;">Hire Fee</small>
-                  <span class="fw-bold text-danger small">${formatPKR(v.price)}</span>
-                </div>
-                <div class="d-flex gap-2">
-                  <a href="venue-detail.html?id=${v.id}" class="btn btn-outline-secondary btn-sm">
-                    <i class="fa-solid fa-circle-info me-1"></i> Detail
-                  </a>
-                  <a href="book-event.html?venue=${v.id}" class="btn btn-aura-navy btn-sm">
-                    <i class="fa-solid fa-calendar-check me-1"></i> Venue Booking
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `).join('');
-    }
-  </script>
 </body>
 </html>

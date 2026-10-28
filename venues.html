@@ -19,7 +19,6 @@
   <!-- Custom Master Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/configurator.css">
-  <script src="assets/js/main.js"></script>
 </head>
 <body class="bg-light">
 
@@ -47,9 +46,13 @@
           <li class="nav-item"><a class="nav-link nav-link-aura" href="services.html">Catering & Services</a></li>
           <li class="nav-item"><a class="nav-link nav-link-aura" href="book-event.html">Plan Event</a></li>
           <li class="nav-item"><a class="nav-link nav-link-aura" href="my-bookings.html">My Bookings</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="profile.html">Profile</a></li>
         </ul>
 
-        <div id="navbarAuthArea" class="d-flex align-items-center"></div>
+        <div id="navbarAuthArea" class="d-flex align-items-center gap-2">
+          <a href="login.html" class="btn btn-aura-outline btn-sm px-3">Sign In</a>
+          <a href="register.html" class="btn btn-aura-gold btn-sm px-3">Register</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -109,11 +112,224 @@
 
     <!-- Venues Grid -->
     <div class="row g-4" id="venuesCatalogGrid">
-      <!-- Generated via JS or Static Template -->
+      
+      <!-- Venue 1: The Royal Palm Grand Ballroom -->
+      <div class="col-lg-4 col-md-6">
+        <div class="aura-card h-100">
+          <a href="venue-detail.html" class="d-block position-relative" style="height: 220px;">
+            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="The Royal Palm Grand Ballroom" class="w-100 h-100" style="object-fit: cover;">
+            <span class="badge-gold position-absolute top-0 start-0 m-3 text-capitalize">indoor</span>
+            <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+              <i class="fa-solid fa-users me-1"></i> Up to 650 Guests
+            </span>
+          </a>
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="fw-bold mb-1">
+                <a href="venue-detail.html" class="text-dark text-decoration-none">
+                  The Royal Palm Grand Ballroom
+                </a>
+              </h5>
+              <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Club Road, Islamabad</p>
+              <p class="text-secondary small mb-3">Crystal chandeliers, royal Persian carpeting, acoustic engineering, and VIP private suites for the royal bridal party.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-light text-dark border small p-1">Dedicated Valet Parking</span>
+                <span class="badge bg-light text-dark border small p-1">Bridal Luxury Suite</span>
+                <span class="badge bg-light text-dark border small p-1">Stage LED Wall Ready</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <div>
+                <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                <span class="fw-bold text-primary">PKR 350,000</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="venue-detail.html" class="btn btn-outline-secondary btn-sm" title="View Venue Details, Past Events & Reviews">
+                  <i class="fa-solid fa-circle-info me-1"></i> Detail
+                </a>
+                <a href="book-event.html" class="btn btn-aura-navy btn-sm" title="Book This Venue">
+                  <i class="fa-solid fa-calendar-check me-1"></i> Plan Event
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venue 2: Serena Sheesh Mahal Hall -->
+      <div class="col-lg-4 col-md-6">
+        <div class="aura-card h-100">
+          <a href="venue-detail.html" class="d-block position-relative" style="height: 220px;">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Serena Sheesh Mahal Hall" class="w-100 h-100" style="object-fit: cover;">
+            <span class="badge-gold position-absolute top-0 start-0 m-3 text-capitalize">indoor</span>
+            <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+              <i class="fa-solid fa-users me-1"></i> Up to 500 Guests
+            </span>
+          </a>
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="fw-bold mb-1">
+                <a href="venue-detail.html" class="text-dark text-decoration-none">
+                  Serena Sheesh Mahal Hall
+                </a>
+              </h5>
+              <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Khayaban-e-Suhrawardy, Islamabad</p>
+              <p class="text-secondary small mb-3">Iconic hand-carved mirror work, regal mughal architecture, and five-star hospitality standards.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-light text-dark border small p-1">Five-Star Staffing</span>
+                <span class="badge bg-light text-dark border small p-1">Secured Diplomatic Area</span>
+                <span class="badge bg-light text-dark border small p-1">VVIP Green Rooms</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <div>
+                <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                <span class="fw-bold text-primary">PKR 450,000</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="venue-detail.html" class="btn btn-outline-secondary btn-sm" title="View Venue Details, Past Events & Reviews">
+                  <i class="fa-solid fa-circle-info me-1"></i> Detail
+                </a>
+                <a href="book-event.html" class="btn btn-aura-navy btn-sm" title="Book This Venue">
+                  <i class="fa-solid fa-calendar-check me-1"></i> Plan Event
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venue 3: Margalla Hillview Garden Pavilion -->
+      <div class="col-lg-4 col-md-6">
+        <div class="aura-card h-100">
+          <a href="venue-detail.html" class="d-block position-relative" style="height: 220px;">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Margalla Hillview Garden Pavilion" class="w-100 h-100" style="object-fit: cover;">
+            <span class="badge-gold position-absolute top-0 start-0 m-3 text-capitalize">outdoor</span>
+            <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+              <i class="fa-solid fa-users me-1"></i> Up to 400 Guests
+            </span>
+          </a>
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="fw-bold mb-1">
+                <a href="venue-detail.html" class="text-dark text-decoration-none">
+                  Margalla Hillview Garden Pavilion
+                </a>
+              </h5>
+              <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Pir Sohawa Scenic Enclave</p>
+              <p class="text-secondary small mb-3">Lush green manicured lawns with panoramic Margalla hill views, open-air fairy light setup, and mountain breeze.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-light text-dark border small p-1">Panoramic Hill Views</span>
+                <span class="badge bg-light text-dark border small p-1">Fairy Light Canopy</span>
+                <span class="badge bg-light text-dark border small p-1">Open-air BBQ Zone</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <div>
+                <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                <span class="fw-bold text-primary">PKR 240,000</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="venue-detail.html" class="btn btn-outline-secondary btn-sm" title="View Venue Details, Past Events & Reviews">
+                  <i class="fa-solid fa-circle-info me-1"></i> Detail
+                </a>
+                <a href="book-event.html" class="btn btn-aura-navy btn-sm" title="Book This Venue">
+                  <i class="fa-solid fa-calendar-check me-1"></i> Plan Event
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venue 4: PC Crystal Hall & Marquee -->
+      <div class="col-lg-4 col-md-6">
+        <div class="aura-card h-100">
+          <a href="venue-detail.html" class="d-block position-relative" style="height: 220px;">
+            <img src="https://images.unsplash.com/photo-1545232979-fbf68fe9b1a2?auto=format&fit=crop&w=800&q=80" alt="PC Crystal Hall & Marquee" class="w-100 h-100" style="object-fit: cover;">
+            <span class="badge-gold position-absolute top-0 start-0 m-3 text-capitalize">indoor</span>
+            <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+              <i class="fa-solid fa-users me-1"></i> Up to 800 Guests
+            </span>
+          </a>
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="fw-bold mb-1">
+                <a href="venue-detail.html" class="text-dark text-decoration-none">
+                  PC Crystal Hall & Marquee
+                </a>
+              </h5>
+              <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Mall Road, Rawalpindi</p>
+              <p class="text-secondary small mb-3">Expansive high-ceiling ballroom ideal for mega weddings, state banquets, and national galas.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-light text-dark border small p-1">800+ Guest Capacity</span>
+                <span class="badge bg-light text-dark border small p-1">Separate Entrance & Foyer</span>
+                <span class="badge bg-light text-dark border small p-1">Full AV Console</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <div>
+                <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                <span class="fw-bold text-primary">PKR 380,000</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="venue-detail.html" class="btn btn-outline-secondary btn-sm" title="View Venue Details, Past Events & Reviews">
+                  <i class="fa-solid fa-circle-info me-1"></i> Detail
+                </a>
+                <a href="book-event.html" class="btn btn-aura-navy btn-sm" title="Book This Venue">
+                  <i class="fa-solid fa-calendar-check me-1"></i> Plan Event
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Venue 5: The Club Poolside Gazebo -->
+      <div class="col-lg-4 col-md-6">
+        <div class="aura-card h-100">
+          <a href="venue-detail.html" class="d-block position-relative" style="height: 220px;">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="The Club Poolside Gazebo" class="w-100 h-100" style="object-fit: cover;">
+            <span class="badge-gold position-absolute top-0 start-0 m-3 text-capitalize">outdoor</span>
+            <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
+              <i class="fa-solid fa-users me-1"></i> Up to 220 Guests
+            </span>
+          </a>
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="fw-bold mb-1">
+                <a href="venue-detail.html" class="text-dark text-decoration-none">
+                  The Club Poolside Gazebo
+                </a>
+              </h5>
+              <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Murree Road, Islamabad</p>
+              <p class="text-secondary small mb-3">Chic illuminated poolside ambiance, perfect for boutique Mehndi nights, bridal showers, and private milestone parties.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge bg-light text-dark border small p-1">Poolside Lighting</span>
+                <span class="badge bg-light text-dark border small p-1">Cocktail Bar Setup</span>
+                <span class="badge bg-light text-dark border small p-1">Lounge Furnishing</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <div>
+                <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
+                <span class="fw-bold text-primary">PKR 190,000</span>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="venue-detail.html" class="btn btn-outline-secondary btn-sm" title="View Venue Details, Past Events & Reviews">
+                  <i class="fa-solid fa-circle-info me-1"></i> Detail
+                </a>
+                <a href="book-event.html" class="btn btn-aura-navy btn-sm" title="Book This Venue">
+                  <i class="fa-solid fa-calendar-check me-1"></i> Plan Event
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </main>
-
-  <!-- Venue Detail Navigation Note: Clicking 'Detail' navigates directly to the dedicated venue detail screen -->
 
   <!-- Global Footer -->
   <footer class="aura-footer py-4">
@@ -121,143 +337,5 @@
       © 2026 Aura Events Management Platform. All Rights Reserved.
     </div>
   </footer>
-
-  <!-- Bootstrap 5.3 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const VENUES_DATA = [
-      {
-        id: "v-royal-palm",
-        name: "The Royal Palm Grand Ballroom",
-        location: "Club Road, Islamabad",
-        capacity: 650,
-        price: 350000,
-        type: "indoor",
-        image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80",
-        description: "Crystal chandeliers, royal Persian carpeting, acoustic engineering, and VIP private suites for the royal bridal party.",
-        facilities: ["Dedicated Valet Parking", "Bridal Luxury Suite", "Stage LED Wall Ready", "High-power Generator Backup", "Central Air Conditioning"]
-      },
-      {
-        id: "v-serena-sheesh",
-        name: "Serena Sheesh Mahal Hall",
-        location: "Khayaban-e-Suhrawardy, Islamabad",
-        capacity: 500,
-        price: 450000,
-        type: "indoor",
-        image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80",
-        description: "Iconic hand-carved mirror work, regal mughal architecture, and five-star hospitality standards.",
-        facilities: ["Five-Star Staffing", "Secured Diplomatic Area", "VVIP Green Rooms", "In-house Master Chefs", "Valet Security Clearance"]
-      },
-      {
-        id: "v-margalla-pavilion",
-        name: "Margalla Hillview Garden Pavilion",
-        location: "Pir Sohawa Scenic Enclave",
-        capacity: 400,
-        price: 240000,
-        type: "outdoor",
-        image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80",
-        description: "Lush green manicured lawns with panoramic Margalla hill views, open-air fairy light setup, and mountain breeze.",
-        facilities: ["Panoramic Hill Views", "Fairy Light Canopy Installed", "Open-air BBQ Zone", "Ample Ridge Parking", "Outdoor Heaters"]
-      },
-      {
-        id: "v-pearl-continental",
-        name: "PC Crystal Hall & Marquee",
-        location: "Mall Road, Rawalpindi",
-        capacity: 800,
-        price: 380000,
-        type: "indoor",
-        image: "https://images.unsplash.com/photo-1545232979-fbf68fe9b1a2?auto=format&fit=crop&w=800&q=80",
-        description: "Expansive high-ceiling ballroom ideal for mega weddings, state banquets, and national galas.",
-        facilities: ["800+ Guest Capacity", "Separate Entrance & Foyer", "Executive Boardroom Attached", "Full AV Console", "High-Speed Elevators"]
-      },
-      {
-        id: "v-islamabad-club",
-        name: "The Club Poolside Gazebo",
-        location: "Murree Road, Islamabad",
-        capacity: 220,
-        price: 190000,
-        type: "outdoor",
-        image: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80",
-        description: "Chic illuminated poolside ambiance, perfect for boutique Mehndi nights, bridal showers, and private milestone parties.",
-        facilities: ["Poolside Underwater Lighting", "Chic Cocktail Bar Setup", "Intimate Setting", "Club Security", "Lounge Furnishing"]
-      }
-    ];
-
-    function renderVenuesCatalog() {
-      const grid = document.getElementById("venuesCatalogGrid");
-      const searchVal = document.getElementById("venueSearchInput").value.toLowerCase();
-      const settingVal = document.getElementById("venueSettingFilter").value;
-      const capacityVal = parseInt(document.getElementById("venueCapacityFilter").value) || 0;
-
-      const filtered = VENUES_DATA.filter(v => {
-        const matchesSearch = v.name.toLowerCase().includes(searchVal) || v.location.toLowerCase().includes(searchVal);
-        const matchesSetting = (settingVal === "all") || (v.type === settingVal);
-        const matchesCapacity = v.capacity >= capacityVal;
-        return matchesSearch && matchesSetting && matchesCapacity;
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div class="col-12 text-center py-5">
-            <h5 class="fw-bold">No Venues Found</h5>
-            <p class="text-muted small">Try adjusting your filters or search terms.</p>
-          </div>
-        `;
-        return;
-      }
-
-      grid.innerHTML = filtered.map(v => `
-        <div class="col-lg-4 col-md-6">
-          <div class="aura-card h-100">
-            <a href="venue-detail.html?id=${v.id}" class="d-block position-relative" style="height: 220px;">
-              <img src="${v.image}" alt="${v.name}" class="w-100 h-100" style="object-fit: cover;">
-              <span class="badge-gold position-absolute top-0 start-0 m-3 text-capitalize">${v.type}</span>
-              <span class="badge bg-dark text-white position-absolute bottom-0 start-0 m-3">
-                <i class="fa-solid fa-users me-1"></i> Up to ${v.capacity} Guests
-              </span>
-            </a>
-            <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
-              <div>
-                <h5 class="fw-bold mb-1">
-                  <a href="venue-detail.html?id=${v.id}" class="text-dark text-decoration-none">
-                    ${v.name}
-                  </a>
-                </h5>
-                <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> ${v.location}</p>
-                <p class="text-secondary small mb-3">${v.description}</p>
-                <div class="d-flex flex-wrap gap-1 mb-3">
-                  ${v.facilities.slice(0, 3).map(f => `<span class="badge bg-light text-dark border small p-1">${f}</span>`).join('')}
-                </div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center pt-3 border-top">
-                <div>
-                  <small class="text-muted d-block" style="font-size: 0.72rem;">Starting Hire Fee</small>
-                  <span class="fw-bold text-primary">${formatPKR(v.price)}</span>
-                </div>
-                <div class="d-flex gap-2">
-                  <a href="venue-detail.html?id=${v.id}" class="btn btn-outline-secondary btn-sm" title="View Venue Details, Past Events & Reviews">
-                    <i class="fa-solid fa-circle-info me-1"></i> Detail
-                  </a>
-                  <a href="book-event.html?venue=${v.id}" class="btn btn-aura-navy btn-sm" title="Book This Venue">
-                    <i class="fa-solid fa-calendar-check me-1"></i> Venue Booking
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function openVenueModal(id) {
-      window.location.href = `venue-detail.html?id=${id}`;
-    }
-
-    document.getElementById("venueSearchInput").addEventListener("input", renderVenuesCatalog);
-    document.getElementById("venueSettingFilter").addEventListener("change", renderVenuesCatalog);
-    document.getElementById("venueCapacityFilter").addEventListener("change", renderVenuesCatalog);
-
-    document.addEventListener("DOMContentLoaded", renderVenuesCatalog);
-  </script>
 </body>
 </html>

@@ -495,6 +495,13 @@ table, .table {
 }
 
 @media (max-width: 991.98px) {
+  .navbar-toggler-aura {
+    display: none !important;
+  }
+  .navbar-collapse.collapse {
+    display: flex !important;
+    flex-direction: column;
+  }
   .navbar-collapse {
     background-color: #FFFFFF;
     border-radius: 4px;

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Event Configurator & Booking | Aura Events</title>
-  <meta name="description" content="Build your custom wedding, corporate gala, or celebration step-by-step with live pricing and venue availability.">
+  <title>Event Planning Form | Aura Events</title>
+  <meta name="description" content="Plan and configure your luxury wedding, corporate gala, or private celebration step-by-step with transparent package pricing.">
 
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,6 @@
   <!-- Custom Master Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/configurator.css">
-  <script src="assets/js/main.js"></script>
 </head>
 <body class="bg-light">
 
@@ -36,7 +35,7 @@
         </div>
       </a>
 
-      <button class="navbar-toggler navbar-toggler-aura border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <button class="navbar-toggler navbar-toggler-aura border-0 shadow-none" type="button">
         <i class="fa-solid fa-bars-staggered text-dark fs-5"></i>
       </button>
 
@@ -47,9 +46,13 @@
           <li class="nav-item"><a class="nav-link nav-link-aura" href="services.html">Catering & Services</a></li>
           <li class="nav-item"><a class="nav-link nav-link-aura active" href="book-event.html">Plan Event</a></li>
           <li class="nav-item"><a class="nav-link nav-link-aura" href="my-bookings.html">My Bookings</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-aura" href="profile.html">Profile</a></li>
         </ul>
 
-        <div id="navbarAuthArea" class="d-flex align-items-center"></div>
+        <div id="navbarAuthArea" class="d-flex align-items-center gap-2">
+          <a href="login.html" class="btn btn-outline-light btn-sm text-dark border-secondary-subtle">Sign In</a>
+          <a href="register.html" class="btn btn-aura-gold btn-sm">Register</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -59,12 +62,12 @@
     <div class="container position-relative" style="z-index: 2;">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
         <div>
-          <span class="badge-gold mb-1"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Interactive Event Builder</span>
-          <h1 class="h3 text-white fw-bold mb-0">Build Your Dream Celebration</h1>
+          <span class="badge-gold mb-1"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Bespoke Event Planner</span>
+          <h1 class="h3 text-white fw-bold mb-0">Event Configuration & Planning Form</h1>
         </div>
         <div class="d-flex align-items-center gap-2">
-          <a href="javascript:void(0)" onclick="if(confirm('Start over and clear current selections?')) window.location.reload();" class="btn btn-sm btn-outline-light">
-            <i class="fa-solid fa-rotate-left me-1"></i> Start Over
+          <a href="book-event.html" class="btn btn-sm btn-outline-light">
+            <i class="fa-solid fa-rotate-left me-1"></i> Reset Form
           </a>
         </div>
       </div>
@@ -74,49 +77,49 @@
   <!-- Main Configurator Section -->
   <main class="container my-4">
 
-    <!-- 1. Multi-Step Wizard Progress Bar -->
+    <!-- 1. Anchor-based Navigation Steps Bar -->
     <div class="wizard-progress-wrapper">
-      <ul class="wizard-steps">
-        <li class="wizard-step-item active" data-step="1" onclick="goToStep(1)">
+      <div class="wizard-steps">
+        <a href="#step-details" class="wizard-step-item active text-decoration-none">
           <div class="wizard-step-circle">1</div>
           <span class="wizard-step-label">Details</span>
-        </li>
-        <li class="wizard-step-item" data-step="2" onclick="goToStep(2)">
+        </a>
+        <a href="#step-venue" class="wizard-step-item text-decoration-none">
           <div class="wizard-step-circle">2</div>
           <span class="wizard-step-label">Venue</span>
-        </li>
-        <li class="wizard-step-item" data-step="3" onclick="goToStep(3)">
+        </a>
+        <a href="#step-seating" class="wizard-step-item text-decoration-none">
           <div class="wizard-step-circle">3</div>
           <span class="wizard-step-label">Seating</span>
-        </li>
-        <li class="wizard-step-item" data-step="4" onclick="goToStep(4)">
+        </a>
+        <a href="#step-catering" class="wizard-step-item text-decoration-none">
           <div class="wizard-step-circle">4</div>
           <span class="wizard-step-label">Menu</span>
-        </li>
-        <li class="wizard-step-item" data-step="5" onclick="goToStep(5)">
+        </a>
+        <a href="#step-addons" class="wizard-step-item text-decoration-none">
           <div class="wizard-step-circle">5</div>
           <span class="wizard-step-label">Add-ons</span>
-        </li>
-        <li class="wizard-step-item" data-step="6" onclick="goToStep(6)">
+        </a>
+        <a href="#step-pricing" class="wizard-step-item text-decoration-none">
           <div class="wizard-step-circle">6</div>
           <span class="wizard-step-label">Pricing</span>
-        </li>
-        <li class="wizard-step-item" data-step="7" onclick="goToStep(7)">
+        </a>
+        <a href="#step-contact" class="wizard-step-item text-decoration-none">
           <div class="wizard-step-circle">7</div>
-          <span class="wizard-step-label">Submit</span>
-        </li>
-      </ul>
+          <span class="wizard-step-label">Review</span>
+        </a>
+      </div>
     </div>
 
-    <!-- 2. Wizard Two-Column Layout -->
-    <div class="row g-4">
-      
-      <!-- Left Column: Active Step Panes -->
-      <div class="col-lg-8">
+    <!-- 2. Planning Form & Sticky Sidebar Layout -->
+    <form action="my-bookings.html" method="get">
+      <div class="row g-4">
         
-        <!-- STEP 1: Event Details & Guest Count -->
-        <div class="wizard-step-pane" data-step="1">
-          <div class="aura-card p-4 shadow-sm bg-white">
+        <!-- Left Column: Form Steps -->
+        <div class="col-lg-8">
+          
+          <!-- STEP 1: Event Details & Guest Count -->
+          <div class="aura-card p-4 shadow-sm bg-white mb-4" id="step-details">
             <div class="border-bottom pb-3 mb-4">
               <span class="badge bg-primary text-white mb-2">Step 1 of 7</span>
               <h4 class="fw-bold mb-1">What kind of event are you planning?</h4>
@@ -124,10 +127,10 @@
             </div>
 
             <div class="row g-3">
-              <!-- Event Type (Appendix A) -->
+              <!-- Event Type -->
               <div class="col-md-6">
                 <label class="form-label" for="evtType">Event Type <span class="text-danger">*</span></label>
-                <select class="form-select" id="evtType">
+                <select class="form-select" id="evtType" name="evtType">
                   <option value="Barat & Wedding Reception" selected>Barat & Wedding Reception</option>
                   <option value="Walima Dinner">Walima Dinner</option>
                   <option value="Mehndi & Sangeet Night">Mehndi & Sangeet Night</option>
@@ -136,7 +139,7 @@
                   <option value="Executive Conference / Seminar">Executive Conference / Seminar</option>
                   <option value="Milestone Birthday Party">Milestone Birthday Party</option>
                   <option value="Bridal Shower / Qawwali Night">Bridal Shower / Qawwali Night</option>
-                  <option value="Other">Other (Custom Event)</option>
+                  <option value="Other">Other (Custom Celebration)</option>
                 </select>
               </div>
 
@@ -145,9 +148,9 @@
                 <label class="form-label" for="evtGuests">Expected Guest Attendance <span class="text-danger">*</span></label>
                 <div class="input-icon-wrapper">
                   <i class="fa-solid fa-users"></i>
-                  <input type="number" class="form-control" id="evtGuests" min="20" max="3000" value="250" placeholder="e.g., 250">
+                  <input type="number" class="form-control" id="evtGuests" name="evtGuests" min="20" max="3000" value="250" placeholder="e.g., 250">
                 </div>
-                <small class="text-muted" style="font-size: 0.74rem;">Venues will automatically filter to ensure comfortable capacity.</small>
+                <small class="text-muted" style="font-size: 0.74rem;">Capacity will guide comfortable venue and seating recommendations.</small>
               </div>
 
               <!-- Date Picker -->
@@ -155,120 +158,278 @@
                 <label class="form-label" for="evtDate">Preferred Event Date <span class="text-danger">*</span></label>
                 <div class="input-icon-wrapper">
                   <i class="fa-solid fa-calendar-days"></i>
-                  <input type="date" class="form-control" id="evtDate" required>
+                  <input type="date" class="form-control" id="evtDate" name="evtDate" value="2026-11-28">
                 </div>
               </div>
 
               <!-- Time Slot -->
               <div class="col-md-6">
                 <label class="form-label" for="evtSlot">Time Slot <span class="text-danger">*</span></label>
-                <select class="form-select" id="evtSlot">
+                <select class="form-select" id="evtSlot" name="evtSlot">
                   <option value="Evening / Dinner (7:00 PM - 11:30 PM)" selected>Evening / Dinner (7:00 PM - 11:30 PM)</option>
                   <option value="Afternoon / Lunch (12:30 PM - 4:00 PM)">Afternoon / Lunch (12:30 PM - 4:00 PM)</option>
                   <option value="Full Day Event (10:00 AM - 10:00 PM)">Full Day Event (10:00 AM - 10:00 PM)</option>
                 </select>
               </div>
 
-              <!-- Budget (Optional) -->
+              <!-- Target Budget -->
               <div class="col-12 mt-3">
                 <label class="form-label" for="evtBudget">Target Overall Budget (Optional)</label>
                 <div class="input-icon-wrapper">
                   <i class="fa-solid fa-coins"></i>
-                  <input type="number" class="form-control" id="evtBudget" value="2000000" step="50000" placeholder="e.g., 2,000,000">
+                  <input type="number" class="form-control" id="evtBudget" name="evtBudget" value="2000000" step="50000" placeholder="e.g., 2,000,000">
                 </div>
-                <small class="text-muted" style="font-size: 0.74rem;">The configurator will compare your choices against this target in the live tracker.</small>
+                <small class="text-muted" style="font-size: 0.74rem;">Benchmark to track your preferred decor and catering choices.</small>
               </div>
 
-              <!-- Own Venue Toggle (SRS FR-EVT-08) -->
+              <!-- Own Venue Toggle -->
               <div class="col-12 mt-4 pt-3 border-top">
                 <div class="form-check custom-checkbox-card p-3 border rounded-3 bg-light">
-                  <input class="form-check-input ms-1" type="checkbox" id="ownVenueCheck">
+                  <input class="form-check-input ms-1" type="checkbox" id="ownVenueCheck" name="ownVenue">
                   <label class="form-check-label ms-2 fw-bold text-dark" for="ownVenueCheck">
                     <i class="fa-solid fa-house me-1 text-primary"></i> I will use my own venue (Home, Farmhouse, Private Lawn)
                   </label>
-                  <p class="text-muted small ms-2 mb-0 mt-1">If enabled, venue hire charge is Rs. 0. All catering, seating & decor services remain fully configurable.</p>
-                </div>
-
-                <div id="ownVenueDetailsBox" class="mt-3 d-none">
-                  <label class="form-label" for="ownVenueAddress">Own Venue Location / Address</label>
-                  <input type="text" class="form-control" id="ownVenueAddress" placeholder="e.g., House 42, Margalla Road or Chak Shahzad Farmhouse #12">
+                  <p class="text-muted small ms-2 mb-0 mt-1">Venue hire fee is PKR 0. Catering, seating, audio & decor services remain fully accessible.</p>
                 </div>
               </div>
 
-              <!-- Navigation Button -->
-              <div class="col-12 mt-4 pt-3 border-top text-end">
-                <button type="button" class="btn btn-aura-gold px-4 py-2" onclick="goToStep(2)">
-                  Continue to Venue Selection <i class="fa-solid fa-arrow-right ms-2"></i>
-                </button>
+              <div class="col-12 mt-3 text-end">
+                <a href="#step-venue" class="btn btn-outline-primary btn-sm">
+                  Jump to Venue Selection <i class="fa-solid fa-arrow-down ms-1"></i>
+                </a>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- STEP 2: Venue Selection -->
-        <div class="wizard-step-pane d-none" data-step="2">
-          <div class="aura-card p-4 shadow-sm bg-white mb-4">
-            <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
-              <div>
-                <span class="badge bg-primary text-white mb-2">Step 2 of 7</span>
-                <h4 class="fw-bold mb-1">Select Available Venue</h4>
-                <p class="text-muted small mb-0">Showing venues that fit your <strong id="step2GuestCount">250</strong> guests.</p>
+          <!-- STEP 2: Venue Selection -->
+          <div class="aura-card p-4 shadow-sm bg-white mb-4" id="step-venue">
+            <div class="border-bottom pb-3 mb-4">
+              <span class="badge bg-primary text-white mb-2">Step 2 of 7</span>
+              <h4 class="fw-bold mb-1">Select Available Venue</h4>
+              <p class="text-muted small mb-0">Choose from luxury halls, five-star banquet ballrooms, or scenic hillside lawns.</p>
+            </div>
+
+            <!-- Venues Options Grid -->
+            <div class="row g-3">
+              <!-- Venue 1 -->
+              <div class="col-md-6">
+                <label class="selectable-card d-block h-100 p-0 border rounded-3 overflow-hidden shadow-sm" style="cursor: pointer;">
+                  <div class="card-img-wrapper position-relative" style="height: 180px;">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80" alt="The Royal Palm Grand Ballroom" class="w-100 h-100" style="object-fit: cover;">
+                    <span class="card-price-pill position-absolute top-0 start-0 m-2 badge bg-white text-dark shadow-sm">PKR 350,000</span>
+                    <span class="card-capacity-pill position-absolute bottom-0 start-0 m-2 badge bg-dark text-white"><i class="fa-solid fa-users me-1"></i> Cap: 800</span>
+                  </div>
+                  <div class="p-3">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                      <h6 class="fw-bold mb-0">The Royal Palm Grand Ballroom</h6>
+                      <input type="radio" name="selectedVenue" value="Royal Palm" class="form-check-input" checked>
+                    </div>
+                    <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Club Road, Rawalpindi / Islamabad</p>
+                    <p class="text-secondary small mb-0" style="font-size: 0.78rem;">Crystal chandeliers, central climate control, and dedicated bridal suite.</p>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Venue 2 -->
+              <div class="col-md-6">
+                <label class="selectable-card d-block h-100 p-0 border rounded-3 overflow-hidden shadow-sm" style="cursor: pointer;">
+                  <div class="card-img-wrapper position-relative" style="height: 180px;">
+                    <img src="https://images.unsplash.com/photo-1545232979-fbf68fe9b10d?auto=format&fit=crop&w=600&q=80" alt="Serena Sheesh Mahal Hall" class="w-100 h-100" style="object-fit: cover;">
+                    <span class="card-price-pill position-absolute top-0 start-0 m-2 badge bg-white text-dark shadow-sm">PKR 550,000</span>
+                    <span class="card-capacity-pill position-absolute bottom-0 start-0 m-2 badge bg-dark text-white"><i class="fa-solid fa-users me-1"></i> Cap: 600</span>
+                  </div>
+                  <div class="p-3">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                      <h6 class="fw-bold mb-0">Serena Sheesh Mahal Hall</h6>
+                      <input type="radio" name="selectedVenue" value="Serena Sheesh Mahal" class="form-check-input">
+                    </div>
+                    <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Khayaban-e-Suhrawardy, Islamabad</p>
+                    <p class="text-secondary small mb-0" style="font-size: 0.78rem;">Five-star heritage ambience with intricate mirror glass mosaic art.</p>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Venue 3 -->
+              <div class="col-md-6">
+                <label class="selectable-card d-block h-100 p-0 border rounded-3 overflow-hidden shadow-sm" style="cursor: pointer;">
+                  <div class="card-img-wrapper position-relative" style="height: 180px;">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80" alt="Margalla Hillview Open Terrace" class="w-100 h-100" style="object-fit: cover;">
+                    <span class="card-price-pill position-absolute top-0 start-0 m-2 badge bg-white text-dark shadow-sm">PKR 280,000</span>
+                    <span class="card-capacity-pill position-absolute bottom-0 start-0 m-2 badge bg-dark text-white"><i class="fa-solid fa-users me-1"></i> Cap: 450</span>
+                  </div>
+                  <div class="p-3">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                      <h6 class="fw-bold mb-0">Margalla Hillview Terrace</h6>
+                      <input type="radio" name="selectedVenue" value="Margalla Terrace" class="form-check-input">
+                    </div>
+                    <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> Pir Sohawa Road, Islamabad</p>
+                    <p class="text-secondary small mb-0" style="font-size: 0.78rem;">Breathtaking open-air mountain panoramic sunset views & fairylights.</p>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Venue 4 -->
+              <div class="col-md-6">
+                <label class="selectable-card d-block h-100 p-0 border rounded-3 overflow-hidden shadow-sm" style="cursor: pointer;">
+                  <div class="card-img-wrapper position-relative" style="height: 180px;">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="PC Crystal Banquet Hall" class="w-100 h-100" style="object-fit: cover;">
+                    <span class="card-price-pill position-absolute top-0 start-0 m-2 badge bg-white text-dark shadow-sm">PKR 420,000</span>
+                    <span class="card-capacity-pill position-absolute bottom-0 start-0 m-2 badge bg-dark text-white"><i class="fa-solid fa-users me-1"></i> Cap: 700</span>
+                  </div>
+                  <div class="p-3">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                      <h6 class="fw-bold mb-0">PC Crystal Banquet Hall</h6>
+                      <input type="radio" name="selectedVenue" value="PC Crystal" class="form-check-input">
+                    </div>
+                    <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot me-1 text-gold"></i> The Mall, Rawalpindi</p>
+                    <p class="text-secondary small mb-0" style="font-size: 0.78rem;">State-of-the-art acoustic sound isolation and VIP valet concourse.</p>
+                  </div>
+                </label>
               </div>
             </div>
 
-            <!-- Dynamic Venues List Grid -->
-            <div class="row" id="venuesListContainer"></div>
-
-            <!-- Navigation Buttons -->
-            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-3">
-              <button type="button" class="btn btn-outline-secondary" onclick="goToStep(1)">
-                <i class="fa-solid fa-arrow-left me-1"></i> Back to Details
-              </button>
-              <button type="button" class="btn btn-aura-gold px-4 py-2" onclick="goToStep(3)">
-                Continue to Seating Layout <i class="fa-solid fa-arrow-right ms-2"></i>
-              </button>
+            <div class="mt-3 text-end">
+              <a href="#step-seating" class="btn btn-outline-primary btn-sm">
+                Jump to Seating Layout <i class="fa-solid fa-arrow-down ms-1"></i>
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- STEP 3: Seating & Layout -->
-        <div class="wizard-step-pane d-none" data-step="3">
-          <div class="aura-card p-4 shadow-sm bg-white mb-4">
+          <!-- STEP 3: Seating & Layout -->
+          <div class="aura-card p-4 shadow-sm bg-white mb-4" id="step-seating">
             <div class="border-bottom pb-3 mb-4">
               <span class="badge bg-primary text-white mb-2">Step 3 of 7</span>
               <h4 class="fw-bold mb-1">Choose Seating & Ambience Arrangement</h4>
               <p class="text-muted small mb-0">Select the table setup, chair styling, and floor layout for your attendees.</p>
             </div>
 
-            <!-- Seating Options Grid -->
-            <div class="row" id="seatingOptionsContainer"></div>
+            <div class="row g-3">
+              <!-- Seating 1 -->
+              <div class="col-md-6">
+                <label class="seating-card d-block h-100 p-3 border rounded-3 bg-white" style="cursor: pointer;">
+                  <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80" alt="Royal Banquet Round Tables" class="seating-icon-img w-100 rounded mb-2" style="height: 120px; object-fit: cover;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h6 class="fw-bold mb-0">Royal Banquet Round Tables</h6>
+                    <input type="radio" name="selectedSeating" value="Round Tables" class="form-check-input" checked>
+                  </div>
+                  <span class="badge bg-light text-primary border mb-2">PKR 250 / guest</span>
+                  <p class="text-secondary small mb-0" style="font-size: 0.78rem;">10-seater round banquet tables with crushed velvet table linen and gold chiavari chairs.</p>
+                </label>
+              </div>
 
-            <!-- Navigation Buttons -->
-            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-3">
-              <button type="button" class="btn btn-outline-secondary" onclick="goToStep(2)">
-                <i class="fa-solid fa-arrow-left me-1"></i> Back to Venues
-              </button>
-              <button type="button" class="btn btn-aura-gold px-4 py-2" onclick="goToStep(4)">
-                Continue to Menu & Catering <i class="fa-solid fa-arrow-right ms-2"></i>
-              </button>
+              <!-- Seating 2 -->
+              <div class="col-md-6">
+                <label class="seating-card d-block h-100 p-3 border rounded-3 bg-white" style="cursor: pointer;">
+                  <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=500&q=80" alt="Traditional Diwan Lounge" class="seating-icon-img w-100 rounded mb-2" style="height: 120px; object-fit: cover;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h6 class="fw-bold mb-0">Traditional Diwan Lounge</h6>
+                    <input type="radio" name="selectedSeating" value="Diwan Lounge" class="form-check-input">
+                  </div>
+                  <span class="badge bg-light text-primary border mb-2">PKR 350 / guest</span>
+                  <p class="text-secondary small mb-0" style="font-size: 0.78rem;">Moroccan floor cushions, brass lanterns, low tables, and silk bolster pillows.</p>
+                </label>
+              </div>
+
+              <!-- Seating 3 -->
+              <div class="col-md-6">
+                <label class="seating-card d-block h-100 p-3 border rounded-3 bg-white" style="cursor: pointer;">
+                  <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=500&q=80" alt="Imperial U-Shaped VIP" class="seating-icon-img w-100 rounded mb-2" style="height: 120px; object-fit: cover;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h6 class="fw-bold mb-0">Imperial U-Shaped VIP</h6>
+                    <input type="radio" name="selectedSeating" value="VIP U-Shape" class="form-check-input">
+                  </div>
+                  <span class="badge bg-light text-primary border mb-2">PKR 400 / guest</span>
+                  <p class="text-secondary small mb-0" style="font-size: 0.78rem;">Tiered VIP executive table configuration with unobstructed stage sightlines.</p>
+                </label>
+              </div>
+
+              <!-- Seating 4 -->
+              <div class="col-md-6">
+                <label class="seating-card d-block h-100 p-3 border rounded-3 bg-white" style="cursor: pointer;">
+                  <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=500&q=80" alt="Modern Theater Setup" class="seating-icon-img w-100 rounded mb-2" style="height: 120px; object-fit: cover;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h6 class="fw-bold mb-0">Modern Theater Setup</h6>
+                    <input type="radio" name="selectedSeating" value="Theater Setup" class="form-check-input">
+                  </div>
+                  <span class="badge bg-light text-primary border mb-2">PKR 180 / guest</span>
+                  <p class="text-secondary small mb-0" style="font-size: 0.78rem;">Spaced presentation rows with central red carpet aisle for awards ceremonies.</p>
+                </label>
+              </div>
+            </div>
+
+            <div class="mt-3 text-end">
+              <a href="#step-catering" class="btn btn-outline-primary btn-sm">
+                Jump to Catering Packages <i class="fa-solid fa-arrow-down ms-1"></i>
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- STEP 4: Food & Catering Packages -->
-        <div class="wizard-step-pane d-none" data-step="4">
-          <div class="aura-card p-4 shadow-sm bg-white mb-4">
+          <!-- STEP 4: Food & Catering Packages -->
+          <div class="aura-card p-4 shadow-sm bg-white mb-4" id="step-catering">
             <div class="border-bottom pb-3 mb-4">
               <span class="badge bg-primary text-white mb-2">Step 4 of 7</span>
               <h4 class="fw-bold mb-1">Catering Menus & Dining Style</h4>
               <p class="text-muted small mb-0">Select an executive all-inclusive menu package crafted by master culinary chefs.</p>
             </div>
 
-            <!-- Catering Packages Row -->
-            <div class="row" id="cateringPackagesContainer"></div>
+            <div class="row g-3 mb-4">
+              <!-- Menu 1 -->
+              <div class="col-md-4">
+                <label class="menu-pkg-card d-block h-100 p-3 border rounded-3 bg-white" style="cursor: pointer;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-secondary text-white">Classic</span>
+                    <input type="radio" name="selectedMenu" value="Silver Classic" class="form-check-input">
+                  </div>
+                  <h6 class="fw-bold mb-1">Silver Classic Banquet</h6>
+                  <div class="fs-5 fw-bold text-navy mb-2">PKR 2,200 <small class="text-muted fs-7">/ guest</small></div>
+                  <ul class="list-unstyled small text-secondary mb-0">
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Chicken Biryani Special</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Chicken White Qorma</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Roghani Naan & Kulcha</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Shahi Kheer & Raita</li>
+                  </ul>
+                </label>
+              </div>
 
-            <!-- Service Style Selector -->
-            <div class="p-3 bg-light rounded-3 mt-3 mb-4 border">
+              <!-- Menu 2 (Featured) -->
+              <div class="col-md-4">
+                <label class="menu-pkg-card featured-pkg d-block h-100 p-3 border border-warning rounded-3 bg-white shadow-sm" style="cursor: pointer;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-warning text-dark">Most Popular</span>
+                    <input type="radio" name="selectedMenu" value="Gold Executive" class="form-check-input" checked>
+                  </div>
+                  <h6 class="fw-bold mb-1">Gold Executive Feast</h6>
+                  <div class="fs-5 fw-bold text-gold mb-2">PKR 2,800 <small class="text-muted fs-7">/ guest</small></div>
+                  <ul class="list-unstyled small text-secondary mb-0">
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Mutton Dum Biryani</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Chicken Reshmi Handi</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Seekh Kabab & Fish Fry</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Gajar Halwa & Ice Cream</li>
+                  </ul>
+                </label>
+              </div>
+
+              <!-- Menu 3 -->
+              <div class="col-md-4">
+                <label class="menu-pkg-card d-block h-100 p-3 border rounded-3 bg-white" style="cursor: pointer;">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="badge bg-dark text-warning">Ultra Luxury</span>
+                    <input type="radio" name="selectedMenu" value="Diamond Imperial" class="form-check-input">
+                  </div>
+                  <h6 class="fw-bold mb-1">Diamond Imperial Royale</h6>
+                  <div class="fs-5 fw-bold text-navy mb-2">PKR 3,800 <small class="text-muted fs-7">/ guest</small></div>
+                  <ul class="list-unstyled small text-secondary mb-0">
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Whole Stuffed Lamb Dumba</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Jumbo Tiger Prawns</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Mutton Kunna & Haleem</li>
+                    <li><i class="fa-solid fa-check text-success me-1"></i> Pistachio Kulfi & Souffle</li>
+                  </ul>
+                </label>
+              </div>
+            </div>
+
+            <!-- Service Format Selector -->
+            <div class="p-3 bg-light rounded-3 border">
               <h6 class="fw-bold text-dark mb-2"><i class="fa-solid fa-bell-concierge text-primary me-2"></i> Service Format</h6>
               <div class="row g-2">
                 <div class="col-md-4">
@@ -292,21 +453,15 @@
               </div>
             </div>
 
-            <!-- Navigation Buttons -->
-            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-3">
-              <button type="button" class="btn btn-outline-secondary" onclick="goToStep(3)">
-                <i class="fa-solid fa-arrow-left me-1"></i> Back to Seating
-              </button>
-              <button type="button" class="btn btn-aura-gold px-4 py-2" onclick="goToStep(5)">
-                Continue to Add-ons & Music <i class="fa-solid fa-arrow-right ms-2"></i>
-              </button>
+            <div class="mt-3 text-end">
+              <a href="#step-addons" class="btn btn-outline-primary btn-sm">
+                Jump to Add-ons & Music <i class="fa-solid fa-arrow-down ms-1"></i>
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- STEP 5: Add-ons, Eating Stalls & Entertainment -->
-        <div class="wizard-step-pane d-none" data-step="5">
-          <div class="aura-card p-4 shadow-sm bg-white mb-4">
+          <!-- STEP 5: Add-ons, Eating Stalls & Entertainment -->
+          <div class="aura-card p-4 shadow-sm bg-white mb-4" id="step-addons">
             <div class="border-bottom pb-3 mb-4">
               <span class="badge bg-primary text-white mb-2">Step 5 of 7</span>
               <h4 class="fw-bold mb-1">Add-ons, Live Counters & Music</h4>
@@ -314,40 +469,105 @@
             </div>
 
             <!-- Subsection A: Live Food Stalls -->
-            <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-fire text-danger me-2"></i> Live Eating Add-ons & Food Counters</h5>
-            <div class="row" id="eatingAddonsContainer"></div>
-
-            <hr class="my-4">
+            <h6 class="fw-bold text-dark mb-3"><i class="fa-solid fa-fire text-danger me-2"></i> Live Eating Add-ons & Food Counters</h6>
+            <div class="row g-2 mb-4">
+              <div class="col-md-4">
+                <label class="form-check p-2 bg-light border rounded-3 d-flex align-items-center justify-content-between" style="cursor: pointer;">
+                  <div>
+                    <input class="form-check-input ms-1" type="checkbox" name="addons" value="Live BBQ Grill" checked>
+                    <span class="ms-2 small fw-bold">Live BBQ Charcoal Grill</span>
+                  </div>
+                  <span class="badge bg-white text-dark border">PKR 45,000</span>
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="form-check p-2 bg-light border rounded-3 d-flex align-items-center justify-content-between" style="cursor: pointer;">
+                  <div>
+                    <input class="form-check-input ms-1" type="checkbox" name="addons" value="Chaat & Gol Gappa" checked>
+                    <span class="ms-2 small fw-bold">Chaat & Gol Gappa Station</span>
+                  </div>
+                  <span class="badge bg-white text-dark border">PKR 25,000</span>
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="form-check p-2 bg-light border rounded-3 d-flex align-items-center justify-content-between" style="cursor: pointer;">
+                  <div>
+                    <input class="form-check-input ms-1" type="checkbox" name="addons" value="Kashmiri Chai">
+                    <span class="ms-2 small fw-bold">Artisan Kashmiri Chai Bar</span>
+                  </div>
+                  <span class="badge bg-white text-dark border">PKR 30,000</span>
+                </label>
+              </div>
+            </div>
 
             <!-- Subsection B: Entertainment & Music -->
-            <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-music text-primary me-2"></i> Music & Entertainment Setup</h5>
-            <div class="row" id="entertainmentContainer"></div>
-
-            <hr class="my-4">
+            <h6 class="fw-bold text-dark mb-3"><i class="fa-solid fa-music text-primary me-2"></i> Music & Entertainment Setup</h6>
+            <div class="row g-2 mb-4">
+              <div class="col-md-4">
+                <label class="form-check p-2 bg-light border rounded-3 d-flex align-items-center justify-content-between" style="cursor: pointer;">
+                  <div>
+                    <input class="form-check-input ms-1" type="checkbox" name="addons" value="Sufi Troupe">
+                    <span class="ms-2 small fw-bold">Live Sufi Qawwali Troupe</span>
+                  </div>
+                  <span class="badge bg-white text-dark border">PKR 75,000</span>
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="form-check p-2 bg-light border rounded-3 d-flex align-items-center justify-content-between" style="cursor: pointer;">
+                  <div>
+                    <input class="form-check-input ms-1" type="checkbox" name="addons" value="Concert Sound & DJ" checked>
+                    <span class="ms-2 small fw-bold">Concert Sound & DJ Setup</span>
+                  </div>
+                  <span class="badge bg-white text-dark border">PKR 45,000</span>
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="form-check p-2 bg-light border rounded-3 d-flex align-items-center justify-content-between" style="cursor: pointer;">
+                  <div>
+                    <input class="form-check-input ms-1" type="checkbox" name="addons" value="Instrumental Violins">
+                    <span class="ms-2 small fw-bold">Violin & Flute Duo</span>
+                  </div>
+                  <span class="badge bg-white text-dark border">PKR 30,000</span>
+                </label>
+              </div>
+            </div>
 
             <!-- Subsection C: Extra Services -->
-            <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-camera-retro text-gold me-2"></i> Photography, Valet & Extra Hospitality</h5>
-            <div class="row" id="extraServicesContainer"></div>
+            <h6 class="fw-bold text-dark mb-3"><i class="fa-solid fa-camera-retro text-gold me-2"></i> Photography, Valet & Extra Hospitality</h6>
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-check p-2 bg-light border rounded-3 d-flex align-items-center justify-content-between" style="cursor: pointer;">
+                  <div>
+                    <input class="form-check-input ms-1" type="checkbox" name="addons" value="Cinematic Media Team">
+                    <span class="ms-2 small fw-bold">Cinematic Drone & 4K Photo Team</span>
+                  </div>
+                  <span class="badge bg-white text-dark border">PKR 85,000</span>
+                </label>
+              </div>
+              <div class="col-md-6">
+                <label class="form-check p-2 bg-light border rounded-3 d-flex align-items-center justify-content-between" style="cursor: pointer;">
+                  <div>
+                    <input class="form-check-input ms-1" type="checkbox" name="addons" value="Executive Valet" checked>
+                    <span class="ms-2 small fw-bold">Executive Valet Parking (10 Drivers)</span>
+                  </div>
+                  <span class="badge bg-white text-dark border">PKR 30,000</span>
+                </label>
+              </div>
+            </div>
 
-            <!-- Navigation Buttons -->
-            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-3">
-              <button type="button" class="btn btn-outline-secondary" onclick="goToStep(4)">
-                <i class="fa-solid fa-arrow-left me-1"></i> Back to Menu
-              </button>
-              <button type="button" class="btn btn-aura-gold px-4 py-2" onclick="goToStep(6)">
-                Review Cost Breakdown <i class="fa-solid fa-arrow-right ms-2"></i>
-              </button>
+            <div class="mt-3 text-end">
+              <a href="#step-pricing" class="btn btn-outline-primary btn-sm">
+                Jump to Pricing Summary <i class="fa-solid fa-arrow-down ms-1"></i>
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- STEP 6: Pricing Breakdown & Budget Tracking -->
-        <div class="wizard-step-pane d-none" data-step="6">
-          <div class="aura-card p-4 shadow-sm bg-white mb-4">
+          <!-- STEP 6: Pricing Breakdown & Budget Tracking -->
+          <div class="aura-card p-4 shadow-sm bg-white mb-4" id="step-pricing">
             <div class="border-bottom pb-3 mb-4">
               <span class="badge bg-primary text-white mb-2">Step 6 of 7</span>
-              <h4 class="fw-bold mb-1">Comprehensive Cost Breakdown</h4>
-              <p class="text-muted small mb-0">Review itemized pricing calculations based on your selections and expected guest attendance.</p>
+              <h4 class="fw-bold mb-1">Itemized Cost Estimate Breakdown</h4>
+              <p class="text-muted small mb-0">Realistic sample cost structure based on standard 250-guest wedding configuration.</p>
             </div>
 
             <div class="table-responsive mb-4">
@@ -363,39 +583,39 @@
                 <tbody>
                   <tr>
                     <td class="fw-bold"><i class="fa-solid fa-building text-primary me-2"></i> Venue</td>
-                    <td id="tableVenueName">The Royal Palm Grand Ballroom</td>
-                    <td>Flat Venue Hire Fee</td>
-                    <td class="text-end fw-bold" id="tableVenuePrice">PKR 350,000</td>
+                    <td>The Royal Palm Grand Ballroom</td>
+                    <td>Standard Venue Hire Fee</td>
+                    <td class="text-end fw-bold">PKR 350,000</td>
                   </tr>
                   <tr>
                     <td class="fw-bold"><i class="fa-solid fa-chair text-warning me-2"></i> Seating</td>
-                    <td id="tableSeatingName">Royal Banquet Round Tables</td>
-                    <td id="tableSeatingRate">250 guests × PKR 250</td>
-                    <td class="text-end fw-bold" id="tableSeatingPrice">PKR 62,500</td>
+                    <td>Royal Banquet Round Tables</td>
+                    <td>250 guests × PKR 250</td>
+                    <td class="text-end fw-bold">PKR 62,500</td>
                   </tr>
                   <tr>
                     <td class="fw-bold"><i class="fa-solid fa-utensils text-success me-2"></i> Catering</td>
-                    <td id="tableCateringName">Gold Executive Banquet</td>
-                    <td id="tableCateringRate">250 guests × PKR 2,800</td>
-                    <td class="text-end fw-bold" id="tableCateringPrice">PKR 700,000</td>
+                    <td>Gold Executive Feast</td>
+                    <td>250 guests × PKR 2,800</td>
+                    <td class="text-end fw-bold">PKR 700,000</td>
                   </tr>
                   <tr>
-                    <td class="fw-bold"><i class="fa-solid fa-sparkles text-gold me-2"></i> Addons & Extras</td>
-                    <td>Food Stalls, Music & Production Services</td>
-                    <td>Selected Options Total</td>
-                    <td class="text-end fw-bold" id="tableAddonsPrice">PKR 145,000</td>
+                    <td class="fw-bold"><i class="fa-solid fa-wand-magic-sparkles text-gold me-2"></i> Add-ons & Extras</td>
+                    <td>Live BBQ + Chaat Station + DJ + Valet</td>
+                    <td>Selected Extras Bundle</td>
+                    <td class="text-end fw-bold">PKR 145,000</td>
                   </tr>
                   <tr class="table-light">
                     <td colspan="3" class="fw-bold text-end">Estimated Subtotal:</td>
-                    <td class="text-end fw-bold" id="tableSubtotal">PKR 1,257,500</td>
+                    <td class="text-end fw-bold">PKR 1,257,500</td>
                   </tr>
                   <tr>
                     <td colspan="3" class="text-end text-muted small">Standard Service Fee & Tax (5%):</td>
-                    <td class="text-end text-muted small" id="tableTax">PKR 62,875</td>
+                    <td class="text-end text-muted small">PKR 62,875</td>
                   </tr>
                   <tr class="table-warning">
                     <td colspan="3" class="fw-bold fs-5 text-end text-dark">Total Estimated Plan:</td>
-                    <td class="text-end fw-bold fs-5 text-primary" id="tableGrandTotal">PKR 1,320,375</td>
+                    <td class="text-end fw-bold fs-5 text-primary">PKR 1,320,375</td>
                   </tr>
                 </tbody>
               </table>
@@ -404,261 +624,208 @@
             <div class="alert alert-info d-flex align-items-center gap-3">
               <i class="fa-solid fa-circle-info fs-3 text-primary"></i>
               <div class="small">
-                <strong>Transparent Pricing Guarantee:</strong> The estimate shown above is calculated in real time. Once submitted, our team prepares an official quotation and locks the venue availability upon confirmation.
+                <strong>Pricing Transparency Notice:</strong> The itemized schedule above provides transparent planning figures. An official coordinator will conduct a detailed consultation to customize dates, timings, and dietary specifics before confirmation.
               </div>
             </div>
 
-            <!-- Navigation Buttons -->
-            <div class="d-flex justify-content-between align-items-center pt-3 border-top mt-3">
-              <button type="button" class="btn btn-outline-secondary" onclick="goToStep(5)">
-                <i class="fa-solid fa-arrow-left me-1"></i> Back to Add-ons
-              </button>
-              <button type="button" class="btn btn-aura-gold px-4 py-2" onclick="goToStep(7)">
-                Proceed to Submit Request <i class="fa-solid fa-arrow-right ms-2"></i>
-              </button>
+            <div class="mt-3 text-end">
+              <a href="#step-contact" class="btn btn-outline-primary btn-sm">
+                Jump to Coordinator Information <i class="fa-solid fa-arrow-down ms-1"></i>
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- STEP 7: Event Summary & Submission -->
-        <div class="wizard-step-pane d-none" data-step="7">
-          <div class="aura-card p-4 shadow-sm bg-white mb-4">
+          <!-- STEP 7: Customer Contact Information & Review -->
+          <div class="aura-card p-4 shadow-sm bg-white mb-4" id="step-contact">
             <div class="border-bottom pb-3 mb-4">
-              <span class="badge bg-success text-white mb-2">Final Step 7 of 7</span>
-              <h4 class="fw-bold mb-1">Review Plan & Submit Booking Request</h4>
-              <p class="text-muted small mb-0">Confirm your details and receive your official tracking reference number.</p>
+              <span class="badge bg-success text-white mb-2">Step 7 of 7</span>
+              <h4 class="fw-bold mb-1">Coordinator Contact Information</h4>
+              <p class="text-muted small mb-0">Provide primary organizer contact details to receive formal quotation files.</p>
             </div>
 
-            <!-- Summary Review Card -->
-            <div class="p-3 bg-light rounded-3 mb-4 border">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <small class="text-muted d-block">Venue:</small>
-                  <strong class="text-dark" id="sumVenue">The Royal Palm Grand Ballroom</strong>
-                </div>
-                <div class="col-md-6">
-                  <small class="text-muted d-block">Guest Attendance:</small>
-                  <strong class="text-dark" id="sumGuests">250 Guests</strong>
-                </div>
-                <div class="col-md-6">
-                  <small class="text-muted d-block">Date & Slot:</small>
-                  <strong class="text-dark" id="sumDate">2026-11-28</strong> (<span id="sumSlot">Evening</span>)
-                </div>
-                <div class="col-md-6">
-                  <small class="text-muted d-block">Seating Arrangement:</small>
-                  <strong class="text-dark" id="sumSeating">Royal Banquet Round Tables</strong>
-                </div>
-                <div class="col-md-6">
-                  <small class="text-muted d-block">Catering Selection:</small>
-                  <strong class="text-dark" id="sumCatering">Gold Executive Banquet</strong>
-                </div>
-                <div class="col-md-6">
-                  <small class="text-muted d-block">Estimated Total:</small>
-                  <strong class="text-primary fs-5" id="sumGrandTotal">PKR 1,320,375</strong>
-                </div>
-                <div class="col-12 border-top pt-2">
-                  <small class="text-muted d-block mb-1">Selected Add-ons & Extras:</small>
-                  <div id="sumAddonsList"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Customer Contact Information Form -->
-            <h5 class="fw-bold text-dark mb-3">Coordinator Contact Information</h5>
             <div class="row g-3 mb-4">
               <div class="col-md-4">
                 <label class="form-label" for="submitContactName">Full Name <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="submitContactName" required>
+                <input type="text" class="form-control" id="submitContactName" name="contactName" required value="Ahmed Bilal">
               </div>
               <div class="col-md-4">
                 <label class="form-label" for="submitContactEmail">Email Address <span class="text-danger">*</span></label>
-                <input type="email" class="form-control" id="submitContactEmail" required>
+                <input type="email" class="form-control" id="submitContactEmail" name="contactEmail" required value="ahmed.bilal@example.com">
               </div>
               <div class="col-md-4">
                 <label class="form-label" for="submitContactPhone">Phone Number <span class="text-danger">*</span></label>
-                <input type="tel" class="form-control" id="submitContactPhone" required>
+                <input type="tel" class="form-control" id="submitContactPhone" name="contactPhone" required value="+92 300 1234567">
               </div>
               <div class="col-12">
                 <label class="form-label" for="submitSpecialNotes">Special Instructions / Preferences</label>
-                <textarea class="form-control" id="submitSpecialNotes" rows="2" placeholder="e.g., Preferred stage color palette, bride & groom entry timings, VIP seating requirements..."></textarea>
+                <textarea class="form-control" id="submitSpecialNotes" name="specialNotes" rows="3" placeholder="e.g., Preferred stage color palette, bride & groom entry timings, VIP seating requirements..."></textarea>
               </div>
               <div class="col-12">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="agreeTermsCheckbox" checked>
+                  <input class="form-check-input" type="checkbox" id="agreeTermsCheckbox" required checked>
                   <label class="form-check-label small text-muted" for="agreeTermsCheckbox">
-                    I understand this is a formal booking request. Official reservation is confirmed upon quotation review and mutual date agreement.
+                    I understand this event plan will be reviewed by Aura Events management. Formal quotations are confirmed upon mutual date agreement.
                   </label>
                 </div>
               </div>
             </div>
 
-            <!-- Submit Action -->
-            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
-              <button type="button" class="btn btn-outline-secondary" onclick="goToStep(6)">
-                <i class="fa-solid fa-arrow-left me-1"></i> Back to Pricing
-              </button>
-              <button type="button" class="btn btn-aura-gold px-5 py-3 fs-6" onclick="submitBookingRequest()">
-                <i class="fa-solid fa-check-double me-2"></i> Submit Booking Request
+            <!-- Submit Action (Navigates to my-bookings.html) -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 pt-3 border-top">
+              <a href="venues.html" class="btn btn-outline-secondary px-4">
+                <i class="fa-solid fa-compass me-1"></i> Browse More Venues
+              </a>
+              <button type="submit" class="btn btn-aura-gold px-5 py-3 fs-6">
+                <i class="fa-solid fa-receipt me-2"></i> Review Saved Plan & Open Bookings
               </button>
             </div>
           </div>
+
+        </div>
+
+        <!-- Right Column: Sticky Realistic Itemized Price Tracker -->
+        <div class="col-lg-4">
+          <aside class="sticky-price-tracker">
+            <div class="tracker-header">
+              <h5 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-receipt text-gold me-2"></i> Price Tracker</h5>
+              <span class="badge bg-success-subtle text-success border border-success-subtle small">Transparent Rates</span>
+            </div>
+
+            <!-- Total Display Badge -->
+            <div class="tracker-total-badge">
+              <small class="text-light opacity-75 d-block text-uppercase" style="letter-spacing: 0.05em; font-size: 0.75rem;">Estimated Event Total</small>
+              <div class="tracker-total-amount">PKR 1,320,375</div>
+              <small class="text-light opacity-75" style="font-size: 0.75rem;">Includes taxes & service fees</small>
+            </div>
+
+            <!-- Budget Comparison Card -->
+            <div class="budget-status-card">
+              <div class="d-flex justify-content-between small">
+                <span class="text-muted">Target Budget:</span>
+                <strong>PKR 2,000,000</strong>
+              </div>
+              <div class="progress-budget">
+                <div class="progress-budget-bar" style="width: 66%; background-color: var(--aura-success);"></div>
+              </div>
+              <div class="budget-alert text-success">
+                <i class="fa-solid fa-check"></i> Within target budget
+              </div>
+            </div>
+
+            <!-- Breakdown Line Items -->
+            <div class="my-3">
+              <div class="tracker-item-row">
+                <div>
+                  <div class="tracker-item-title">The Royal Palm Grand Ballroom</div>
+                  <div class="tracker-item-sub">Selected Venue Hire</div>
+                </div>
+                <div class="tracker-item-price">PKR 350,000</div>
+              </div>
+
+              <div class="tracker-item-row">
+                <div>
+                  <div class="tracker-item-title">Royal Banquet Round Tables</div>
+                  <div class="tracker-item-sub">250 guests × PKR 250</div>
+                </div>
+                <div class="tracker-item-price">PKR 62,500</div>
+              </div>
+
+              <div class="tracker-item-row">
+                <div>
+                  <div class="tracker-item-title">Gold Executive Feast</div>
+                  <div class="tracker-item-sub">250 guests × PKR 2,800</div>
+                </div>
+                <div class="tracker-item-price">PKR 700,000</div>
+              </div>
+
+              <div class="tracker-item-row">
+                <div>
+                  <div class="tracker-item-title">Add-ons & Live Counters</div>
+                  <div class="tracker-item-sub">4 selected options</div>
+                </div>
+                <div class="tracker-item-price">PKR 145,000</div>
+              </div>
+
+              <div class="tracker-item-row">
+                <div>
+                  <div class="tracker-item-title">Taxes & Logistics (5%)</div>
+                  <div class="tracker-item-sub">Service charge</div>
+                </div>
+                <div class="tracker-item-price">PKR 62,875</div>
+              </div>
+            </div>
+
+            <!-- Jump to Review Button -->
+            <a href="#step-contact" class="btn btn-aura-navy w-100 mt-2">
+              Proceed to Contact & Review <i class="fa-solid fa-arrow-down ms-1"></i>
+            </a>
+          </aside>
         </div>
 
       </div>
-
-      <!-- Right Column: Sticky Live Price Tracker Sidebar (Desktop) -->
-      <div class="col-lg-4">
-        <aside class="sticky-price-tracker">
-          <div class="tracker-header">
-            <h5 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-receipt text-gold me-2"></i> Live Price Tracker</h5>
-            <span class="badge bg-success-subtle text-success border border-success-subtle small">Real-time</span>
-          </div>
-
-          <!-- Total Display Badge -->
-          <div class="tracker-total-badge">
-            <small class="text-light opacity-75 d-block text-uppercase" style="letter-spacing: 0.05em; font-size: 0.75rem;">Estimated Event Total</small>
-            <div class="tracker-total-amount" id="trackerTotalAmount">PKR 0</div>
-            <small class="text-light opacity-75" style="font-size: 0.75rem;">Includes taxes & service fees</small>
-          </div>
-
-          <!-- Budget Comparison Card -->
-          <div class="budget-status-card" id="budgetTrackerCard">
-            <div class="d-flex justify-content-between small">
-              <span class="text-muted">Target Budget:</span>
-              <strong id="displayTargetBudget">PKR 2,000,000</strong>
-            </div>
-            <div class="progress-budget">
-              <div class="progress-budget-bar" id="budgetProgressBar" style="width: 60%; background-color: var(--aura-success);"></div>
-            </div>
-            <div id="budgetAlertText" class="budget-alert text-success">
-              <i class="fa-solid fa-check"></i> Within budget
-            </div>
-          </div>
-
-          <!-- Breakdown Line Items -->
-          <div class="my-3">
-            <div class="tracker-item-row" id="trackerVenueRow">
-              <div>
-                <div class="tracker-item-title">Selected Venue</div>
-                <div class="tracker-item-sub">Hire Fee</div>
-              </div>
-              <div class="tracker-item-price">PKR 0</div>
-            </div>
-
-            <div class="tracker-item-row" id="trackerSeatingRow">
-              <div>
-                <div class="tracker-item-title">Seating Setup</div>
-                <div class="tracker-item-sub">250 guests</div>
-              </div>
-              <div class="tracker-item-price">PKR 0</div>
-            </div>
-
-            <div class="tracker-item-row" id="trackerCateringRow">
-              <div>
-                <div class="tracker-item-title">Catering Menu</div>
-                <div class="tracker-item-sub">250 guests</div>
-              </div>
-              <div class="tracker-item-price">PKR 0</div>
-            </div>
-
-            <div class="tracker-item-row" id="trackerAddonsRow">
-              <div>
-                <div class="tracker-item-title">Add-ons & Extras</div>
-                <div class="tracker-item-sub">0 items</div>
-              </div>
-              <div class="tracker-item-price">PKR 0</div>
-            </div>
-
-            <div class="tracker-item-row" id="trackerTaxRow">
-              <div>
-                <div class="tracker-item-title">Taxes & Logistics (5%)</div>
-              </div>
-              <div class="tracker-item-price">PKR 0</div>
-            </div>
-          </div>
-
-          <!-- Current Step Indicator Button -->
-          <button type="button" class="btn btn-aura-navy w-100 mt-2" onclick="goToStep(eventPlan.currentStep < 7 ? eventPlan.currentStep + 1 : 7)">
-            Proceed to Next Step <i class="fa-solid fa-chevron-right ms-1"></i>
-          </button>
-        </aside>
-      </div>
-
-    </div>
+    </form>
   </main>
 
-  <!-- Mobile Bottom Sticky Price Bar -->
-  <div class="mobile-price-bar">
-    <div>
-      <small class="text-muted d-block" style="font-size: 0.72rem;">Estimated Total:</small>
-      <strong class="text-primary fs-5" id="mobileBarTotalAmount">PKR 0</strong>
-    </div>
-    <button type="button" class="btn btn-aura-gold btn-sm px-3" onclick="goToStep(eventPlan.currentStep < 7 ? eventPlan.currentStep + 1 : 7)">
-      Next Step <i class="fa-solid fa-arrow-right ms-1"></i>
-    </button>
-  </div>
-
-  <!-- MODAL: Venue Gallery Preview -->
-  <div class="modal fade" id="venueGalleryModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content border-0 shadow-lg">
-        <div class="modal-header bg-dark text-white p-3">
-          <h5 class="modal-title fw-bold" id="venueGalleryModalTitle">Venue Photo Gallery</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0">
-          <img id="venueGalleryModalImg" src="" alt="Venue Image" class="w-100" style="max-height: 480px; object-fit: cover;">
-          <div class="p-3 bg-light">
-            <p class="mb-0 text-muted small" id="venueGalleryModalDesc"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: Booking Confirmation Success (Celebration Screen) -->
-  <div class="modal fade" id="bookingConfirmationModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0 shadow-lg text-center p-4" style="border-radius: var(--aura-radius-lg);">
-        <div class="modal-body">
-          <div class="toast-icon mx-auto mb-3" style="width: 72px; height: 72px; font-size: 2.2rem; background: rgba(16, 185, 129, 0.15); color: #10B981;">
-            <i class="fa-solid fa-check"></i>
-          </div>
-          <h3 class="fw-bold text-dark mb-1">Booking Request Received!</h3>
-          <p class="text-muted small mb-3">Your custom event configuration has been successfully submitted to our planning board.</p>
-
-          <div class="p-3 bg-light rounded-3 mb-3 border">
-            <small class="text-muted d-block">Your Official Reference Number:</small>
-            <div class="fs-4 fw-bold text-primary my-1" id="modalBookingRef"></div>
-            <small class="text-muted" id="modalEventSummaryText"></small>
-          </div>
-
-          <p class="small text-secondary mb-4">
-            An email confirmation has been dispatched. Our event manager will review venue availability and generate your formal quotation within 24 hours.
-          </p>
-
-          <div class="d-flex flex-column gap-2">
-            <a href="my-bookings.html" class="btn btn-aura-gold py-2">
-              <i class="fa-solid fa-receipt me-1"></i> View Booking in My Dashboard
-            </a>
-            <a href="index.html" class="btn btn-outline-secondary py-2">
-              Return to Homepage
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Global Footer -->
-  <footer class="aura-footer py-4">
-    <div class="container text-center text-muted small">
-      © 2026 Aura Events Management Platform. All Rights Reserved.
+  <footer class="aura-footer mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-icon" style="width: 36px; height: 36px; font-size: 1rem;">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <span class="font-heading fw-bold fs-5 text-white">AURA<span class="text-warning">.</span>EVENTS</span>
+          </div>
+          <p class="text-secondary small mb-3">
+            Pakistan's premier luxury event configuration & planning system. Craft bespoke weddings, corporate galas, and celebrations with transparent package pricing.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="#" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="footer-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 col-6">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="venues.html">Explore Venues</a></li>
+            <li><a href="services.html">Catering Menus</a></li>
+            <li><a href="book-event.html">Plan Event</a></li>
+            <li><a href="my-bookings.html">My Bookings</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-6">
+          <h5>Customer Account</h5>
+          <ul class="list-unstyled">
+            <li><a href="profile.html">Edit Profile</a></li>
+            <li><a href="my-bookings.html">Track Quotation</a></li>
+            <li><a href="login.html">Sign In</a></li>
+            <li><a href="register.html">Create Account</a></li>
+            <li><a href="forgot-password.html">Password Reset</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Office & Support</h5>
+          <p class="text-secondary small mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> Blue Area & F-7 Markaz, Islamabad</p>
+          <p class="text-secondary small mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> +92 51 111-2872 (AURA)</p>
+          <p class="text-secondary small mb-0"><i class="fa-solid fa-envelope me-2 text-warning"></i> concierge@auraevents.pk</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-0">© 2026 Aura Events Management Platform. All Rights Reserved.</p>
+        <div class="mt-2 mt-md-0">
+          <span class="badge bg-dark text-warning border border-warning px-3 py-1"><i class="fa-solid fa-gem me-1"></i> Bespoke Event Services</span>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Bootstrap 5.3 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/configurator.js"></script>
 </body>
 </html>

@@ -48,7 +48,6 @@
       flex-shrink: 0;
     }
   </style>
-  <script src="assets/js/main.js"></script>
 </head>
 <body class="bg-light">
 
@@ -64,9 +63,9 @@
               <i class="fa-solid fa-gem"></i>
             </div>
             <div class="brand-text-container">
-          <span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span>
-          <span class="brand-tagline">Luxury Event Planning</span>
-        </div>
+              <span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span>
+              <span class="brand-tagline">Luxury Event Planning</span>
+            </div>
           </a>
         </div>
 
@@ -78,14 +77,14 @@
             <p class="text-muted small">Create your client profile to plan weddings, galas, and celebrations with instant live budgeting.</p>
           </div>
 
-          <form id="registerForm" onsubmit="handleCustomerRegister(event)">
+          <form id="registerForm" action="login.html" method="get">
             <div class="row g-3">
               <!-- Full Name -->
               <div class="col-12">
                 <label class="form-label" for="regFullName">Full Name <span class="text-danger">*</span></label>
                 <div class="input-icon-wrapper">
                   <i class="fa-solid fa-user"></i>
-                  <input type="text" class="form-control" id="regFullName" required placeholder="e.g., Ahmed Bilal">
+                  <input type="text" class="form-control" id="regFullName" name="fullName" required placeholder="e.g., Ahmed Bilal" value="Ahmed Bilal">
                 </div>
               </div>
 
@@ -94,7 +93,7 @@
                 <label class="form-label" for="regEmail">Email Address <span class="text-danger">*</span></label>
                 <div class="input-icon-wrapper">
                   <i class="fa-solid fa-envelope"></i>
-                  <input type="email" class="form-control" id="regEmail" required placeholder="name@domain.com">
+                  <input type="email" class="form-control" id="regEmail" name="email" required placeholder="name@domain.com" value="ahmed.bilal@example.com">
                 </div>
               </div>
 
@@ -103,14 +102,14 @@
                 <label class="form-label" for="regPhone">Phone Number <span class="text-danger">*</span></label>
                 <div class="input-icon-wrapper">
                   <i class="fa-solid fa-phone"></i>
-                  <input type="tel" class="form-control" id="regPhone" required placeholder="+92 300 1234567">
+                  <input type="tel" class="form-control" id="regPhone" name="phone" required placeholder="+92 300 1234567" value="+92 300 1234567">
                 </div>
               </div>
 
               <!-- City -->
               <div class="col-12">
                 <label class="form-label" for="regCity">City / Destination <span class="text-danger">*</span></label>
-                <select class="form-select" id="regCity" required>
+                <select class="form-select" id="regCity" name="city" required>
                   <option value="Islamabad" selected>Islamabad (Capital Territory)</option>
                   <option value="Rawalpindi">Rawalpindi</option>
                   <option value="Lahore">Lahore</option>
@@ -124,7 +123,7 @@
                 <label class="form-label" for="regPassword">Create Password <span class="text-danger">*</span></label>
                 <div class="input-icon-wrapper">
                   <i class="fa-solid fa-lock"></i>
-                  <input type="password" class="form-control" id="regPassword" required placeholder="Min 6 characters">
+                  <input type="password" class="form-control" id="regPassword" name="password" required placeholder="Min 6 characters" value="password123">
                 </div>
               </div>
 
@@ -133,7 +132,7 @@
                 <label class="form-label" for="regConfirmPassword">Confirm Password <span class="text-danger">*</span></label>
                 <div class="input-icon-wrapper">
                   <i class="fa-solid fa-lock-open"></i>
-                  <input type="password" class="form-control" id="regConfirmPassword" required placeholder="Re-type password">
+                  <input type="password" class="form-control" id="regConfirmPassword" name="confirmPassword" required placeholder="Re-type password" value="password123">
                 </div>
               </div>
 
@@ -167,7 +166,7 @@
 
         <!-- Footer Copyright -->
         <div class="pt-3 border-top text-center text-muted small">
-          © 2026 Aura Events Management System. Aura Events Luxury Platform. All Rights Reserved.
+          © 2026 Aura Events Management Platform. All Rights Reserved.
         </div>
       </div>
 
@@ -217,65 +216,5 @@
     </div>
   </div>
 
-  <!-- Bootstrap 5.3 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function handleCustomerRegister(e) {
-      e.preventDefault();
-      if (!document.getElementById("registerForm").reportValidity()) return;
-      const fullName = document.getElementById("regFullName").value.trim();
-      const email = document.getElementById("regEmail").value.trim().toLowerCase();
-      const phone = document.getElementById("regPhone").value.trim();
-      const city = document.getElementById("regCity").value;
-      const pass = document.getElementById("regPassword").value;
-      const confirmPass = document.getElementById("regConfirmPassword").value;
-
-      if (pass.length < 6) {
-        showToast("Weak Password", "Password must be at least 6 characters.", "warning");
-        return;
-      }
-      if (pass !== confirmPass) {
-        showToast("Password Mismatch", "Passwords do not match.", "error");
-        return;
-      }
-
-      const users = JSON.parse(localStorage.getItem("aura_users") || "[]");
-      const current = getCurrentUser();
-      if (users.some(user => user.email.toLowerCase() === email) ||
-          (current && current.email.toLowerCase() === email)) {
-        showToast("Account Exists", "Please sign in with this email address.", "warning");
-        return;
-      }
-
-      const parts = fullName.split(" ");
-      const firstName = parts[0] || "Client";
-      const lastName = parts.slice(1).join(" ") || "";
-
-      const newUser = {
-        id: "CUST-" + email,
-        name: fullName,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        phone: phone,
-        altPhone: "",
-        address: `${city}, Pakistan`,
-        city: city,
-        membershipTier: "Member Planner",
-        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
-        dietaryPreferences: "Halal",
-        preferredEventTypes: ["Wedding"],
-        bio: "Registered on Aura Events.",
-        isLoggedIn: true
-      };
-
-      saveCurrentUser(newUser);
-      const destination = getLoginDestination();
-      showToast("Account Created!", "Welcome to Aura Events. Redirecting to your dashboard...", "success");
-      setTimeout(() => {
-        window.location.href = destination;
-      }, 1000);
-    }
-  </script>
 </body>
 </html>
