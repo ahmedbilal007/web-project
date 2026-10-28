@@ -1,0 +1,111 @@
+/* Admin-only layout. Shared colors, cards, forms and buttons use style.css. */
+.admin-nav .nav-link-aura {
+  justify-content: flex-start;
+  white-space: normal;
+  width: 100%;
+}
+.admin-notice {
+  background-color: #FBF2EF;
+  border: 1px solid #F0D5CF;
+  border-left: 4px solid #D9381E;
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.admin-stat-icon {
+  background-color: #FBF2EF;
+  color: #D9381E;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-stat-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.admin-table th {
+  white-space: nowrap;
+}
+.admin-table td {
+  min-width: 120px;
+  vertical-align: middle;
+}
+.admin-bookings-table {
+  min-width: 1500px;
+}
+.admin-record {
+  scroll-margin-top: 20px;
+}
+.admin-record:target {
+  outline: 2px solid #D9381E;
+  outline-offset: 4px;
+}
+/* Keep the complete login form visible on ordinary laptop screens. */
+.admin-login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.admin-login-page .aura-navbar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.admin-login-main {
+  display: flex;
+  flex: 1;
+}
+.admin-login {
+  width: 100%;
+  margin: 0;
+}
+.admin-login-panel {
+  padding: 20px 32px;
+}
+.admin-login-form {
+  max-width: 480px;
+}
+.admin-login-page .admin-notice {
+  padding: 10px 14px;
+}
+.admin-login-footer {
+  padding: 10px 24px;
+}
+.admin-welcome {
+  max-width: 520px;
+}
+.admin-visual {
+  background: linear-gradient(rgba(20, 20, 19, 0.7), rgba(20, 20, 19, 0.85)), url('../images/royal-palm.jpg') center/cover no-repeat;
+  min-height: 280px;
+}
+.admin-preview-form button:disabled,
+.admin-nav button:disabled {
+  opacity: 0.7;
+}
+.admin-preview-form .form-control[readonly] {
+  background-color: #F7F6F2;
+}
+.admin-record dd,
+.admin-contact {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 575.98px) {
+  .admin-page .aura-card.p-4 {
+    padding: 20px !important;
+  }
+  .admin-page .aura-navbar {
+    padding: 14px 12px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .admin-login-panel {
+    padding: 16px 20px;
+  }
+  .admin-login-page .aura-navbar {
+    padding: 10px 12px;
+  }
+}

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Management | Aura Events Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/admin.css" rel="stylesheet">
+  </head>
+  <body class="bg-light admin-page">
+    <a class="visually-hidden-focusable p-3 d-block" href="#main-content">Skip to main content</a>
+    <header class="aura-navbar">
+      <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <a class="navbar-brand-aura" href="admin-dashboard.html">
+          <div class="brand-icon"><i class="fa-solid fa-gem" aria-hidden="true"></i></div>
+          <div class="brand-text-container"><span class="brand-title">AURA<span class="brand-sparkle">.</span>EVENTS</span> <span class="brand-tagline">Luxury Event Planning</span></div>
+        </a>
+        <a class="btn btn-aura-outline btn-sm" href="index.html">View Customer Website</a>
+      </div>
+    </header>
+    <div class="container py-4">
+      <div class="row g-4">
+        <aside class="col-lg-3">
+          <div class="aura-card p-3">
+            <span class="badge-gold">Admin Panel</span>
+            <p class="small text-muted mb-3">Super Admin layout preview</p>
+            <nav class="admin-nav nav flex-column gap-2" aria-label="Admin navigation">
+              <a class="nav-link nav-link-aura" href="admin-dashboard.html"><i class="fa-solid fa-table-cells-large me-2" aria-hidden="true"></i>Dashboard</a>
+              <a class="nav-link nav-link-aura" href="admin-bookings.html"><i class="fa-solid fa-calendar-days me-2" aria-hidden="true"></i>All Bookings</a>
+              <a class="nav-link nav-link-aura active" href="admin-staff.html" aria-current="page"><i class="fa-solid fa-users me-2" aria-hidden="true"></i>Staff Management</a>
+              <a class="nav-link nav-link-aura" href="admin-settings.html"><i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Website Settings</a>
+              <button class="btn btn-aura-outline mt-2" type="button" disabled>Logout (unavailable)</button>
+            </nav>
+          </div>
+        </aside>
+        <main class="col-lg-9" id="main-content">
+          <div class="mb-4">
+            <h1 class="h2 mb-2">Staff Management</h1>
+            <p class="text-muted mb-0">View team members and review the Super Admin account-management forms.</p>
+          </div>
+          <div class="admin-notice mb-4">
+            <strong>Frontend preview &middot; Sample data</strong>
+            <p class="small mb-0">No account is signed in. Login, logout and save actions are unavailable until a backend is connected. This preview shows the Super Admin layout; permissions are not enforced.</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <a class="btn btn-aura-gold" href="#add-staff">Add New Staff</a>
+            <a class="btn btn-aura-outline" href="#staff-directory">View Staff List</a>
+          </div>
+          <section class="aura-card mb-4 admin-record" id="staff-directory">
+            <div class="p-3">
+              <h2 class="h5 mb-2">Staff List</h2>
+              <p class="small text-muted mb-0">Sample staff directory. The future predefined Super Admin account is excluded from these account actions.</p>
+            </div>
+            <div class="table-responsive" role="region" aria-label="Sample staff directory" tabindex="0">
+              <table class="table admin-table mb-0">
+                <caption class="px-3">Three sample staff accounts &middot; Two active, one inactive.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Staff ID</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">STF-001</th>
+                    <td>Ayesha Rahman</td>
+                    <td>ayesha.rahman@example.com</td>
+                    <td>Manager</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+                      <div class="d-flex flex-wrap gap-2">
+                        <a class="btn btn-sm btn-outline-secondary" href="#stf-001">View Details</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#password-stf-001">Change Password</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#status-stf-001">Deactivate</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">STF-002</th>
+                    <td>Bilal Ahmed</td>
+                    <td>bilal.ahmed@example.com</td>
+                    <td>Staff</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+                      <div class="d-flex flex-wrap gap-2">
+                        <a class="btn btn-sm btn-outline-secondary" href="#stf-002">View Details</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#password-stf-002">Change Password</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#status-stf-002">Deactivate</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">STF-003</th>
+                    <td>Hamza Tariq</td>
+                    <td>hamza.tariq@example.com</td>
+                    <td>Staff</td>
+                    <td><span class="badge bg-secondary">Inactive</span></td>
+                    <td>
+                      <div class="d-flex flex-wrap gap-2">
+                        <a class="btn btn-sm btn-outline-secondary" href="#stf-003">View Details</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#password-stf-003">Change Password</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#status-stf-003">Reactivate</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="aura-card p-4 mb-4 admin-record" id="add-staff">
+            <span class="badge-gold">Super Admin only</span>
+            <h2 class="h5 mb-2">Add New Staff</h2>
+            <p class="small text-muted" id="staff-form-help">Form preview only. No account will be created. Use sample information only. Password matching and unique email checks require server validation.</p>
+            <!-- Keep submission disabled until a protected backend endpoint is connected. -->
+            <form class="admin-preview-form" action="#" method="post" aria-describedby="staff-form-help">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="staffFullName">Full Name</label>
+                  <input class="form-control" type="text" id="staffFullName" name="staffFullName" required maxlength="100" autocomplete="name">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="staffEmail">Email</label>
+                  <input class="form-control" type="email" id="staffEmail" name="staffEmail" required maxlength="150" autocomplete="off">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="staffPassword">Password</label>
+                  <input class="form-control" type="password" id="staffPassword" name="staffPassword" required minlength="8" maxlength="128" autocomplete="new-password" aria-describedby="staff-password-help">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="staffConfirmPassword">Confirm Password</label>
+                  <input class="form-control" type="password" id="staffConfirmPassword" name="staffConfirmPassword" required minlength="8" maxlength="128" autocomplete="new-password">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="staffRole">Role</label>
+                  <select class="form-select" id="staffRole" name="role" required>
+                    <option value="">Select a role</option>
+                    <option value="staff">Staff</option>
+                    <option value="manager">Manager</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <p class="small text-muted mb-0" id="staff-password-help">Use at least 8 characters. Password and confirmation must match. Existing passwords are never displayed.</p>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-aura-gold" type="submit" disabled>Add Staff (backend required)</button>
+                </div>
+              </div>
+            </form>
+          </section>
+          <section class="aura-card p-4 mb-4 admin-record" id="stf-001">
+            <span class="badge-gold">Sample staff record</span>
+            <h2 class="h5 mb-3">STF-001 &middot; Ayesha Rahman</h2>
+            <dl class="row mb-0">
+              <dt class="col-sm-5">Full Name</dt>
+              <dd class="col-sm-7">Ayesha Rahman</dd>
+              <dt class="col-sm-5">Email</dt>
+              <dd class="col-sm-7">ayesha.rahman@example.com</dd>
+              <dt class="col-sm-5">Role</dt>
+              <dd class="col-sm-7">Manager</dd>
+              <dt class="col-sm-5">Status</dt>
+              <dd class="col-sm-7"><span class="badge bg-success">Active</span></dd>
+              <dt class="col-sm-5">Date Added</dt>
+              <dd class="col-sm-7">2026-08-01</dd>
+            </dl>
+            <div class="row g-4 mt-1">
+              <div class="col-md-7 admin-record" id="password-stf-001">
+                <h3 class="h6">Change Staff Password</h3>
+                <p class="small text-muted" id="password-help-stf-001">Super Admin only. Form preview; no password is saved. Both passwords must match and contain at least 8 characters.</p>
+                <form class="admin-preview-form" action="#" method="post" aria-describedby="password-help-stf-001">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label" for="account-stf-001">Staff Name / Email</label>
+                      <input class="form-control" type="text" id="account-stf-001" name="account-stf-001" value="Ayesha Rahman / ayesha.rahman@example.com" readonly>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="new-password-stf-001">New Password</label>
+                      <input class="form-control" type="password" id="new-password-stf-001" name="new-password-stf-001" required minlength="8" maxlength="128" autocomplete="new-password">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="confirm-password-stf-001">Confirm New Password</label>
+                      <input class="form-control" type="password" id="confirm-password-stf-001" name="confirm-password-stf-001" required minlength="8" maxlength="128" autocomplete="new-password">
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-aura-gold" type="submit" disabled>Save Password (backend required)</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5 admin-record" id="status-stf-001">
+                <h3 class="h6">Deactivate Staff</h3>
+                <p class="small text-muted">Super Admin only. Deactivation will block login and retain the staff record.</p>
+                <form class="admin-preview-form border rounded p-3" action="#" method="post">
+                  <p class="small">Confirm deactivate for <strong>Ayesha Rahman</strong> (STF-001)?</p>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="confirm-status-stf-001" name="confirmStatus" required>
+                    <label class="form-check-label small" for="confirm-status-stf-001">I confirm this account status change.</label>
+                  </div>
+                  <button class="btn btn-aura-outline" type="submit" disabled>Deactivate (backend required)</button>
+                  <p class="small text-muted mt-3 mb-0">Confirmation preview only. Sample status remains Active.</p>
+                </form>
+              </div>
+            </div>
+            <a class="btn btn-aura-outline mt-4" href="#staff-directory">Back to Staff List</a>
+          </section>
+          <section class="aura-card p-4 mb-4 admin-record" id="stf-002">
+            <span class="badge-gold">Sample staff record</span>
+            <h2 class="h5 mb-3">STF-002 &middot; Bilal Ahmed</h2>
+            <dl class="row mb-0">
+              <dt class="col-sm-5">Full Name</dt>
+              <dd class="col-sm-7">Bilal Ahmed</dd>
+              <dt class="col-sm-5">Email</dt>
+              <dd class="col-sm-7">bilal.ahmed@example.com</dd>
+              <dt class="col-sm-5">Role</dt>
+              <dd class="col-sm-7">Staff</dd>
+              <dt class="col-sm-5">Status</dt>
+              <dd class="col-sm-7"><span class="badge bg-success">Active</span></dd>
+              <dt class="col-sm-5">Date Added</dt>
+              <dd class="col-sm-7">2026-09-10</dd>
+            </dl>
+            <div class="row g-4 mt-1">
+              <div class="col-md-7 admin-record" id="password-stf-002">
+                <h3 class="h6">Change Staff Password</h3>
+                <p class="small text-muted" id="password-help-stf-002">Super Admin only. Form preview; no password is saved. Both passwords must match and contain at least 8 characters.</p>
+                <form class="admin-preview-form" action="#" method="post" aria-describedby="password-help-stf-002">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label" for="account-stf-002">Staff Name / Email</label>
+                      <input class="form-control" type="text" id="account-stf-002" name="account-stf-002" value="Bilal Ahmed / bilal.ahmed@example.com" readonly>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="new-password-stf-002">New Password</label>
+                      <input class="form-control" type="password" id="new-password-stf-002" name="new-password-stf-002" required minlength="8" maxlength="128" autocomplete="new-password">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="confirm-password-stf-002">Confirm New Password</label>
+                      <input class="form-control" type="password" id="confirm-password-stf-002" name="confirm-password-stf-002" required minlength="8" maxlength="128" autocomplete="new-password">
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-aura-gold" type="submit" disabled>Save Password (backend required)</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5 admin-record" id="status-stf-002">
+                <h3 class="h6">Deactivate Staff</h3>
+                <p class="small text-muted">Super Admin only. Deactivation will block login and retain the staff record.</p>
+                <form class="admin-preview-form border rounded p-3" action="#" method="post">
+                  <p class="small">Confirm deactivate for <strong>Bilal Ahmed</strong> (STF-002)?</p>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="confirm-status-stf-002" name="confirmStatus" required>
+                    <label class="form-check-label small" for="confirm-status-stf-002">I confirm this account status change.</label>
+                  </div>
+                  <button class="btn btn-aura-outline" type="submit" disabled>Deactivate (backend required)</button>
+                  <p class="small text-muted mt-3 mb-0">Confirmation preview only. Sample status remains Active.</p>
+                </form>
+              </div>
+            </div>
+            <a class="btn btn-aura-outline mt-4" href="#staff-directory">Back to Staff List</a>
+          </section>
+          <section class="aura-card p-4 mb-4 admin-record" id="stf-003">
+            <span class="badge-gold">Sample staff record</span>
+            <h2 class="h5 mb-3">STF-003 &middot; Hamza Tariq</h2>
+            <dl class="row mb-0">
+              <dt class="col-sm-5">Full Name</dt>
+              <dd class="col-sm-7">Hamza Tariq</dd>
+              <dt class="col-sm-5">Email</dt>
+              <dd class="col-sm-7">hamza.tariq@example.com</dd>
+              <dt class="col-sm-5">Role</dt>
+              <dd class="col-sm-7">Staff</dd>
+              <dt class="col-sm-5">Status</dt>
+              <dd class="col-sm-7"><span class="badge bg-secondary">Inactive</span></dd>
+              <dt class="col-sm-5">Date Added</dt>
+              <dd class="col-sm-7">2026-09-15</dd>
+            </dl>
+            <div class="row g-4 mt-1">
+              <div class="col-md-7 admin-record" id="password-stf-003">
+                <h3 class="h6">Change Staff Password</h3>
+                <p class="small text-muted" id="password-help-stf-003">Super Admin only. Form preview; no password is saved. Both passwords must match and contain at least 8 characters.</p>
+                <form class="admin-preview-form" action="#" method="post" aria-describedby="password-help-stf-003">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label class="form-label" for="account-stf-003">Staff Name / Email</label>
+                      <input class="form-control" type="text" id="account-stf-003" name="account-stf-003" value="Hamza Tariq / hamza.tariq@example.com" readonly>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="new-password-stf-003">New Password</label>
+                      <input class="form-control" type="password" id="new-password-stf-003" name="new-password-stf-003" required minlength="8" maxlength="128" autocomplete="new-password">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="confirm-password-stf-003">Confirm New Password</label>
+                      <input class="form-control" type="password" id="confirm-password-stf-003" name="confirm-password-stf-003" required minlength="8" maxlength="128" autocomplete="new-password">
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-aura-gold" type="submit" disabled>Save Password (backend required)</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-5 admin-record" id="status-stf-003">
+                <h3 class="h6">Reactivate Staff</h3>
+                <p class="small text-muted">Super Admin only. Reactivation will restore account access according to the assigned role.</p>
+                <form class="admin-preview-form border rounded p-3" action="#" method="post">
+                  <p class="small">Confirm reactivate for <strong>Hamza Tariq</strong> (STF-003)?</p>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="confirm-status-stf-003" name="confirmStatus" required>
+                    <label class="form-check-label small" for="confirm-status-stf-003">I confirm this account status change.</label>
+                  </div>
+                  <button class="btn btn-aura-outline" type="submit" disabled>Reactivate (backend required)</button>
+                  <p class="small text-muted mt-3 mb-0">Confirmation preview only. Sample status remains Inactive.</p>
+                </form>
+              </div>
+            </div>
+            <a class="btn btn-aura-outline mt-4" href="#staff-directory">Back to Staff List</a>
+          </section>
+        </main>
+      </div>
+    </div>
+    <footer class="container border-top py-4 text-muted small">&copy; 2026 Aura Events &middot; Event Management &amp; Planning System</footer>
+  </body>
+</html>
